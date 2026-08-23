@@ -5,7 +5,7 @@
         <div>
           <div class="font-semibold text-lg  border-b border-gray-300">Statens Naturhistoriske Museum</div>
           <div>
-            {{ state.formularSkabelon }}
+            {{ formularStore.getFormularSkabelonForId(1) }}
           </div>
         </div>
       </div>
@@ -21,16 +21,14 @@
 
 <script setup lang="ts">
 import api from '@/apijson/';
-import { type formularSkabelonType } from '@/types/formularSkabelonType.ts';
-import { reactive, onMounted } from 'vue';
+import { onMounted } from 'vue';
+import { useFormularStore } from '@/stores/formularStore';
 
-const state = reactive({
-  formularSkabelon: {} as formularSkabelonType
-});
+const formularStore = useFormularStore();
 
 onMounted(() => {
   api.get('formularSkabelon.json').then(res => {
-    state.formularSkabelon = res.data;
+    formularStore.setFormularSkabeloner(res.data);
   })
 });
 </script>

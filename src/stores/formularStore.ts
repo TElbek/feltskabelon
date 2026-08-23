@@ -3,15 +3,20 @@ import { defineStore } from 'pinia'
 import type { formularSkabelonFeltType, formularSkabelonType } from '@/types/formularSkabelonType'
 
 export const useFormularStore = defineStore('formularStore', () => {
-    const formularSkabelon = ref({} as formularSkabelonType);
+    const formularSkabeloner = ref([] as formularSkabelonType[]);
     const formularSkabelonFelter = ref([] as formularSkabelonFeltType[])
 
-    function setFormularSkabelon(formularSkabelonData: formularSkabelonType): void {
-        formularSkabelon.value = formularSkabelonData;
+    function setFormularSkabeloner(formularSkabelonData: formularSkabelonType[]): void {
+        formularSkabeloner.value = formularSkabelonData;
     }
 
     function setFormularSkabelonFelter(formularSkabelonFelterData: formularSkabelonFeltType[]) {
         formularSkabelonFelter.value = formularSkabelonFelterData;
+    }
+
+    function getFormularSkabelonForId(id: number): formularSkabelonType | undefined {
+        return formularSkabeloner.value.some((item) => item.id == id) ?
+            formularSkabeloner.value.find((item) => item.id == id) : undefined;
     }
 
     function getFormularSkabelonFelterForSkabelonId(id: number): formularSkabelonFeltType[] {
@@ -22,6 +27,11 @@ export const useFormularStore = defineStore('formularStore', () => {
         return formularSkabelonFelter.value.filter((item) => item.formularSkabelonId == id && item.licenshaverId == licensHaverId);
     }
 
-    return { formularSkabelon, getFormularSkabelonFelterForSkabelonId, getFormularSkabelonFelterForSkabelonIdLicensHaver, setFormularSkabelon, setFormularSkabelonFelter }
+    return {
+        setFormularSkabeloner,
+        setFormularSkabelonFelter,
+        getFormularSkabelonForId,
+        getFormularSkabelonFelterForSkabelonId,
+        getFormularSkabelonFelterForSkabelonIdLicensHaver,
+    }
 })
-
