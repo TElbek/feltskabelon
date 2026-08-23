@@ -5,7 +5,7 @@
         <div>
           <div class="font-semibold text-lg  border-b border-gray-300">Statens Naturhistoriske Museum</div>
           <div>
-            {{ formularStore.getFormularSkabelonForId(1) }}
+            {{ formularStore.getFormularSkabelonForId(2) }}
           </div>
         </div>
       </div>

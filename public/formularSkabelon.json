@@ -6,5 +6,13 @@
         "oprettetAf": 1,
         "aendringsDato": null,
         "aendretAf": null
+    },
+    {
+        "id": 2,
+        "scenarie": 2,
+        "oprettelsesDato": "2026-08-11T10:12:31.000",
+        "oprettetAf": 3,
+        "aendringsDato": null,
+        "aendretAf": null
     }
 ]
