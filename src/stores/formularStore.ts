@@ -6,7 +6,7 @@ export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabeloner = ref([] as formularSkabelonType[]);
     const formularSkabelonFelter = ref([] as formularSkabelonFeltType[])
 
-    const formularSkabelonId = ref(0 as number);
+    const formularSkabelonId = ref(1 as number);
     const licensHaverId = ref(5000 as number);
 
     const formularSkabelon = computed(() => {
