@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "Id": 1,
+        "formularSkabelonId": 1,
+        "erMinimumsFelt": true,
+        "licenshaverId": null,
+        "feltNavn": "ringNo"
+    },
+    {
+        "Id": 2,
+        "formularSkabelonId": 1,
+        "erMinimumsFelt": true,
+        "licenshaverId": null,
+        "feltNavn": "date"
+    },
+    {
+        "Id": 3,
+        "formularSkabelonId": 1,
+        "erMinimumsFelt": false,
+        "licenshaverId": 5000,
+        "feltNavn": "broodSize"
+    }
+]

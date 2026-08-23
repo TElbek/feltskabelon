@@ -6,6 +6,22 @@ export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabeloner = ref([] as formularSkabelonType[]);
     const formularSkabelonFelter = ref([] as formularSkabelonFeltType[])
 
+    const formularSkabelonId = ref(0 as number);
+    const licensHaverId = ref(5000 as number);
+
+    const formularSkabelon = computed(() => {
+        return formularSkabeloner.value.some((item) => item.id == formularSkabelonId.value) ?
+            formularSkabeloner.value.find((item) => item.id == formularSkabelonId.value) : undefined;
+    });
+
+    const formularSkabelonFelterForAdministrator = computed(() => {
+        return formularSkabelonFelter.value.filter((item) => item.formularSkabelonId == formularSkabelonId.value && item.erMinimumsFelt);
+    })
+
+    const formularSkabelonFelterForLicenshaver = computed(() => {
+        return formularSkabelonFelter.value.filter((item) => item.formularSkabelonId == formularSkabelonId.value && item.licenshaverId == licensHaverId.value);
+    })
+
     function setFormularSkabeloner(formularSkabelonData: formularSkabelonType[]): void {
         formularSkabeloner.value = formularSkabelonData;
     }
@@ -14,24 +30,19 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonFelter.value = formularSkabelonFelterData;
     }
 
-    function getFormularSkabelonForId(id: number): formularSkabelonType | undefined {
-        return formularSkabeloner.value.some((item) => item.id == id) ?
-            formularSkabeloner.value.find((item) => item.id == id) : undefined;
-    }
-
-    function getFormularSkabelonFelterForSkabelonId(id: number): formularSkabelonFeltType[] {
-        return formularSkabelonFelter.value.filter((item) => item.formularSkabelonId == id && item.erMinimumsFelt);
-    }
-
-    function getFormularSkabelonFelterForSkabelonIdLicensHaver(id: number, licensHaverId: number): formularSkabelonFeltType[] {
-        return formularSkabelonFelter.value.filter((item) => item.formularSkabelonId == id && item.licenshaverId == licensHaverId);
+    function setFormularSkabelonId(id: number) : void {
+        formularSkabelonId.value = id;
     }
 
     return {
+        formularSkabeloner,
+        formularSkabelonFelter,
         setFormularSkabeloner,
         setFormularSkabelonFelter,
-        getFormularSkabelonForId,
-        getFormularSkabelonFelterForSkabelonId,
-        getFormularSkabelonFelterForSkabelonIdLicensHaver,
+        setFormularSkabelonId,
+        formularSkabelonId,
+        formularSkabelon,
+        formularSkabelonFelterForAdministrator,
+        formularSkabelonFelterForLicenshaver,
     }
 })

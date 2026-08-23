@@ -1,4 +1,4 @@
 export enum scenarieEnum {
-    Net,
-    Pullus
+    Net = 1,
+    Pullus = 2
 }

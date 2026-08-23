@@ -13,6 +13,6 @@ export type formularSkabelonFeltType = {
     id: number,
     formularSkabelonId: number,
     erMinimumsFelt: boolean,
-    licenshaverId: number,
+    licenshaverId: number | undefined,
     feltNavn: string
 }
