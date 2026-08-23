@@ -7,3 +7,10 @@
 body {
   letter-spacing: var(--tracking-wider);
 }
+
+input {
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  padding-left: 3px;
+}

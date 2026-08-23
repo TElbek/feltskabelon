@@ -62,5 +62,9 @@
     {
         "id": 16,
         "feltNavn": "FatScore"
+    },
+    {
+        "id": 17,
+        "feltNavn": "data_type"
     }
 ]

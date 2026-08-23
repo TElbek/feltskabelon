@@ -1,18 +1,1 @@
-[
-    {
-        "Id": 1,
-        "formularSkabelonId": 1,
-        "erMinimumsFelt": true,
-        "licenshaverId": null,
-        "feltId": 9,
-        "feltNavn": "IdentificationNumber"
-    },
-    {
-        "Id": 1,
-        "formularSkabelonId": 1,
-        "erMinimumsFelt": true,
-        "licenshaverId": null,
-        "feltId": 6,
-        "feltNavn": "LicensNr"
-    }
-]
+[]
