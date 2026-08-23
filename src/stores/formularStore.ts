@@ -15,7 +15,9 @@ export const useFormularStore = defineStore('formularStore', () => {
     });
 
     const formularSkabelonFelterForAdministrator = computed(() => {
-        return formularSkabelonFelter.value.filter((item) => item.formularSkabelonId == formularSkabelonId.value && item.erMinimumsFelt);
+        return formularSkabelonFelter.value
+            .filter((item) => item.formularSkabelonId == formularSkabelonId.value && item.erMinimumsFelt)
+            .sort((a,b) => a.feltNavn.localeCompare(b.feltNavn))
     })
 
     const formularSkabelonFelterForLicenshaver = computed(() => {

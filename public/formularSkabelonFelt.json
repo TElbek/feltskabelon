@@ -16,7 +16,7 @@
     {
         "Id": 3,
         "formularSkabelonId": 1,
-        "erMinimumsFelt": false,
+        "erMinimumsFelt": true,
         "licenshaverId": 5000,
         "feltNavn": "broodSize"
     }

@@ -1,11 +1,13 @@
 <template>
-    <div class="flex flex-row gap-x-4">
-        <div class="font-semibold">Skabeloner:</div>
-        <template v-for="skabelon in formularStore.formularSkabeloner">
-            <a @click="formularStore.setFormularSkabelonId(skabelon.id)" class="cursor-pointer">
-                <span :class="getValgtSkabelonClass(skabelon.id)">{{scenarieEnum[skabelon.scenarie] }}</span>
-            </a>
-        </template>
+    <div class="rounded border border-gray-300 px-2 pb-2">
+        <div class="font-semibold text-2xl text-snhm">Skabeloner</div>
+        <div class="flex flex-row gap-x-4">
+            <template v-for="skabelon in formularStore.formularSkabeloner">
+                <a @click="formularStore.setFormularSkabelonId(skabelon.id)" class="cursor-pointer text-gray-500">
+                    <span :class="getValgtSkabelonClass(skabelon.id)">{{ scenarieEnum[skabelon.scenarie] }}</span>
+                </a>
+            </template>
+        </div>
     </div>
 </template>
 

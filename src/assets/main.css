@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-snhm: #97282c;
+}
+
+body {
+  letter-spacing: var(--tracking-wider);
+}

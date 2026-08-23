@@ -1,23 +1,24 @@
 <template>
-  <div class="font-semibold text-lg border-b border-gray-300">Statens Naturhistoriske Museum</div>
-  <formular-skabelon-liste></formular-skabelon-liste>
+  <div>
+    <formular-skabelon-liste></formular-skabelon-liste>
+  </div>
 
   <div class="grid grid-rows-2 gap-4">
     <div class="grid lg:grid-cols-2 gap-4 mt-3">
       <div>
-        <div>
-          <div class="font-semibold text-2xl">Administrator</div>
+        <div class="rounded border border-gray-300 px-2 pb-2">
+          <div class="font-semibold text-2xl text-snhm">Administrator</div>
           <div class="mt-2">
             <formular-skabelon-administrator></formular-skabelon-administrator>
           </div>
         </div>
       </div>
-      <div>
-        <div class="font-semibold text-2xl">Licenshaver</div>
+      <div class="rounded border border-gray-300 px-2 pb-2">
+        <div class="font-semibold text-2xl text-snhm">Licenshaver</div>
       </div>
     </div>
-    <div>
-      <div class="font-semibold text-2xl">Formular</div>
+    <div class="rounded border border-gray-300 px-2 pb-2">
+      <div class="font-semibold text-2xl text-snhm">Formular</div>
     </div>
   </div>
 </template>
