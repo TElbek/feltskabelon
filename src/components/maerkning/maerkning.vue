@@ -72,12 +72,8 @@ function loopElementList(elementList: HTMLCollectionOf<Element>) {
     for (let index = 0; index < elementList.length; ++index) {
         let element = elementList[index];
         if (element instanceof HTMLInputElement) {
-            if (!formularStore.formularSkabelonFelterForAdministrator.some((felt) => felt.feltNavn == element.name)) {
-                element.classList.add('skjul-felt');
-            }
-            else {
-                element.classList.remove('skjul-felt');
-            }
+            formularStore.formularSkabelonFelterForAdministrator.some((felt) => felt.feltNavn == element.name) ?
+                element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
         }
     }
 }
