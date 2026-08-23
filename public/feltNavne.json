@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "feltNavn": "RingingScheme"
+    },
+    {
+        "id": 2,
+        "feltNavn": "euringDate"
+    },
+    {
+        "id": 3,
+        "feltNavn": "euringTime"
+    },
+    {
+        "id": 4,
+        "feltNavn": "LokalitetID"
+    },
+    {
+        "id": 5,
+        "feltNavn": "PlaceName"
+    },
+    {
+        "id": 6,
+        "feltNavn": "LicensNr"
+    },
+    {
+        "id": 7,
+        "feltNavn": "SubLicensNr"
+    },
+    {
+        "id": 8,
+        "feltNavn": "CatchingMethod"
+    },
+    {
+        "id": 9,
+        "feltNavn": "IdentificationNumber"
+    },
+    {
+        "id": 10,
+        "feltNavn": "SpeciesReported"
+    },
+    {
+        "id": 11,
+        "feltNavn": "AgeReported"
+    },
+    {
+        "id": 12,
+        "feltNavn": "Status"
+    },
+    {
+        "id": 13,
+        "feltNavn": "Mass"
+    },
+    {
+        "id": 14,
+        "feltNavn": "WingLength"
+    },
+    {
+        "id": 15,
+        "feltNavn": "Remarks"
+    },
+    {
+        "id": 16,
+        "feltNavn": "FatScore"
+    }
+]

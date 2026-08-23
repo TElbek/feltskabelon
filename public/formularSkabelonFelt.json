@@ -4,20 +4,15 @@
         "formularSkabelonId": 1,
         "erMinimumsFelt": true,
         "licenshaverId": null,
-        "feltNavn": "ringNo"
+        "feltId": 9,
+        "feltNavn": "IdentificationNumber"
     },
     {
-        "Id": 2,
+        "Id": 1,
         "formularSkabelonId": 1,
         "erMinimumsFelt": true,
         "licenshaverId": null,
-        "feltNavn": "date"
-    },
-    {
-        "Id": 3,
-        "formularSkabelonId": 1,
-        "erMinimumsFelt": true,
-        "licenshaverId": 5000,
-        "feltNavn": "broodSize"
+        "feltId": 6,
+        "feltNavn": "LicensNr"
     }
 ]

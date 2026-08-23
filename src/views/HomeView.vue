@@ -16,5 +16,9 @@ onMounted(() => {
   api.get('formularSkabelonFelt.json').then(res => {
     formularStore.setFormularSkabelonFelter(res.data);
   })
+
+  api.get('feltNavne.json').then(res => {
+    formularStore.setFeltnavne(res.data);
+  })
 });
 </script>
