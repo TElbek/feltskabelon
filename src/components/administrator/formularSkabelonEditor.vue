@@ -12,7 +12,7 @@
             <div class="text-gray-700  font-semibold border-b border-gray-300">Mulige felter</div>
             <div class="flex flex-row flex-wrap gap-3 mt-2">
                 <template v-for="felt in formularStore.felterIkkeISkabelon">
-                    <muligt-felt :muligtFelt="felt"></muligt-felt>
+                    <muligt-felt :muligtFelt="felt" @felt-valgt="tilfoejFelt"></muligt-felt>
                 </template>
             </div>
         </div>
@@ -23,6 +23,11 @@
 import { useFormularStore } from '@/stores/formularStore';
 import formularSkabelonFelt from '@/components/common/formularSkabelonFelt.vue';
 import MuligtFelt from '../common/muligtFelt.vue';
+import type { FeltType } from '@/types/feltType.ts';
 
 const formularStore = useFormularStore();
+
+function tilfoejFelt(felt: FeltType) : void {
+    formularStore.tilfoejFeltTilSkabelon(felt);
+}
 </script>

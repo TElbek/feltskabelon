@@ -48,6 +48,21 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonId.value = id;
     }
 
+    function tilfoejFeltTilSkabelon(felt: FeltType) : void {
+        formularSkabelonFelter.value.push(formularSkabelonFeltTypeFactory(felt));
+    }
+
+    function formularSkabelonFeltTypeFactory(felt: FeltType) : formularSkabelonFeltType {
+        return {
+            id: Math.random()*5000,
+            erMinimumsFelt: true,
+            feltId: felt.id,
+            feltNavn: felt.feltNavn,
+            formularSkabelonId: formularSkabelonId.value,
+            licenshaverId: undefined
+        }
+    }
+
     return {
         feltNavne,
         felterIkkeISkabelon,
@@ -57,6 +72,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         setFormularSkabeloner,
         setFormularSkabelonFelter,
         setFormularSkabelonId,
+        tilfoejFeltTilSkabelon,
         formularSkabelonId,
         formularSkabelon,
         formularSkabelonFelterForAdministrator,
