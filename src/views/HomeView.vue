@@ -8,17 +8,7 @@
         <div>
           <div class="font-semibold text-2xl">Administrator</div>
           <div class="mt-2">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-4">
-              <div>
-                <div class="text-gray-700">Minimumsfelter</div>
-                <div class="border-b border-gray-300"></div>
-                <formular-skabelon-administrator></formular-skabelon-administrator>
-              </div>
-              <div>
-                <div class="text-gray-700">Alle felter</div>
-                <div class="border-b border-gray-300"></div>
-              </div>
-            </div>
+            <formular-skabelon-administrator></formular-skabelon-administrator>
           </div>
         </div>
       </div>
