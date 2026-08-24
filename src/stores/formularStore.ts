@@ -51,7 +51,17 @@ export const useFormularStore = defineStore('formularStore', () => {
     function tilfoejFeltTilSkabelon(felt: FeltType) : void {
         formularSkabelonFelter.value.push(formularSkabelonFeltTypeFactory(felt));
     }
-
+    
+   function fjernFeltFraSkabelon(id: number) : void {
+         if(formularSkabelonFelter.value.some((item) => item.id == id)) {
+            let toBeRemoved = formularSkabelonFelter.value.find((item) => item.id == id);
+            if(toBeRemoved) {
+                let indexOf = formularSkabelonFelter.value.indexOf(toBeRemoved);
+                formularSkabelonFelter.value.splice(indexOf,1);
+            }
+        }
+    }
+ 
     function formularSkabelonFeltTypeFactory(felt: FeltType) : formularSkabelonFeltType {
         return {
             id: Math.random()*5000,
@@ -73,6 +83,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         setFormularSkabelonFelter,
         setFormularSkabelonId,
         tilfoejFeltTilSkabelon,
+        fjernFeltFraSkabelon,
         formularSkabelonId,
         formularSkabelon,
         formularSkabelonFelterForAdministrator,

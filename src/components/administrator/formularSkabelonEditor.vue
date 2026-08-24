@@ -4,7 +4,7 @@
             <div class="text-gray-700 text-lg font-semibold border-b border-gray-400">Skabelonfelter</div>
             <div class="flex flex-row flex-wrap gap-2 mt-1.5">
                 <template v-for="skabelonFelt in formularStore.formularSkabelonFelterForAdministrator">
-                    <formular-skabelon-felt :skabelonFelt="skabelonFelt"></formular-skabelon-felt>
+                    <formular-skabelon-felt :skabelonFelt="skabelonFelt" @fjern-felt="fjernFelt"></formular-skabelon-felt>
                 </template>
             </div>
         </div>
@@ -35,5 +35,9 @@ const formularStore = useFormularStore();
 
 function tilfoejFelt(felt: FeltType) : void {
     formularStore.tilfoejFeltTilSkabelon(felt);
+}
+
+function fjernFelt(id:number) : void {
+    formularStore.fjernFeltFraSkabelon(id);
 }
 </script>
