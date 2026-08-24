@@ -61,10 +61,42 @@
     },
     {
         "id": 16,
-        "feltNavn": "FatScore"
+        "feltNavn": "data_type"
     },
     {
         "id": 17,
-        "feltNavn": "data_type"
+        "feltNavn": "BroodPatch"
+    },
+    {
+        "id": 18,
+        "feltNavn": "project_Moult"
+    },
+    {
+        "id": 19,
+        "feltNavn": "FatScore"
+    },
+    {
+        "id": 20,
+        "feltNavn": "FatScoreMethod"
+    },
+    {
+        "id": 21,
+        "feltNavn": "project_HabitatType"
+    },
+    {
+        "id": 22,
+        "feltNavn": "project_TotalNetLength"
+    },
+    {
+        "id": 23,
+        "feltNavn": "project_VisitPeriod"
+    },
+    {
+        "id": 24,
+        "feltNavn": "project_TimeStart"
+    },
+    {
+        "id": 24,
+        "feltNavn": "project_TimeEnd"
     }
 ]
