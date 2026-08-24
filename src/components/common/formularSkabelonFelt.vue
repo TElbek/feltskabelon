@@ -2,7 +2,7 @@
     <div class="flex gap-x-1 border px-1 rounded border-gray-300">
         <div class="w-3 h-3 rounded-full relative top-2" :class="getIndicatorClass()"></div>
         <a @click="fjernFelt(skabelonFelt.id)">
-            <div class="pointer-cursor">{{ skabelonFelt.feltNavn }}</div>
+            <div class="cursor-pointer">{{ skabelonFelt.feltNavn }}</div>
         </a>
     </div>
 </template>
