@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="lg:col-span-2">
-            <div class="text-gray-700 text-lg font-semibold border-b border-gray-400">Formular</div>
+            <div class="text-gray-700 text-lg font-semibold border-b border-gray-400">Ringmærkningsdata</div>
             <maerkning></maerkning>
         </div>
     </div>

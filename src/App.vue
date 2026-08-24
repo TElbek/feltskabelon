@@ -2,7 +2,8 @@
   <div class="max-w-full-xl mx-auto p-4 lg:p-0 lg:pt-3 lg:w-9/10">
     <div class="flex gap-x-5 text-white bg-gray-500 px-2 py-1 text-md rounded">
       <router-link :to="{path: '/'}">
-        <span class="font-semibold">Statens Naturhistoriske Museum</span>
+        <span class="font-semibold hidden lg:block">Statens Naturhistoriske Museum</span>
+        <span class="fonbt-semibold block lg:hidden">SNM</span>
       </router-link>
       <div class="flex flex-row gap-x-5">
         <router-link :to="{path: '/administrator'}">Administrator</router-link>
