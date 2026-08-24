@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-4">
         <div>
-            <div class="text-gray-700 text-lg font-semibold border-b border-gray-400">Skabelonfelter</div>
+            <div class="text-gray-700 text-lg font-semibold">Skabelonfelter</div>
             <div class="flex flex-row flex-wrap gap-3 mt-1.5">
                 <template v-for="skabelonFelt in formularStore.formularSkabelonFelterForAdministrator">
                     <formular-skabelon-felt :skabelonFelt="skabelonFelt"
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div>
-            <div class="text-gray-700 text-lg font-semibold border-b border-gray-400">Mulige felter</div>
+            <div class="text-gray-700 text-lg font-semibold">Mulige felter</div>
             <div class="flex flex-row flex-wrap gap-3 mt-2">
                 <template v-for="felt in formularStore.felterIkkeISkabelon">
                     <muligt-felt :muligtFelt="felt" @felt-valgt="tilfoejFelt"></muligt-felt>

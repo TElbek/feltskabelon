@@ -1,12 +1,12 @@
 <template>
-    <div class="rounded border border-gray-300 px-2 pb-2">
+    <div class="rounded border border-gray-400 px-2 pb-2">
         <div class="font-semibold text-2xl text-snhm">{{ route.name }}</div>
         <div class="mt-2">
             <formular-skabelon-editor></formular-skabelon-editor>
         </div>
     </div>
 
-    <div class="rounded border border-gray-300 px-2 pb-2">
+    <div class="rounded border border-gray-400 px-2 pb-2">
         <div class="font-semibold text-2xl text-snhm">Ringmærkningsdata</div>
         <maerkning></maerkning>
     </div>

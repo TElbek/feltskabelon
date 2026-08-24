@@ -8,13 +8,6 @@ body {
   letter-spacing: var(--tracking-wider);
 }
 
-input {
-  border: 1px solid var(--color-gray-400);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
-  padding-left: 3px;
-}
-
 .skjul-felt {
   display: none;
 }

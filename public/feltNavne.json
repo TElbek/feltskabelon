@@ -98,5 +98,13 @@
     {
         "id": 24,
         "feltNavn": "project_TimeEnd"
+    },
+    {
+        "id": 25,
+        "feltNavn": "ColorRing"
+    },
+    {
+        "id": 26,
+        "feltNavn": "ColorRingNr"
     }
 ]
