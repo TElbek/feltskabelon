@@ -1,11 +1,5 @@
 <template>
-    <div class="flex flex-row justify-between text-birdware dark:text-birdware-bright">
-
-        <!-- <router-link v-if="!isAtHomeRoute && homeRoute != undefined" :to="homeRoute.path">
-            <span class="text-2xl ">{{ homeRoute?.meta?.title }}</span>
-        </router-link> -->
-        <span>Formularskabeloner</span>
-
+    <div class="flex flex-row justify-between">
         <button
             class="relative h-6 max-h-10 w-6 max-w-10 select-none text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none p-4 border border-gray-300 rounded"
             type="button" @click="toggleIsOpen">

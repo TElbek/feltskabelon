@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between text-[1.03rem] pb-0.5 font-semibold text-birdware dark:text-birdware-bright">
+    <div class="flex justify-between text-[1.03rem] pb-0.5 font-semibold text-snhm">
         <a @click="emit('click', props.caption)" class="cursor-pointer">
             <span class="capitalize">{{ props.caption }}</span>
         </a>

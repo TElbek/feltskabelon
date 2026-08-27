@@ -8,17 +8,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: {
+        showInNavBar: true,
+        title: 'Formular Skabeloner'
+      }
     },
-    // {
-    //   path: '/administrator',
-    //   name: 'Administrator',
-    //   component: () => import('@/views/AdministratorView.vue'),
-    // },
-    // {
-    //   path: '/licenshaver',
-    //   name: 'Licenshaver',
-    //   component: () => import('@/views/LicensHaverView.vue'),
-    // },
   ],
 })
 
