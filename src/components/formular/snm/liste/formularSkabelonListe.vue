@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="grid grid-cols-[max-content_max-content_1fr_max-content] gap-x-3">
+        <div class="grid grid-cols-[max-content_max-content_max-content_1fr] gap-x-3">
             <template v-for="(skabelon, index) in formularStore.formularSkabelonListe">
                 <div class="border-b border-gray-300 col-span-4" v-if="index == 0"></div>
 
@@ -13,11 +13,11 @@
 
                 <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.id }}</div>
                 <div class="border-e border-gray-300">{{ getScenarieNavnById(skabelon.maerkningsScenarieId) }}</div>
-                <div class="border-e border-gray-300">
+                <div class="border-e border-gray-300 pe-2">
                     <formularSkabelonListeNavn :formularSkabelonId="skabelon.id"></formularSkabelonListeNavn>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <a class="cursor-pointer" v-on:click="navigateToRedigerFelter(skabelon.id)">Rediger felter</a>
+                    <a class="cursor-pointer" v-on:click="navigateToRedigerFelter(skabelon.id)">Felter</a>
                 </div>
                 <div class="border-b col-span-4 border-gray-300"></div>
             </template>
