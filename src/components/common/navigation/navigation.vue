@@ -8,6 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import NavigationLg from '@/components/common/navigation-lg.vue';
-import NavigationSm from '@/components/common/navigation-sm.vue';
+import NavigationLg from '@/components/common/navigation/navigation-lg.vue';
+import NavigationSm from '@/components/common/navigation/navigation-sm.vue';
 </script>
