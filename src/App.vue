@@ -6,4 +6,5 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import navigation from '@/components/common/navigation.vue'
 </script>
