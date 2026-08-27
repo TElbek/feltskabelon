@@ -48,7 +48,8 @@ onMounted(() => {
 });
 
 function save() {
-
+    formularStore.updateSkabelon(state.skabelonRedigerModel);
+    router.back();
 }
 
 function cancel() {

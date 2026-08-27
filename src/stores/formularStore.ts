@@ -49,6 +49,19 @@ export const useFormularStore = defineStore('formularStore', () => {
         maerkningsScenarieListe.value = liste;
     }    
 
+    function updateSkabelon(skabelonRedigerModel :skabelonRedigerModel): void {
+        if(skabelonRedigerModel.formularSkabelon.id > 0) {
+            let skabelon = formularSkabelonListe.value.find((item => item.id == skabelonRedigerModel.formularSkabelon.id));
+            if(skabelon) {
+                skabelon.maerkningsScenarieId = skabelonRedigerModel.formularSkabelon.maerkningsScenarieId;
+            }
+            let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.id = skabelonRedigerModel.formularSkabelonNavn.id);
+            if(skabelonNavn) {
+                skabelonNavn.skabelonNavn = skabelonRedigerModel.formularSkabelonNavn.skabelonNavn;
+            }
+        }
+    }
+
     return {
         formularSkabelonListe,
         formularSkabelonNavnListe,
@@ -61,6 +74,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         setformularSkabelonListe,
         setformularSkabelonNavnListe,
         setformularSkabelonFeltListe,
-        setMaerkningsScenarieListe
+        setMaerkningsScenarieListe,
+
+        updateSkabelon
     }
 })
