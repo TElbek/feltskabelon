@@ -21,6 +21,15 @@ const router = createRouter({
         showInNavBar: true,
         title: 'Skabeloner'
       },
+    },
+    {
+      path: '/formularskabelon/snm/rediger/:skabelonId',
+      name: 'formularskabelonRediger',
+      component: () => import('@/views/formularSkabelonRedigerView.vue'),
+      meta: {
+        showInNavBar: false,
+        title: 'Skabelon SNM Rediger'
+      },
     }
   ],
 })
