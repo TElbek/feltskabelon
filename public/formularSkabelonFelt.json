@@ -1,1 +1,32 @@
-[]
+[
+    {
+        "id": 1,
+        "formularSkabelonNavnId": 1,
+        "erMinimumsFelt": true,
+        "maerkningsFormularFeltId": 1
+    },
+    {
+        "id": 1,
+        "formularSkabelonNavnId": 1,
+        "erMinimumsFelt": true,
+        "maerkningsFormularFeltId": 2
+    },
+    {
+        "id": 1,
+        "formularSkabelonNavnId": 1,
+        "erMinimumsFelt": true,
+        "maerkningsFormularFeltId": 3
+    },
+    {
+        "id": 1,
+        "formularSkabelonNavnId": 1,
+        "erMinimumsFelt": true,
+        "maerkningsFormularFeltId": 4
+    },
+    {
+        "id": 1,
+        "formularSkabelonNavnId": 1,
+        "erMinimumsFelt": true,
+        "maerkningsFormularFeltId": 6
+    }
+]
