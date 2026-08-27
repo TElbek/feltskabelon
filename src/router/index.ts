@@ -9,16 +9,16 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    {
-      path: '/administrator',
-      name: 'Administrator',
-      component: () => import('@/views/AdministratorView.vue'),
-    },
-    {
-      path: '/licenshaver',
-      name: 'Licenshaver',
-      component: () => import('@/views/LicensHaverView.vue'),
-    },
+    // {
+    //   path: '/administrator',
+    //   name: 'Administrator',
+    //   component: () => import('@/views/AdministratorView.vue'),
+    // },
+    // {
+    //   path: '/licenshaver',
+    //   name: 'Licenshaver',
+    //   component: () => import('@/views/LicensHaverView.vue'),
+    // },
   ],
 })
 

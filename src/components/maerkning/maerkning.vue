@@ -39,15 +39,15 @@
 </template>
 
 <script setup lang="ts">
-import { useFormularStore } from '@/stores/formularStore';
+// import { useFormularStore } from '@/stores/formularStore';
 import { onMounted, watch } from 'vue';
-import { storeToRefs } from 'pinia';
+// import { storeToRefs } from 'pinia';
 
-const formularStore = useFormularStore();
-const { formularSkabelonFelterForAdministrator } = storeToRefs(formularStore)
+// const formularStore = useFormularStore();
+// const { formularSkabelonFelterForAdministrator } = storeToRefs(formularStore)
 
 onMounted(() => {
-    hideAndShow()
+    //hideAndShow()
 });
 
 function hideAndShow(): void {
@@ -69,8 +69,8 @@ function loopElementList(elementList: HTMLCollectionOf<Element>) {
     for (let index = 0; index < elementList.length; ++index) {
         let element = elementList[index];
         if (element instanceof HTMLInputElement) {
-            formularStore.formularSkabelonFelterForAdministrator.some((felt) => felt.feltNavn == element.name) ?
-                element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
+            // formularStore.formularSkabelonFelterForAdministrator.some((felt) => felt.feltNavn == element.name) ?
+            //     element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
         }
     }
 }
@@ -79,7 +79,7 @@ function getFormElementById(formId: string): HTMLElement | null {
     return document.getElementById(formId);
 }
 
-watch(formularSkabelonFelterForAdministrator, () => {
-    hideAndShow();
-})
+// watch(formularSkabelonFelterForAdministrator, () => {
+//     hideAndShow();
+// })
 </script>
