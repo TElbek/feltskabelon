@@ -14,6 +14,20 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+app.directive('focus', {
+  mounted(el) {
+    el.focus()
+  }
+});
+
+app.directive('focus-condition', {
+  mounted(el, binding) {
+    if (binding.arg == true) {
+      el.focus()
+    }
+  }
+});
+
 loadJSONData();
 registerTailWindComponents();
 

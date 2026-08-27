@@ -1,20 +1,18 @@
 <template>
-    <button type="button"
-        :disabled="isSelected"
-        class="text-sm text-snhm cursor-pointer"
-        :class="[props.isSelected ? '': '']">
-        <div class="text-start">
-            <span v-if="props.isSelected" class="mr-1 inline">✓</span>
-            <span>{{ props.caption }}</span>
-        </div>
+    <button type="button" class="text-sm text-snhm cursor-pointer border border-snhm rounded p-2" @click="clicked">
+        <span>{{ props.caption }}</span>
     </button>
 </template>
 
 <script lang="ts" setup>
 interface TwButtonProps {
-    isSelected: boolean;
     caption: string;
 }
 
+const emit = defineEmits(['clicked']);
 const props = defineProps<TwButtonProps>();
+
+function clicked() {
+    emit('clicked');
+}
 </script>
