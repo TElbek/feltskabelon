@@ -6,7 +6,7 @@ import type { formularSkabelonNavnType } from '@/types/formularSkabelonNavnType'
 import type { formularSkabelonFeltType } from '@/types/formularSkabelonFeltType';
 import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
 import type { skabelonRedigerModel } from '@/models/skabelonRedigerModel';
-import type { skabelonFormularFeltModel } from '@/models/skabelonFormularFeltModel';
+import type { skabelonFormularFeltModelType } from '@/models/skabelonFormularFeltModel';
 import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFelt';
 
 export const useFormularStore = defineStore('formularStore', () => {
@@ -30,8 +30,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         return formularSkabelonNavn ? formularSkabelonNavn.id : undefined;
     }
 
-    function getFormularFelterBySkabelonNavnId(skabelonNavnId: number): skabelonFormularFeltModel[] {
-        let listOfModel = [] as skabelonFormularFeltModel[];
+    function getFormularFelterBySkabelonNavnId(skabelonNavnId: number): skabelonFormularFeltModelType[] {
+        let listOfModel = [] as skabelonFormularFeltModelType[];
         let formularSkabelonFeltList = formularSkabelonFeltListe.value.filter((item) => item.formularSkabelonNavnId == skabelonNavnId);
         formularSkabelonFeltList.forEach((formularSkabelonFelt) => {
             let maerkningsFelt = maerkningsFormularFeltListe.value.find((item) => item.id == formularSkabelonFelt.maerkningsFormularFeltId);
@@ -51,7 +51,7 @@ export const useFormularStore = defineStore('formularStore', () => {
 
     function skabelonFormularFeltModelFactory(
         formularSkabelonFelt: formularSkabelonFeltType,
-        maerkningsFormularFelt: MaerkningsFormularFeltType): skabelonFormularFeltModel {
+        maerkningsFormularFelt: MaerkningsFormularFeltType): skabelonFormularFeltModelType {
         return { 
             formularSkabelonFelt: formularSkabelonFelt, 
             maerkningsFormularFelt: maerkningsFormularFelt 

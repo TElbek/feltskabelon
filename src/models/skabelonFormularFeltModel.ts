@@ -1,7 +1,7 @@
 import type { formularSkabelonFeltType } from "@/types/formularSkabelonFeltType"
 import type { MaerkningsFormularFeltType } from "@/types/MaerkningsFormularFelt"
 
-export type skabelonFormularFeltModel = {
+export type skabelonFormularFeltModelType = {
     formularSkabelonFelt: formularSkabelonFeltType,
     maerkningsFormularFelt: MaerkningsFormularFeltType
 }
