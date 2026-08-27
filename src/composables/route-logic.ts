@@ -7,12 +7,17 @@ export function useRouteLogic() {
 
     const homeRoute = router.options.routes.find(route => route.path === '/');
 
+    const isAtHomeRoute = computed(() => {
+        return route.path === '/';
+    });
+
     const visibleRoutes = computed(() => {
         return router.options.routes.filter((route) => route.meta?.showInNavBar == true)
     });
 
     return {
         homeRoute,
+        isAtHomeRoute,
         visibleRoutes
     };
 }

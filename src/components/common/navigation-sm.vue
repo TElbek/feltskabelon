@@ -1,5 +1,9 @@
 <template>
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between text-snhm">
+
+        <router-link :to="homeRoute.path" v-if="homeRoute">
+            <span class="text-2xl ">{{ homeRoute?.meta?.title }}</span>
+        </router-link>
         <button
             class="relative h-6 max-h-10 w-6 max-w-10 select-none text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none p-4 border border-gray-300 rounded"
             type="button" @click="toggleIsOpen">
@@ -34,7 +38,7 @@
 import { ref } from 'vue';
 import { useRouteLogic } from '@/composables/route-logic'
 
-const { visibleRoutes } = useRouteLogic();
+const { visibleRoutes, homeRoute, isAtHomeRoute } = useRouteLogic();
 const isOpen = ref(false);
 
 function toggleIsOpen() {
