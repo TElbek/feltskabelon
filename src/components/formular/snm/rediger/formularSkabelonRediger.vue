@@ -28,7 +28,7 @@
 import { useRoute, useRouter } from 'vue-router';
 import { useFormularStore } from '@/stores/formularStore';
 import { onMounted, reactive } from 'vue';
-import type { skabelonRedigerModel } from '@/models/SkabelonRedigerModel';
+import type { skabelonRedigerModel } from '@/models/skabelonRedigerModel';
 
 const formularStore = useFormularStore();
 const route = useRoute();

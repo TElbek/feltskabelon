@@ -5,7 +5,7 @@ import type { formularSkabelonType } from '@/types/formularSkabelonType'
 import type { formularSkabelonNavnType } from '@/types/formularSkabelonNavnType';
 import type { formularSkabelonFeltType } from '@/types/formularSkabelonFeltType';
 import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
-import type { skabelonRedigerModel } from '@/models/SkabelonRedigerModel';
+import type { skabelonRedigerModel } from '@/models/skabelonRedigerModel';
 
 export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabelonListe = ref([] as formularSkabelonType[]);
