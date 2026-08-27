@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-full-xl mx-auto p-4 lg:p-0 lg:pt-3 lg:w-9/10">   
       <navigation></navigation> 
-      <RouterView />
+      <RouterView class="mt-3"/>
   </div>
 </template>
 

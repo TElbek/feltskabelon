@@ -33,6 +33,10 @@ function loadJSONData() : void {
     api.get('formularSkabelonFelt.json').then(res => {
         formularStore.setformularSkabelonFeltListe(res.data);
     })
+
+    api.get('maerkningsScenarie.json').then(res => {
+        formularStore.setMaerkningsScenarieListe(res.data);
+    });
 }
 
 function registerTailWindComponents() {
