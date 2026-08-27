@@ -51,6 +51,10 @@ function loadJSONData() : void {
     api.get('maerkningsScenarie.json').then(res => {
         formularStore.setMaerkningsScenarieListe(res.data);
     });
+
+    api.get('maerkningsFormularFelt.json').then(res => {
+        formularStore.setMaerkningsFormularFeltListe(res.data);
+    })
 }
 
 function registerTailWindComponents() {

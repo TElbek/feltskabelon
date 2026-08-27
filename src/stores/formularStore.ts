@@ -6,12 +6,15 @@ import type { formularSkabelonNavnType } from '@/types/formularSkabelonNavnType'
 import type { formularSkabelonFeltType } from '@/types/formularSkabelonFeltType';
 import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
 import type { skabelonRedigerModel } from '@/models/skabelonRedigerModel';
+import type { skabelonFormularFeltModel } from '@/models/skabelonFormularFeltModel';
+import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFelt';
 
 export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabelonListe = ref([] as formularSkabelonType[]);
     const formularSkabelonNavnListe = ref([] as formularSkabelonNavnType[]);
     const formularSkabelonFeltListe = ref([] as formularSkabelonFeltType[]);
     const maerkningsScenarieListe = ref([] as maerkningsScenarieType[]);
+    const maerkningsFormularFeltListe = ref([] as MaerkningsFormularFeltType[]);
 
     function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
@@ -22,9 +25,21 @@ export const useFormularStore = defineStore('formularStore', () => {
         return undefined;
     }
 
-    function getFormularNavnIdBySkabelonId(skabelonId:number) :number | undefined {
+    function getFormularNavnIdBySkabelonId(skabelonId: number): number | undefined {
         let formularSkabelonNavn = formularSkabelonNavnListe.value.find((item) => item.licenshaverId == undefined && item.formularSkabelonId == skabelonId);
         return formularSkabelonNavn ? formularSkabelonNavn.id : undefined;
+    }
+
+    function getFormularFelterBySkabelonNavnId(skabelonNavnId: number): skabelonFormularFeltModel[] {
+        let listOfModel = [] as skabelonFormularFeltModel[];
+        let formularSkabelonFeltList = formularSkabelonFeltListe.value.filter((item) => item.formularSkabelonNavnId == skabelonNavnId);
+        formularSkabelonFeltList.forEach((formularSkabelonFelt) => {
+            let maerkningsFelt = maerkningsFormularFeltListe.value.find((item) => item.id == formularSkabelonFelt.maerkningsFormularFeltId);
+            if(maerkningsFelt) {
+                listOfModel.push(skabelonFormularFeltModelFactory(formularSkabelonFelt, maerkningsFelt))
+            }
+        });
+        return listOfModel;
     }
 
     function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonRedigerModel {
@@ -32,6 +47,15 @@ export const useFormularStore = defineStore('formularStore', () => {
             formularSkabelon: skabelon,
             formularSkabelonNavn: skabelonNavn
         }
+    }
+
+    function skabelonFormularFeltModelFactory(
+        formularSkabelonFelt: formularSkabelonFeltType,
+        maerkningsFormularFelt: MaerkningsFormularFeltType): skabelonFormularFeltModel {
+        return { 
+            formularSkabelonFelt: formularSkabelonFelt, 
+            maerkningsFormularFelt: maerkningsFormularFelt 
+        };
     }
 
     function setformularSkabelonListe(liste: formularSkabelonType[]): void {
@@ -48,16 +72,20 @@ export const useFormularStore = defineStore('formularStore', () => {
 
     function setMaerkningsScenarieListe(liste: maerkningsScenarieType[]): void {
         maerkningsScenarieListe.value = liste;
-    }    
+    }
 
-    function updateSkabelon(skabelonRedigerModel :skabelonRedigerModel): void {
-        if(skabelonRedigerModel.formularSkabelon.id > 0) {
+    function setMaerkningsFormularFeltListe(liste: MaerkningsFormularFeltType[]): void {
+        maerkningsFormularFeltListe.value = liste;
+    }
+
+    function updateSkabelon(skabelonRedigerModel: skabelonRedigerModel): void {
+        if (skabelonRedigerModel.formularSkabelon.id > 0) {
             let skabelon = formularSkabelonListe.value.find((item => item.id == skabelonRedigerModel.formularSkabelon.id));
-            if(skabelon) {
+            if (skabelon) {
                 skabelon.maerkningsScenarieId = skabelonRedigerModel.formularSkabelon.maerkningsScenarieId;
             }
             let skabelonNavnItem = formularSkabelonNavnListe.value.find((item) => item.id == skabelonRedigerModel.formularSkabelonNavn.id);
-            if(skabelonNavnItem) {
+            if (skabelonNavnItem) {
                 skabelonNavnItem.skabelonNavn = skabelonRedigerModel.formularSkabelonNavn.skabelonNavn;
             }
         }
@@ -68,15 +96,18 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonNavnListe,
         formularSkabelonFeltListe,
         maerkningsScenarieListe,
+        maerkningsFormularFeltListe,
 
         getSkabelonRedigerModelById,
         getFormularNavnIdBySkabelonId,
+        getFormularFelterBySkabelonNavnId,
 
         setformularSkabelonListe,
         setformularSkabelonNavnListe,
         setformularSkabelonFeltListe,
         setMaerkningsScenarieListe,
-
+        setMaerkningsFormularFeltListe,
+        
         updateSkabelon
     }
 })
