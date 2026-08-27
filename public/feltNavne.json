@@ -1,110 +1,137 @@
 [
     {
         "id": 1,
-        "feltNavn": "RingingScheme"
+        "name": "RingingScheme",
+        "placeholder": "Scheme"
     },
     {
         "id": 2,
-        "feltNavn": "euringDate"
+        "feltNavn": "euringDate",
+        "placeholder": "åååå-mm-dd"
     },
     {
         "id": 3,
-        "feltNavn": "euringTime"
+        "feltNavn": "euringTime",
+        "placeholder": "tt:mm"
     },
     {
         "id": 4,
-        "feltNavn": "LokalitetID"
+        "feltNavn": "LokalitetID",
+        "placeholder": "Lokalitet"
     },
     {
         "id": 5,
-        "feltNavn": "PlaceName"
+        "feltNavn": "PlaceName",
+        "placeholder": "Præcis Sted"
     },
     {
         "id": 6,
-        "feltNavn": "LicensNr"
+        "feltNavn": "LicensNr",
+        "placeholder": "LicensNr"
     },
     {
         "id": 7,
-        "feltNavn": "Sub-licensNr"
+        "feltNavn": "Sub-licensNr",
+        "placeholder": "Sub-licensNr"
     },
     {
         "id": 8,
-        "feltNavn": "CatchingMethod"
+        "feltNavn": "CatchingMethod",
+        "placeholder": "Fangstmetode"
     },
     {
         "id": 9,
-        "feltNavn": "IdentificationNumber"
+        "feltNavn": "IdentificationNumber",
+        "placeholder": "RingNummer"
     },
     {
         "id": 10,
-        "feltNavn": "SpeciesReported"
+        "feltNavn": "SpeciesReported",
+        "placeholder": "Art"
     },
     {
         "id": 11,
-        "feltNavn": "AgeReported"
+        "feltNavn": "AgeReported",
+        "placeholder": "Alder"
     },
     {
         "id": 12,
-        "feltNavn": "Status"
+        "feltNavn": "Status",
+        "placeholder": "Status"
     },
     {
         "id": 13,
-        "feltNavn": "Mass"
+        "feltNavn": "Mass",
+        "placeholder": "Vægt (g)"
     },
     {
         "id": 14,
-        "feltNavn": "WingLength"
+        "feltNavn": "WingLength",
+        "placeholder": "Vinge (mm)"
     },
     {
         "id": 15,
-        "feltNavn": "Remarks"
+        "feltNavn": "Remarks",
+        "placeholder": "Bemærkninger"
     },
     {
         "id": 16,
-        "feltNavn": "data_type"
+        "feltNavn": "data_type",
+        "placeholder": "DataType"
     },
     {
         "id": 17,
-        "feltNavn": "BroodPatch"
+        "feltNavn": "BroodPatch",
+        "placeholder": "Brood Patch"
     },
     {
         "id": 18,
-        "feltNavn": "project_Moult"
+        "feltNavn": "project_Moult",
+        "placeholder": "Moult"
     },
     {
         "id": 19,
-        "feltNavn": "FatScore"
+        "feltNavn": "FatScore",
+        "placeholder": "FatScore"
     },
     {
         "id": 20,
-        "feltNavn": "FatScoreMethod"
+        "feltNavn": "FatScoreMethod",
+        "placeholder": "FatScoreMethod"
     },
     {
         "id": 21,
-        "feltNavn": "project_HabitatType"
+        "feltNavn": "project_HabitatType",
+        "placeholder": "HabitatType"
     },
     {
         "id": 22,
-        "feltNavn": "project_TotalNetLength"
+        "feltNavn": "project_TotalNetLength",
+        "placeholder": "NetLength"
     },
     {
         "id": 23,
-        "feltNavn": "project_VisitPeriod"
+        "feltNavn": "project_VisitPeriod",
+        "placeholder": "VisitPeriod"
     },
     {
         "id": 24,
-        "feltNavn": "project_TimeStart"
+        "feltNavn": "project_TimeStart",
+        "placeholder": "Start (tt:mm)"
     },
     {
         "id": 24,
-        "feltNavn": "project_TimeEnd"
+        "feltNavn": "project_TimeEnd",
+        "placeholder": "Slut (tt:mm)"
     },
     {
         "id": 25,
-        "feltNavn": "ColorRing"
+        "feltNavn": "ColorRing",
+        "placeholder": "Farvering"
     },
     {
         "id": 26,
-        "feltNavn": "ColorRingNr"
+        "feltNavn": "ColorRingNr",
+        "placeholder": "Farvering Nr"
     }
 ]
