@@ -14,7 +14,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/formularskabelonliste',
+      path: '/formularskabelon/snm/liste',
       name: 'formularskabelonliste',
       component: () => import('@/views/formularSkabelonListeView.vue'),
       meta: {
