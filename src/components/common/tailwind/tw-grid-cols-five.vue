@@ -1,8 +1,6 @@
 <template>
-    <div class="scrollbar-hide overflow-auto" :style="{ height: vh + 'vh' }">
-        <div :class="getRowColClassesFive(props.count)">
-            <slot></slot>
-        </div>
+    <div :class="getRowColClassesFive(props.count)">
+        <slot></slot>
     </div>
 </template>
 

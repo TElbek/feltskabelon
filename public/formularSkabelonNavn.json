@@ -2,7 +2,7 @@
     {
         "id": 1,
         "formularSkabelonId": 1,
-        "licenshaverId": 1,
-        "skabelonNavn": "CES"
+        "licenshaverId": null,
+        "skabelonNavn": "CES - SNM"
     }
 ]
