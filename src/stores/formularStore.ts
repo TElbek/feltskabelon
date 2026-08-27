@@ -22,6 +22,11 @@ export const useFormularStore = defineStore('formularStore', () => {
         return undefined;
     }
 
+    function getFormularNavnIdBySkabelonId(skabelonId:number) :number | undefined {
+        let formularSkabelonNavn = formularSkabelonNavnListe.value.find((item) => item.licenshaverId == undefined && item.formularSkabelonId == skabelonId);
+        return formularSkabelonNavn ? formularSkabelonNavn.id : undefined;
+    }
+
     function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonRedigerModel {
         return {
             formularSkabelon: skabelon,
@@ -65,6 +70,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         maerkningsScenarieListe,
 
         getSkabelonRedigerModelById,
+        getFormularNavnIdBySkabelonId,
 
         setformularSkabelonListe,
         setformularSkabelonNavnListe,

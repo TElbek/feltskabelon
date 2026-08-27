@@ -20,6 +20,6 @@ const formularSkabelonNavn = computed(() =>
             .find((item) => item.formularSkabelonId == props.formularSkabelonId && item.licenshaverId == undefined));
 
 function navigateSkabelonRediger(skabelonId: number) {
-    router.push({path: '/formularskabelon/snm/rediger/' + skabelonId})
+    router.push({path: '/formularskabelon/rediger/' + skabelonId})
 }
 </script>
