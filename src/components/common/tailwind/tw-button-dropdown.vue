@@ -8,7 +8,7 @@
             </svg>
             <div class="mr-1 ms-1 text-nowrap text-start text-snhm">{{ props.caption }}</div>
         </button>
-        <div v-show="state.show" class="z-100 absolute right-1 py-2 mt-1 border border-gray-200 dark:border dark:border-snhm rounded-md shadow-xl w-35 bg-white dark:bg-gray-900 text-snhm" @click="switchShow">
+        <div v-show="state.show" class="z-100 absolute right-1 py-2 mt-1 border border-gray-200 rounded-md shadow-xl w-35 bg-white text-snhm" @click="switchShow">
             <div class="grid grid-cols-1 gap-3 mx-2">
                 <slot></slot>
             </div>

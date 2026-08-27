@@ -19,15 +19,12 @@
             aria-hidden="true"></div>
 
         <aside @click="closeMenu"
-            :class="['fixed top-0 right-0 h-full z-200 w-64 bg-white dark:bg-gray-900 p-4 transform transition-transform duration-300', isOpen ? 'translate-x-0 rounded shadow-xl shadow-gray-400 dark:shadow-gray-100' : 'translate-x-full']">
+            :class="['fixed top-0 right-0 h-full z-200 w-64 bg-white p-4 transform transition-transform duration-300', isOpen ? 'translate-x-0 rounded shadow-xl shadow-gray-400' : 'translate-x-full']">
             <ul class="flex flex-col gap-4 text-base relative">
                 <li v-for="route in visibleRoutes" :key="route.path" class="cursor-pointer">
                     <router-link :to="route.path">
                         <span>{{ route.meta?.title }}</span>
                     </router-link>
-                </li>
-                <li>
-                    <tw-toggle-dark></tw-toggle-dark>
                 </li>
             </ul>
         </aside>
