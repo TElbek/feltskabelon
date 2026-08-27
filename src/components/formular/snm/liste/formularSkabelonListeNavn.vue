@@ -17,8 +17,9 @@ const router = useRouter();
 const formularStore = useFormularStore();
 const props = defineProps<propsInterface>();
 
-const formularSkabelonNavne = computed(() => formularStore.formularSkabelonNavnListe
-                                            .filter((item) => item.id == props.formularSkabelonId && item.licenshaverId == undefined));
+const formularSkabelonNavne = computed(() => 
+            formularStore.formularSkabelonNavnListe
+            .filter((item) => item.formularSkabelonId == props.formularSkabelonId && item.licenshaverId == undefined));
 
 function navigateSkabelonRediger(skabelonId: number) {
     router.push({path: '/formularskabelon/snm/rediger/' + skabelonId})

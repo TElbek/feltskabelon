@@ -2,5 +2,9 @@
     {
         "id": 1,
         "maerkningsScenarieId": 1
+    },
+    {
+        "id": 2,
+        "maerkningsScenarieId": 2
     }
 ]

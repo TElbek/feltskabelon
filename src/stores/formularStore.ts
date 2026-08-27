@@ -14,7 +14,7 @@ export const useFormularStore = defineStore('formularStore', () => {
     const maerkningsScenarieListe = ref([] as maerkningsScenarieType[]);
 
     const formularSkabelonListeByScenarie = computed(() => {
-        return Map.groupBy(formularSkabelonListe.value.sort((a, b) => a.id - b.id), (one: formularSkabelonType) => one.maerkningsScenarieId)
+        return Map.groupBy(formularSkabelonListe.value, (one: formularSkabelonType) => one.maerkningsScenarieId)
     });
 
     function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
@@ -55,9 +55,9 @@ export const useFormularStore = defineStore('formularStore', () => {
             if(skabelon) {
                 skabelon.maerkningsScenarieId = skabelonRedigerModel.formularSkabelon.maerkningsScenarieId;
             }
-            let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.id = skabelonRedigerModel.formularSkabelonNavn.id);
-            if(skabelonNavn) {
-                skabelonNavn.skabelonNavn = skabelonRedigerModel.formularSkabelonNavn.skabelonNavn;
+            let skabelonNavnItem = formularSkabelonNavnListe.value.find((item) => item.id == skabelonRedigerModel.formularSkabelonNavn.id);
+            if(skabelonNavnItem) {
+                skabelonNavnItem.skabelonNavn = skabelonRedigerModel.formularSkabelonNavn.skabelonNavn;
             }
         }
     }

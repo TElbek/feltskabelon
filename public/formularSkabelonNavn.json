@@ -4,5 +4,11 @@
         "formularSkabelonId": 1,
         "licenshaverId": null,
         "skabelonNavn": "CES - SNM"
+    },
+    {
+        "id": 2,
+        "formularSkabelonId": 2,
+        "licenshaverId": null,
+        "skabelonNavn": "Andet - SNM"
     }
 ]
