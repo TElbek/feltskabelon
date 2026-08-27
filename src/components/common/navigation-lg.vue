@@ -8,7 +8,7 @@
             </li>
             <li v-for="route in visibleRoutes" :key="route.path">
                 <router-link :to="route.path">
-                    <span>{{ route.meta?.title }}</span>
+                    <span class="relative top-1.5">{{ route.meta?.title }}</span>
                 </router-link>
             </li>
         </ul>

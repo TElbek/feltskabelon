@@ -10,9 +10,18 @@ const router = createRouter({
       component: HomeView,
       meta: {
         showInNavBar: false,
-        title: 'Formular Skabeloner'
-      }
+        title: 'SNM'
+      },
     },
+    {
+      path: '/formularskabelonliste',
+      name: 'formularskabelonliste',
+      component: () => import('@/views/formularSkabelonListeView.vue'),
+      meta: {
+        showInNavBar: true,
+        title: 'Skabeloner'
+      },
+    }
   ],
 })
 
