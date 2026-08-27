@@ -1,7 +1,5 @@
 <template>
-    <div v-for="navn in formularSkabelonNavne">
-        <a class="cursor-pointer" @click="navigateSkabelonRediger(navn.formularSkabelonId)">{{ navn.skabelonNavn }}</a>
-    </div>
+    <a class="cursor-pointer" @click="navigateSkabelonRediger(props.formularSkabelonId)">{{ formularSkabelonNavn?.skabelonNavn }}</a>
 </template>
 
 <script setup lang="ts">
@@ -17,9 +15,9 @@ const router = useRouter();
 const formularStore = useFormularStore();
 const props = defineProps<propsInterface>();
 
-const formularSkabelonNavne = computed(() => 
+const formularSkabelonNavn = computed(() => 
             formularStore.formularSkabelonNavnListe
-            .filter((item) => item.formularSkabelonId == props.formularSkabelonId && item.licenshaverId == undefined));
+            .find((item) => item.formularSkabelonId == props.formularSkabelonId && item.licenshaverId == undefined));
 
 function navigateSkabelonRediger(skabelonId: number) {
     router.push({path: '/formularskabelon/snm/rediger/' + skabelonId})

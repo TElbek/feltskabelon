@@ -1,15 +1,22 @@
 <template>
     <div>
-        <tw-grid-cols-generic :itemsPerRow="5" :count="formularStore.formularSkabelonListeByScenarie.size">
-            <template v-for="[key, value] in formularStore.formularSkabelonListeByScenarie">
-                <tw-card>
-                    <tw-card-header :count="0" :caption="'Scenarie: ' + getScenarieNavnById(key)" :showCount="false"></tw-card-header>
-                    <template v-for="skabelon in value">
-                        <formularSkabelonListeNavn :formularSkabelonId="skabelon.id"></formularSkabelonListeNavn>
-                    </template>
-                </tw-card>
+        <div class="grid grid-cols-[max-content_max-content_1fr] gap-x-3">
+            <template v-for="(skabelon, index) in formularStore.formularSkabelonListe">
+                <div v-if="index == 0" class="border-b border-gray-300 col-span-3"></div>
+                <span class="font-semibold border-s border-e border-gray-300 ps-2 pe-2" v-if="index == 0">Id</span>
+                <span class="font-semibold border-e pe-2 border-gray-300" v-if="index == 0">Scenarie</span>
+                <span class="font-semibold border-e pe-2 border-gray-300" v-if="index == 0">Navn</span>
+                <div v-if="index == 0" class="border-b border-gray-300 col-span-3"></div>
+
+                <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.id }}</div>
+                <div class="border-e border-gray-300">{{ getScenarieNavnById(skabelon.maerkningsScenarieId) }}</div>
+
+                <div class="border-e border-gray-300">
+                    <formularSkabelonListeNavn :formularSkabelonId="skabelon.id"></formularSkabelonListeNavn>
+                </div>
+                <div class="border-b col-span-3 border-gray-300"></div>
             </template>
-        </tw-grid-cols-generic>
+        </div>
     </div>
 </template>
 

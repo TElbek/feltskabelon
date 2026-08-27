@@ -13,10 +13,6 @@ export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabelonFeltListe = ref([] as formularSkabelonFeltType[]);
     const maerkningsScenarieListe = ref([] as maerkningsScenarieType[]);
 
-    const formularSkabelonListeByScenarie = computed(() => {
-        return Map.groupBy(formularSkabelonListe.value, (one: formularSkabelonType) => one.maerkningsScenarieId)
-    });
-
     function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
         let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.formularSkabelonId == formularSkabelonId);
@@ -68,7 +64,6 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonFeltListe,
         maerkningsScenarieListe,
 
-        formularSkabelonListeByScenarie,
         getSkabelonRedigerModelById,
 
         setformularSkabelonListe,
