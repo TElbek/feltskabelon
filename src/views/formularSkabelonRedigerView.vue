@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import formularSkabelonRediger from '@/components/formular/snm/rediger/formularSkabelonRediger.vue'
+import formularSkabelonRediger from '@/components/skabelon/snm/rediger/formularSkabelonRediger.vue'
 </script>
