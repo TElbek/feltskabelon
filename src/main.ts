@@ -1,10 +1,8 @@
 import '@/assets/main.css'
-import api from '@/apijson'
 
 import { createApp, defineAsyncComponent } from 'vue'
 import { createPinia } from 'pinia'
-
-import { useFormularStore } from './stores/formularStore.ts'
+import { useDataLoader } from './composables/data-loader.ts'
 
 import App from './App.vue'
 import router from './router'
@@ -28,34 +26,10 @@ app.directive('focus-condition', {
   }
 });
 
-loadJSONData();
 registerTailWindComponents();
-
+const dataLoader = useDataLoader();
+dataLoader.loadJSONData();
 app.mount('#app')
-
-function loadJSONData() : void {
-    const formularStore = useFormularStore();
-
-    api.get('formularSkabelon.json').then(res => {
-        formularStore.setformularSkabelonListe(res.data);
-    })
-
-    api.get('formularSkabelonNavn.json').then(res => {
-        formularStore.setformularSkabelonNavnListe(res.data);
-    })
-
-    api.get('formularSkabelonFelt.json').then(res => {
-        formularStore.setformularSkabelonFeltListe(res.data);
-    })
-
-    api.get('maerkningsScenarie.json').then(res => {
-        formularStore.setMaerkningsScenarieListe(res.data);
-    });
-
-    api.get('maerkningsFormularFelt.json').then(res => {
-        formularStore.setMaerkningsFormularFeltListe(res.data);
-    })
-}
 
 function registerTailWindComponents() {
     app.component('tw-action-bar', defineAsyncComponent(() => import('./components/common/tailwind/tw-action-bar.vue')));

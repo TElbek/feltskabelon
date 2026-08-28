@@ -6,6 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import navigation from '@/components/common/navigation/navigation.vue'
+import { RouterView } from 'vue-router';
+import navigation from '@/components/common/navigation/navigation.vue';
 </script>

@@ -14,6 +14,15 @@ const router = createRouter({
       },
     },
     {
+      path: '/gendan-data',
+      name: 'gendan-data',
+      component: () => import('@/components/common/gendanData.vue'),
+      meta: {
+        showInNavBar: true,
+        title: 'Gendan Data'
+      },
+    },
+    {
       path: '/formularskabelon/snm/liste',
       name: 'formularskabelonliste',
       component: () => import('@/views/formularSkabelonListeView.vue'),

@@ -1,0 +1,30 @@
+import api from '@/apijson'
+import { useFormularStore } from '@/stores/formularStore.ts'
+
+export function useDataLoader() {
+    async function loadJSONData(): Promise<void> {
+        const formularStore = useFormularStore();
+
+        await Promise.all([
+            api.get('formularSkabelon.json').then(res =>
+                formularStore.setformularSkabelonListe(res.data)
+            ),
+            api.get('formularSkabelonNavn.json').then(res =>
+                formularStore.setformularSkabelonNavnListe(res.data)
+            ),
+            api.get('formularSkabelonFelt.json').then(res =>
+                formularStore.setformularSkabelonFeltListe(res.data)
+            ),
+            api.get('maerkningsScenarie.json').then(res =>
+                formularStore.setMaerkningsScenarieListe(res.data)
+            ),
+            api.get('maerkningsFormularFelt.json').then(res =>
+                formularStore.setMaerkningsFormularFeltListe(res.data)
+            )
+        ])
+    }
+
+    return {
+        loadJSONData
+    }
+}
