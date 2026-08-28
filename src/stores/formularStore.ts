@@ -15,6 +15,11 @@ export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabelonFeltListe = ref([] as formularSkabelonFeltType[]);
     const maerkningsScenarieListe = ref([] as maerkningsScenarieType[]);
     const maerkningsFormularFeltListe = ref([] as MaerkningsFormularFeltType[]);
+    const genopfriskIndex = ref(0 as number);
+
+    function opdaterGenopfriskIndex() {
+        genopfriskIndex.value ++;
+    }
 
     function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
@@ -78,7 +83,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         maerkningsFormularFeltListe.value = liste;
     }
 
-    function updateSkabelon(skabelonRedigerModel: skabelonRedigerModel): void {
+    function opdaterSkabelon(skabelonRedigerModel: skabelonRedigerModel): void {
         if (skabelonRedigerModel.formularSkabelon.id > 0) {
             let skabelon = formularSkabelonListe.value.find((item => item.id == skabelonRedigerModel.formularSkabelon.id));
             if (skabelon) {
@@ -108,6 +113,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         setMaerkningsScenarieListe,
         setMaerkningsFormularFeltListe,
         
-        updateSkabelon
+        opdaterSkabelon,
+        genopfriskIndex
     }
 })

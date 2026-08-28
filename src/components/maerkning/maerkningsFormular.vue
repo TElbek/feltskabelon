@@ -44,10 +44,10 @@ import { onMounted, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
 const formularStore = useFormularStore();
-//const { formularSkabelonFelterForAdministrator } = storeToRefs(formularStore)
+const { genopfriskIndex } = storeToRefs(formularStore);
 
 onMounted(() => {
-    //hideAndShow()
+    hideAndShow()
 });
 
 function hideAndShow(): void {
@@ -79,7 +79,7 @@ function getFormElementById(formId: string): HTMLElement | null {
     return document.getElementById(formId);
 }
 
-// watch(formularSkabelonFelterForAdministrator, () => {
-//     hideAndShow();
-// })
+watch(genopfriskIndex, () => {
+    hideAndShow();
+})
 </script>
