@@ -40,7 +40,7 @@ const router = createRouter({
         title: 'Rediger Skabelon'
       },
     },
-        {
+    {
       path: '/formularskabelonfelter/rediger/:skabelonNavnId',
       name: 'formularskabelonFelterRediger',
       component: () => import('@/views/formularSkabelonFelterRedigerView.vue'),
@@ -48,6 +48,15 @@ const router = createRouter({
         showInNavBar: false,
         title: 'Rediger Skabelon'
       },
+    },
+    {
+      path: '/licenshaver/:licenshaverId',
+      name: 'licenshaver',
+      component: () => import('@/components/common/licenshaver/licenshaver.vue'),
+      meta: {
+        showInNavBar: false,
+        title: 'licenshaver'
+      }
     }
   ],
 })

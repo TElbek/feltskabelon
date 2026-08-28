@@ -1,9 +1,17 @@
-[    {
+[
+    {
         "id": 1,
-        "navn": "Blåvand Fuglestation"
+        "erAdmin": true,
+        "navn": "SNM"
     },
     {
         "id": 2,
+        "erAdmin": false,
+        "navn": "Blåvand Fuglestation"
+    },
+    {
+        "id": 3,
+        "erAdmin": false,
         "navn": "Gedser Fuglestation"
     }
 ]

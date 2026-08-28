@@ -20,7 +20,10 @@ export function useDataLoader() {
             ),
             api.get('maerkningsFormularFelt.json').then(res =>
                 formularStore.setMaerkningsFormularFeltListe(res.data)
-            )
+            ),
+            api.get('licensHaver.json').then(res =>
+                formularStore.setLicenshaverListe(res.data)
+            ),
         ])
     }
 

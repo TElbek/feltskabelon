@@ -11,6 +11,12 @@
                     <span class="relative top-1.5">{{ route.meta?.title }}</span>
                 </router-link>
             </li>
+            <li v-for="licenshaver in formularStore.licenshaverListe">
+                <router-link :to="`/licenshaver/${licenshaver.id}`">
+                    <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']" 
+                           class="relative top-1.5">{{ licenshaver.navn }}</span>
+                </router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -18,6 +24,8 @@
 <script setup lang="ts">
 
 import { useRouteLogic } from '@/composables/route-logic.ts'
+import { useFormularStore } from '@/stores/formularStore';
 
+const formularStore = useFormularStore();
 const { visibleRoutes, homeRoute } = useRouteLogic();
 </script>

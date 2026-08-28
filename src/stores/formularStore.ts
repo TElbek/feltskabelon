@@ -8,6 +8,7 @@ import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
 import type { skabelonRedigerModel } from '@/models/skabelonRedigerModel';
 import type { skabelonFormularFeltModelType } from '@/models/skabelonFormularFeltModel';
 import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFelt';
+import type { licensHaverType } from '@/types/licensHaverType';
 
 export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabelonListe = ref([] as formularSkabelonType[]);
@@ -15,6 +16,8 @@ export const useFormularStore = defineStore('formularStore', () => {
     const formularSkabelonFeltListe = ref([] as formularSkabelonFeltType[]);
     const maerkningsScenarieListe = ref([] as maerkningsScenarieType[]);
     const maerkningsFormularFeltListe = ref([] as MaerkningsFormularFeltType[]);
+    const licenshaverListe = ref([] as licensHaverType[])
+    const licenshaverId = ref(1 as number);
     const genopfriskIndex = ref(0 as number);
 
     function opdaterGenopfriskIndex() {
@@ -93,6 +96,14 @@ export const useFormularStore = defineStore('formularStore', () => {
         maerkningsFormularFeltListe.value = liste;
     }
 
+    function setLicenshaverListe(liste: licensHaverType[]): void {
+        licenshaverListe.value = liste;
+    }
+
+    function setLicenshaver(id: number) {
+        licenshaverId.value = id;
+    }
+
     function opdaterSkabelon(skabelonRedigerModel: skabelonRedigerModel): void {
         if (skabelonRedigerModel.formularSkabelon.id > 0) {
             let skabelon = formularSkabelonListe.value.find((item => item.id == skabelonRedigerModel.formularSkabelon.id));
@@ -123,6 +134,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonFeltListe,
         maerkningsScenarieListe,
         maerkningsFormularFeltListe,
+        licenshaverListe,
+        licenshaverId,
 
         getSkabelonRedigerModelById,
         getFormularNavnIdBySkabelonId,
@@ -136,6 +149,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         setformularSkabelonFeltListe,
         setMaerkningsScenarieListe,
         setMaerkningsFormularFeltListe,
+        setLicenshaverListe,
+        setLicenshaver,
         
         opdaterSkabelon,
         genopfriskIndex

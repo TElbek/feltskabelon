@@ -1,5 +1,5 @@
-export type licensHaver = {
+export type licensHaverType = {
     id: number,
-    navn: string,
     erAdmin: boolean
+    navn: string,
 }
