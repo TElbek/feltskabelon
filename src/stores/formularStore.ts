@@ -106,6 +106,17 @@ export const useFormularStore = defineStore('formularStore', () => {
         }
     }
 
+    function fjernSkabelonFelt(formularSkabelonFeltId : number) :void { 
+        if(formularSkabelonFeltListe.value.some((item) => item.id == formularSkabelonFeltId)) {
+            let toBeRemoved = formularSkabelonFeltListe.value.find((item) => item.id == formularSkabelonFeltId);
+            if(toBeRemoved) {
+                let toBeRemovedIndex = formularSkabelonFeltListe.value.indexOf(toBeRemoved);
+                formularSkabelonFeltListe.value.splice(toBeRemovedIndex,1);
+                opdaterGenopfriskIndex();
+            }
+        }
+    }
+
     return {
         formularSkabelonListe,
         formularSkabelonNavnListe,
@@ -118,6 +129,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         getFormularFelterBySkabelonNavnId,
 
         harSkabelonNavnDetteFelt,
+        fjernSkabelonFelt,
 
         setformularSkabelonListe,
         setformularSkabelonNavnListe,
