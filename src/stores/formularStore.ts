@@ -24,6 +24,10 @@ export const useFormularStore = defineStore('formularStore', () => {
         genopfriskIndex.value ++;
     }
 
+    function getNewIdForFormularSkabelonFelt() {
+        return Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1;
+    }
+
     function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
         let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.formularSkabelonId == formularSkabelonId);
@@ -126,6 +130,20 @@ export const useFormularStore = defineStore('formularStore', () => {
         }
     }
 
+    function tilfoejSkabelonFelt(formularSkabelonNavnId: number, maerkningsFormularFeltId: number): void {
+        formularSkabelonFeltListe.value.push(formularSkabelonFeltFactory(formularSkabelonNavnId, maerkningsFormularFeltId));
+        opdaterGenopfriskIndex();
+    }
+
+    function formularSkabelonFeltFactory(formularSkabelonNavnId :number, maerkningsFormularFeltId: number) : formularSkabelonFeltType {
+        return {
+           id: getNewIdForFormularSkabelonFelt(),
+           erMinimumsFelt: true, 
+           formularSkabelonNavnId: formularSkabelonNavnId,
+           maerkningsFormularFeltId: maerkningsFormularFeltId
+        }
+    }
+
     function fjernSkabelonFelt(formularSkabelonFeltId : number) :void { 
         if(formularSkabelonFeltListe.value.some((item) => item.id == formularSkabelonFeltId)) {
             let toBeRemoved = formularSkabelonFeltListe.value.find((item) => item.id == formularSkabelonFeltId);
@@ -153,6 +171,7 @@ export const useFormularStore = defineStore('formularStore', () => {
 
         harSkabelonNavnDetteFelt,
         fjernSkabelonFelt,
+        tilfoejSkabelonFelt,
 
         setformularSkabelonListe,
         setformularSkabelonNavnListe,

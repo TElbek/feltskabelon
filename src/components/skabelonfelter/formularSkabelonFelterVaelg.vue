@@ -2,7 +2,9 @@
     <div class="text-xl text-snhm mb-2">Vælg felter</div>
     <tw-flex>
         <template v-for="maerkningsFelt in sortMaerkningsFormularFeltList">
-            <span class="border text-gray-500 border-gray-300 px-2 rounded">{{ maerkningsFelt.placeholder }}</span>
+            <a @click="tilfoejSkabelonFelt(maerkningsFelt.id)">
+                <span class="border text-gray-500 border-gray-300 px-2 rounded">{{ maerkningsFelt.placeholder }}</span>
+            </a>
         </template>
     </tw-flex>
 </template>
@@ -32,6 +34,10 @@ onMounted(() => {
 
 function getVaelgMaerkningsFelter() {
     state.MaerkningsFormularFeltList = formularStore.getVaelgMaerkningsFeltBySkabelonNavnId(Number(route.params.skabelonNavnId))
+}
+
+function tilfoejSkabelonFelt(maerkningsFeltId: number) {
+    formularStore.tilfoejSkabelonFelt(Number(route.params.skabelonNavnId), maerkningsFeltId);
 }
 
 watch(genopfriskIndex, () => {
