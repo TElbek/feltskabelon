@@ -3,12 +3,12 @@
         "id": 1,
         "formularSkabelonId": 1,
         "licenshaverId": null,
-        "skabelonNavn": "CES - SNM"
+        "skabelonNavn": "Skabelon 1"
     },
     {
         "id": 2,
         "formularSkabelonId": 2,
         "licenshaverId": null,
-        "skabelonNavn": "Andet - SNM"
+        "skabelonNavn": "Skabelon 2"
     }
 ]

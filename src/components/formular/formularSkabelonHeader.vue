@@ -1,9 +1,7 @@
 <template>
     <div class="flex flew-row gap-x-2 text-xl text-snhm">
-        <span>Skabelon:</span>
-        <span>{{ state.maerkningsScenarieType?.navn }}</span>
-        <span>-</span>
         <span>{{ state.formularSkabelonNavn?.skabelonNavn }}</span>
+        <span>({{ state.maerkningsScenarieType?.navn }})</span>
     </div>
 </template>
 
