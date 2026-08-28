@@ -54,12 +54,13 @@ const { genopfriskIndex } = storeToRefs(formularStore);
 
 const formIsVisible = ref(false);
 const formularSkabelonNavnId = computed(() => Number(route.params.skabelonNavnId));
+const waitTimeInms = 100;
 
 onMounted(() => {
     setTimeout(() => {
         hideAndShow();
         formIsVisible.value = true;
-    }, 100);
+    }, waitTimeInms);
 });
 
 function hideAndShow(): void {
