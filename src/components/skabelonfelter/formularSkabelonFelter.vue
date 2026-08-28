@@ -21,8 +21,8 @@
 <script setup lang="ts">
 import maerkningsFormular from '@/components/maerkning/maerkningsFormular.vue';
 import formularSkabelonHeader from '@/components/formular/formularSkabelonHeader.vue';
-import formularSkabelonFelterValgt from '@/components/skabelonfelter/snm/formularSkabelonFelterValgt.vue'
-import formularSkabelonFelterVaelg from '@/components/skabelonfelter/snm/formularSkabelonFelterVaelg.vue'
+import formularSkabelonFelterValgt from '@/components/skabelonfelter/formularSkabelonFelterValgt.vue'
+import formularSkabelonFelterVaelg from '@/components/skabelonfelter/formularSkabelonFelterVaelg.vue'
 import { useRoute } from 'vue-router';
 const route = useRoute();
 </script>
