@@ -1,7 +1,7 @@
 <template>
     <input :type="type" :name="name" @input="updateInputValue" :value="modelValue" :placeholder="placeholder"
-        class="focus:outline-0 rounded border border-gray-300 h-8 focus:border-2 focus:border-snhm"
-        :class="[type == 'number' ? 'text-end pe-2' : 'ps-2']" />
+        class="text-sm px-2 focus:outline-0 rounded border border-gray-300 focus:border-2 focus:border-snhm"
+        :class="class" />
 </template>
 
 <script setup lang="ts">
@@ -25,6 +25,10 @@ defineProps({
     placeholder: {
         type: String,
         default: ''
+    },
+    class: {
+        type: String,
+        default: 'ps-2 w-30'
     }
 })
 const emit = defineEmits(['update:modelValue'])
