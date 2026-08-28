@@ -1,9 +1,9 @@
 <template>
     <div class="text-xl text-snhm mb-2">Vælg felter</div>
     <tw-flex>
-        <template v-for="maerkningsFelt in sortMaerkningsFormularFeltList">
-            <a @click="tilfoejSkabelonFelt(maerkningsFelt.id)">
-                <span class="border text-gray-500 border-gray-300 px-2 rounded">{{ maerkningsFelt.placeholder }}</span>
+        <template v-for="maerkningsFormularFelt in sortMaerkningsFormularFeltList">
+            <a @click="tilfoejSkabelonFelt(maerkningsFormularFelt.id)">
+                <span class="border text-gray-500 border-gray-300 px-2 rounded">{{ maerkningsFormularFelt.placeholder }}</span>
             </a>
         </template>
     </tw-flex>

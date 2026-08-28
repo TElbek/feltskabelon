@@ -1,8 +1,8 @@
 <template>
     <tw-flex>
         <div v-for="model in sortedSkabelonFormularFeltModelList">
-            <a class="cursor-pointer" @click="fjernSkabelonFelt(model.formularSkabelonFelt.id)">
-                <span class="border text-gray-500 border-gray-300 px-2 rounded">{{
+            <a :class="!formularStore.erAdministrator && model.formularSkabelonFelt.erMinimumsFelt ? 'disableClick' : ''" class="cursor-pointer" @click="fjernSkabelonFelt(model.formularSkabelonFelt.id)">
+                <span class="border text-gray-500 border-gray-300 px-2 rounded" :title="model.formularSkabelonFelt.id + ' ' + model.formularSkabelonFelt.maerkningsFormularFeltId">{{
                     model.maerkningsFormularFelt.placeholder
                 }}</span>
             </a>

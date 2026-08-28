@@ -18,6 +18,8 @@
                 </router-link>
             </li>
         </ul>
+        <!-- <div>{{ formularStore.licenshaverId }}</div>
+        <div>{{ formularStore.erAdministrator }}</div> -->
     </div>
 </template>
 

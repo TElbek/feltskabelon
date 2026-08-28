@@ -20,12 +20,17 @@ export const useFormularStore = defineStore('formularStore', () => {
     const licenshaverId = ref(1 as number);
     const genopfriskIndex = ref(0 as number);
 
+    const erAdministrator = computed(() => {
+        return licenshaverListe.value.some((item) => item.id == licenshaverId.value && item.erAdmin);
+    });
+
     function opdaterGenopfriskIndex() {
         genopfriskIndex.value ++;
     }
 
     function getNewIdForFormularSkabelonFelt() {
-        return Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1;
+        return formularSkabelonFeltListe.value.length > 0 ?
+            Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1 : 1;
     }
 
     function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
@@ -168,6 +173,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         getFormularNavnIdBySkabelonId,
         getFormularFelterBySkabelonNavnId,
         getVaelgMaerkningsFeltBySkabelonNavnId,
+        erAdministrator,
 
         harSkabelonNavnDetteFelt,
         fjernSkabelonFelt,
