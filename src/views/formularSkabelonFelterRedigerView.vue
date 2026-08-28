@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import formularSkabelonFelter from '@/components/felter/snm/formularSkabelonFelter.vue'
+import formularSkabelonFelter from '@/components/skabelonfelter/snm/formularSkabelonFelter.vue'
 </script>
