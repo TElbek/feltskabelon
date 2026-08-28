@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "RingingScheme",
+        "feltNavn": "RingingScheme",
         "placeholder": "Scheme"
     },
     {
@@ -120,18 +120,38 @@
         "placeholder": "Start (tt:mm)"
     },
     {
-        "id": 24,
+        "id": 25,
         "feltNavn": "project_TimeEnd",
         "placeholder": "Slut (tt:mm)"
     },
     {
-        "id": 25,
+        "id": 26,
         "feltNavn": "ColorRing",
         "placeholder": "Farvering"
     },
     {
-        "id": 26,
+        "id": 27,
         "feltNavn": "ColorRingNr",
         "placeholder": "Farvering Nr"
+    },
+    {
+        "id": 28,
+        "feltNavn": "CatchingLures",
+        "placeholder": "Lokkemetode"
+    },
+    {
+        "id": 29,
+        "feltNavn": "SexReported",
+        "placeholder": "Køn"
+    },
+    {
+        "id": 30,
+        "feltNavn": "BroodSize",
+        "placeholder": "Kuld"
+    },
+    {
+        "id": 31,
+        "feltNavn": "PullusAge",
+        "placeholder": "Unge alder"
     }
 ]

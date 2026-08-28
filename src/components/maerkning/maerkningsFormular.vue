@@ -40,11 +40,15 @@
 
 <script setup lang="ts">
 import { useFormularStore } from '@/stores/formularStore';
-import { onMounted, watch } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const formularStore = useFormularStore();
 const { genopfriskIndex } = storeToRefs(formularStore);
+
+const formularSkabelonNavnId = computed(() => Number(route.params.skabelonNavnId));
 
 onMounted(() => {
     hideAndShow()
@@ -69,8 +73,8 @@ function loopElementList(elementList: HTMLCollectionOf<Element>) {
     for (let index = 0; index < elementList.length; ++index) {
         let element = elementList[index];
         if (element instanceof HTMLInputElement) {
-            // formularStore.formularSkabelonFelterForAdministrator.some((felt) => felt.feltNavn == element.name) ?
-            //     element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
+            formularStore.harSkabelonNavnDetteFelt(formularSkabelonNavnId.value, element.name) ?
+                element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
         }
     }
 }

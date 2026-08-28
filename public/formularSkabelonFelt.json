@@ -6,25 +6,25 @@
         "maerkningsFormularFeltId": 1
     },
     {
-        "id": 1,
+        "id": 2,
         "formularSkabelonNavnId": 1,
         "erMinimumsFelt": true,
         "maerkningsFormularFeltId": 2
     },
     {
-        "id": 1,
+        "id": 3,
         "formularSkabelonNavnId": 1,
         "erMinimumsFelt": true,
         "maerkningsFormularFeltId": 3
     },
     {
-        "id": 1,
+        "id": 4,
         "formularSkabelonNavnId": 1,
         "erMinimumsFelt": true,
         "maerkningsFormularFeltId": 4
     },
     {
-        "id": 1,
+        "id": 5,
         "formularSkabelonNavnId": 1,
         "erMinimumsFelt": true,
         "maerkningsFormularFeltId": 6

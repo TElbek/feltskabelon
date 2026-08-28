@@ -47,6 +47,16 @@ export const useFormularStore = defineStore('formularStore', () => {
         return listOfModel;
     }
 
+    function harSkabelonNavnDetteFelt(skabelonNavnId: number, feltNavn: string) : boolean {
+        if(maerkningsFormularFeltListe.value.some((item) => item.feltNavn == feltNavn)) {
+            let maerkningsFormularFelt = maerkningsFormularFeltListe.value.find(item => item.feltNavn == feltNavn);
+            return formularSkabelonFeltListe.value.some(
+                (item) => item.formularSkabelonNavnId == skabelonNavnId && 
+                          item.maerkningsFormularFeltId == maerkningsFormularFelt?.id);
+        }
+        return false;
+    }
+
     function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonRedigerModel {
         return {
             formularSkabelon: skabelon,
@@ -106,6 +116,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         getSkabelonRedigerModelById,
         getFormularNavnIdBySkabelonId,
         getFormularFelterBySkabelonNavnId,
+
+        harSkabelonNavnDetteFelt,
 
         setformularSkabelonListe,
         setformularSkabelonNavnListe,
