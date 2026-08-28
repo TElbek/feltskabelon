@@ -50,6 +50,15 @@ export const useFormularStore = defineStore('formularStore', () => {
         return listOfModel;
     }
 
+    function getVaelgMaerkningsFeltBySkabelonNavnId(skabelonNavnId: number) : MaerkningsFormularFeltType[] {
+        let existingIdSet = new Set([...new Set(formularSkabelonFeltListe.value
+            .filter((item => item.formularSkabelonNavnId == skabelonNavnId))
+            .map((item) => item.maerkningsFormularFeltId))]);
+
+        return maerkningsFormularFeltListe.value.filter(
+            (item) => !existingIdSet.has(item.id));
+    }
+
     function harSkabelonNavnDetteFelt(skabelonNavnId: number, feltNavn: string) : boolean {
         if(maerkningsFormularFeltListe.value.some((item) => item.feltNavn == feltNavn)) {
             let maerkningsFormularFelt = maerkningsFormularFeltListe.value.find(item => item.feltNavn == feltNavn);
@@ -140,6 +149,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         getSkabelonRedigerModelById,
         getFormularNavnIdBySkabelonId,
         getFormularFelterBySkabelonNavnId,
+        getVaelgMaerkningsFeltBySkabelonNavnId,
 
         harSkabelonNavnDetteFelt,
         fjernSkabelonFelt,
