@@ -8,7 +8,11 @@ export function useRouteLogic() {
     const homeRoute = router.options.routes.find(route => route.path === '/');
 
     const isAtHomeRoute = computed(() => {
-        return route.path === '/';
+        return route.name === 'home';
+    });
+
+    const isAtSkabelonListeRoute = computed(() => {
+        return route.name === 'formularskabelonliste';
     });
 
     const visibleRoutes = computed(() => {
@@ -18,6 +22,7 @@ export function useRouteLogic() {
     return {
         homeRoute,
         isAtHomeRoute,
+        isAtSkabelonListeRoute,
         visibleRoutes
     };
 }

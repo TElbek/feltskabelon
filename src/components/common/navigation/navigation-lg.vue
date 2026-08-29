@@ -11,15 +11,15 @@
                     <span class="relative top-1.5">{{ route.meta?.title }}</span>
                 </router-link>
             </li>
-            <li v-for="licenshaver in formularStore.licenshaverListe">
-                <router-link :to="`/licenshaver/${licenshaver.id}`">
-                    <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']" 
-                           class="relative top-1.5">{{ licenshaver.navn }}</span>
-                </router-link>
-            </li>
+            <template v-if="isAtSkabelonListeRoute">
+                <li v-for="licenshaver in formularStore.licenshaverListe">
+                    <router-link :to="`/licenshaver/${licenshaver.id}`">
+                        <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']"
+                            class="relative top-1.5">{{ licenshaver.navn }}</span>
+                    </router-link>
+                </li>
+            </template>
         </ul>
-        <!-- <div>{{ formularStore.licenshaverId }}</div>
-        <div>{{ formularStore.erAdministrator }}</div> -->
     </div>
 </template>
 
@@ -27,7 +27,8 @@
 
 import { useRouteLogic } from '@/composables/route-logic.ts'
 import { useFormularStore } from '@/stores/formularStore';
+import { computed } from 'vue';
 
 const formularStore = useFormularStore();
-const { visibleRoutes, homeRoute } = useRouteLogic();
+const { visibleRoutes, homeRoute, isAtSkabelonListeRoute } = useRouteLogic();
 </script>
