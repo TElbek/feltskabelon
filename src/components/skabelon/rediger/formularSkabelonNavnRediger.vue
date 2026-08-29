@@ -40,7 +40,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-    let value = formularStore.getSkabelonRedigerModelById(Number(route.params.skabelonId));
+    let value = formularStore.getSkabelonNavnRedigerModelById(Number(route.params.skabelonNavnId));
     if (value) {
         state.skabelonRedigerModel = value;
         state.hasData = true;

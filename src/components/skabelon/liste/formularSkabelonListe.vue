@@ -14,10 +14,14 @@
                 <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.formularSkabelonNavn.id }}</div>
                 <div class="border-e border-gray-300">{{ getScenarieNavnById(skabelon.formularSkabelon.maerkningsScenarieId) }}</div>
                 <div class="border-e border-gray-300 pe-2">
-                    {{ skabelon.formularSkabelonNavn.skabelonNavn }}
+                    <router-link :to="`/formularskabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
+                        <span>{{ skabelon.formularSkabelonNavn.skabelonNavn }}</span>
+                    </router-link>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <a class="cursor-pointer" v-on:click="navigateToRedigerFelter(skabelon.formularSkabelonNavn.id)">Felter</a>
+                    <router-link :to="`/formularskabelonfelter/rediger/${skabelon.formularSkabelonNavn.id}`">
+                        <span>Felter</span>
+                    </router-link>
                 </div>
                 <div class="border-b col-span-4 border-gray-300"></div>
             </template>
@@ -34,10 +38,5 @@ const router = useRouter();
 
 function getScenarieNavnById(id: number): string {
     return formularStore.maerkningsScenarieListe.find((item) => item.id == id)?.navn ?? 'ukendt';
-}
-
-function navigateToRedigerFelter(skabelonId: number): void {
-    let skabelonNavnId = formularStore.getFormularNavnIdBySkabelonId(skabelonId);
-    router.push({path: '/formularskabelonfelter/rediger/' + skabelonNavnId});
 }
 </script>
