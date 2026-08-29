@@ -32,12 +32,21 @@ const router = createRouter({
       },
     },
     {
-      path: '/formularskabelonnavn/rediger/:skabelonNavnId',
-      name: 'formularskabelonNavnRediger',
+      path: '/skabelonnavn/rediger/:skabelonNavnId',
+      name: 'skabelonNavnRediger',
       component: () => import('@/views/formularSkabelonNavnRedigerView.vue'),
       meta: {
         showInNavBar: false,
         title: 'Rediger Skabelon'
+      },
+    },
+    {
+      path: '/skabelonnavn/kopier/:skabelonNavnId',
+      name: 'skabelonNavnKopier',
+      component: () => import('@/views/formularSkabelonNavnRedigerView.vue'),
+      meta: {
+        showInNavBar: false,
+        title: 'Kopier Skabelon'
       },
     },
     {

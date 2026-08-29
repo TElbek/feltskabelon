@@ -35,10 +35,12 @@ import { useRoute, useRouter } from 'vue-router';
 import { useFormularStore } from '@/stores/formularStore';
 import { computed, onMounted, reactive } from 'vue';
 import type { skabelonModelType } from '@/models/skabelonModelType';
+import { useRouteLogic } from '@/composables/route-logic';
 
 const formularStore = useFormularStore();
 const route = useRoute();
 const router = useRouter();
+const routeLogic = useRouteLogic();
 
 const state = reactive({
     hasData: false as boolean,
@@ -46,22 +48,44 @@ const state = reactive({
 });
 
 onMounted(() => {
-    let value = formularStore.getSkabelonNavnRedigerModelById(Number(route.params.skabelonNavnId));
-    if (value) {
-        state.skabelonRedigerModel = value;
-        state.hasData = true;
+    if(routeLogic.isAtSkabelonKopierRoute) {
+        getSkabelonNavnModelKopi();
+    }
+    else {
+        getSkabelonNavnModel();
     }
 });
 
 const scenarieNavn = computed(() => {
     return formularStore.maerkningsScenarieListe
         .some((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId) ?
-    formularStore.maerkningsScenarieListe
-        .find((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId)?.navn : ''
+        formularStore.maerkningsScenarieListe
+            .find((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId)?.navn : ''
 });
 
+function getSkabelonNavnModel(): void {
+    let value = formularStore.getSkabelonNavnRedigerModelById(Number(route.params.skabelonNavnId));
+    if (value) {
+        state.skabelonRedigerModel = value;
+        state.hasData = true;
+    }
+}
+
+function getSkabelonNavnModelKopi(): void {
+    let value = formularStore.kopierSkabelonNavn(Number(route.params.skabelonNavnId));
+    if (value) {
+        state.skabelonRedigerModel = value;
+        state.hasData = true;
+    }
+}
+
 function save() {
-    formularStore.opdaterSkabelon(state.skabelonRedigerModel);
+    if(routeLogic.isAtSkabelonKopierRoute) {
+        formularStore.opretSkabelonNavn(state.skabelonRedigerModel);
+    }
+    else {
+        formularStore.opdaterSkabelon(state.skabelonRedigerModel);
+    }
     router.back();
 }
 

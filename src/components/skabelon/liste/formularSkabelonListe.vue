@@ -12,7 +12,7 @@
                 <span class="font-semibold border-e pe-2 border-gray-300" v-if="index == 0">Navn</span>
                 <span class="font-semibold border-e pe-2 border-gray-300" v-if="index == 0">Skabelonfelter</span>
                 <div v-if="index == 0" class="font-semibold border-e pe-2 border-gray-300">
-                    <span v-if="!formularStore.erAdministrator">Kopi</span>
+                    <span v-if="!formularStore.erAdministrator">Handlinger</span>
                 </div>
 
                 <div v-if="index == 0" class="border-b border-gray-300 col-span-5"></div>
@@ -22,7 +22,7 @@
                 <div class="border-e border-gray-300 pe-2">
                     <router-link 
                         v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
-                        :to="`/formularskabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
+                        :to="`/skabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
                         <span>{{ skabelon.formularSkabelonNavn.skabelonNavn }}</span>
                     </router-link>
                     <div v-else class="text-gray-500">
@@ -40,7 +40,11 @@
                     </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <span v-if="!formularStore.erAdministrator">Opret</span>
+                    <router-link 
+                        :to="`/skabelonnavn/kopier/${skabelon.formularSkabelonNavn.id}`"
+                        v-if="!formularStore.erAdministrator && skabelon.formularSkabelonNavn.licenshaverId == undefined">
+                        Kopier
+                    </router-link>
                 </div>
                 <div class="border-b col-span-5 border-gray-300"></div>
             </template>

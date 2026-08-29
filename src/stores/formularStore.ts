@@ -53,7 +53,12 @@ export const useFormularStore = defineStore('formularStore', () => {
         return listOfModel;
     }
 
-    function getNewIdForFormularSkabelonFelt() {
+    function getNewIdForSkabelonNavn() {
+        return formularSkabelonNavnListe.value.length > 0 ?
+            Math.max(...formularSkabelonNavnListe.value.map(o => o.id)) + 1 : 1;
+    }
+
+    function getNewIdForSkabelonFelt() {
         return formularSkabelonFeltListe.value.length > 0 ?
             Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1 : 1;
     }
@@ -169,7 +174,7 @@ export const useFormularStore = defineStore('formularStore', () => {
 
     function formularSkabelonFeltFactory(formularSkabelonNavnId :number, maerkningsFormularFeltId: number) : formularSkabelonFeltType {
         return {
-           id: getNewIdForFormularSkabelonFelt(),
+           id: getNewIdForSkabelonFelt(),
            erMinimumsFelt: true, 
            formularSkabelonNavnId: formularSkabelonNavnId,
            maerkningsFormularFeltId: maerkningsFormularFeltId
@@ -185,6 +190,22 @@ export const useFormularStore = defineStore('formularStore', () => {
                 opdaterGenopfriskIndex();
             }
         }
+    }
+
+    function kopierSkabelonNavn(skabelonNavnId: number) : skabelonModelType | undefined {
+        let skabelonNavnModel = getSkabelonNavnRedigerModelById(skabelonNavnId);
+        if(skabelonNavnModel) {
+            skabelonNavnModel.formularSkabelonNavn.id = 0;
+            skabelonNavnModel.formularSkabelonNavn.licenshaverId = licenshaverId.value;
+            skabelonNavnModel.formularSkabelonNavn.skabelonNavn = 'Kopi af ' + skabelonNavnModel.formularSkabelonNavn.skabelonNavn;
+            return skabelonNavnModel;
+        }
+        return undefined;
+    }
+
+    function opretSkabelonNavn(skabelonNavnModel: skabelonModelType): void {
+        skabelonNavnModel.formularSkabelonNavn.id = getNewIdForSkabelonNavn();
+        formularSkabelonNavnListe.value.push(skabelonNavnModel.formularSkabelonNavn)
     }
 
     return {
@@ -215,6 +236,9 @@ export const useFormularStore = defineStore('formularStore', () => {
         setMaerkningsFormularFeltListe,
         setLicenshaverListe,
         setLicenshaver,
+
+        kopierSkabelonNavn,
+        opretSkabelonNavn,
         
         opdaterSkabelon,
         genopfriskIndex

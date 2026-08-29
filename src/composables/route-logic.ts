@@ -15,6 +15,10 @@ export function useRouteLogic() {
         return route.name === 'skabelonliste';
     });
 
+    const isAtSkabelonKopierRoute = computed(() => {
+        return route.name === 'skabelonNavnKopier';
+    });
+
     const visibleRoutes = computed(() => {
         return router.options.routes.filter((route) => route.meta?.showInNavBar == true)
     });
@@ -23,6 +27,7 @@ export function useRouteLogic() {
         homeRoute,
         isAtHomeRoute,
         isAtSkabelonListeRoute,
+        isAtSkabelonKopierRoute,
         visibleRoutes
     };
 }
