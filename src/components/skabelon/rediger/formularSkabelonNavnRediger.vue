@@ -1,5 +1,5 @@
 <template>
-    <div v-if="state.hasData"  class="lg:w-5/10">
+    <div v-if="state.hasData" class="lg:w-5/10">
         <div class="text-xl text-snhm">{{ state.skabelonRedigerModel.formularSkabelonNavn.skabelonNavn }}</div>
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
@@ -8,12 +8,18 @@
                     <tw-input :name="'formularSkabelonId'" :type="'text'"
                         v-model="state.skabelonRedigerModel.formularSkabelonNavn.skabelonNavn" v-focus></tw-input>
                     <tw-label :for="'maerkningsScenarieId'">Scenarie</tw-label>
-                    <tw-input-select v-model="state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId"
+                    <tw-input-select v-if="formularStore.erAdministrator"
+                        v-model="state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId"
                         :name="'maerkningsScenarieId'">
                         <option v-for="scenarie in formularStore.maerkningsScenarieListe" :value="scenarie.id">
                             {{ scenarie.navn }}
                         </option>
                     </tw-input-select>
+                    <div v-else>
+                        <div class="border-gray-400 border px-2 rounded">
+                            <span class="text-gray-400">{{ scenarieNavn }}</span>
+                        </div>
+                    </div>
                 </div>
             </form>
             <tw-flex class="mt-3">
@@ -27,7 +33,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import { useFormularStore } from '@/stores/formularStore';
-import { onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive } from 'vue';
 import type { skabelonModelType } from '@/models/skabelonModelType';
 
 const formularStore = useFormularStore();
@@ -45,6 +51,13 @@ onMounted(() => {
         state.skabelonRedigerModel = value;
         state.hasData = true;
     }
+});
+
+const scenarieNavn = computed(() => {
+    return formularStore.maerkningsScenarieListe
+        .some((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId) ?
+    formularStore.maerkningsScenarieListe
+        .find((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId)?.navn : ''
 });
 
 function save() {

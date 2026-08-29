@@ -1,6 +1,6 @@
 <template>
     <select
-        class="px-1 focus:outline-0 rounded border border-gray-300 h-8 focus:border-2 focus:border-snhm"
+        class="px-1 focus:outline-2 rounded border border-gray-300 h-8 focus:outline-snhm"
         @input="updateInputValue" :value="modelValue">
         <slot></slot>
     </select>
