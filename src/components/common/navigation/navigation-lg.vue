@@ -1,5 +1,4 @@
 <template>
-    {{ formularStore.erAdministrator }}
     <div class="max-lg:hidden text-snhm">
         <div class="flex flex-row justify-between">
             <ul class="flex gap-x-4 text-base cursor-pointer">
