@@ -28,6 +28,26 @@ export const useFormularStore = defineStore('formularStore', () => {
         genopfriskIndex.value ++;
     }
 
+    function getSkabelonListe() : skabelonModelType[] {
+        let listOfModel = [] as skabelonModelType[];
+
+        formularSkabelonNavnListe.value.filter((item) => item.licenshaverId == licenshaverId.value).forEach((skabelonNavn) => {
+            let skabelon = formularSkabelonListe.value.find((item) => item.id == skabelonNavn.formularSkabelonId);
+            if(skabelon) {
+                listOfModel.push(skabelonModelFactory(skabelon, skabelonNavn));
+            }
+        });
+
+        formularSkabelonNavnListe.value.filter((item) => item.licenshaverId == undefined).forEach((skabelonNavn) => {
+            let skabelon = formularSkabelonListe.value.find((item) => item.id == skabelonNavn.formularSkabelonId);
+            if(skabelon && !listOfModel.some((listOfModelItem) => listOfModelItem.formularSkabelon.id == skabelon.id)) {
+                listOfModel.push(skabelonModelFactory(skabelon, skabelonNavn));
+            }
+        });
+
+        return listOfModel;
+    }
+
     function getNewIdForFormularSkabelonFelt() {
         return formularSkabelonFeltListe.value.length > 0 ?
             Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1 : 1;
@@ -37,7 +57,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
         let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.formularSkabelonId == formularSkabelonId);
         if (skabelon && skabelonNavn) {
-            return skabelonRedigerModelFactory(skabelon, skabelonNavn);
+            return skabelonModelFactory(skabelon, skabelonNavn);
         }
         return undefined;
     }
@@ -78,7 +98,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         return false;
     }
 
-    function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonModelType {
+    function skabelonModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonModelType {
         return {
             formularSkabelon: skabelon,
             formularSkabelonNavn: skabelonNavn
@@ -169,6 +189,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         licenshaverListe,
         licenshaverId,
 
+        getSkabelonListe,
         getSkabelonRedigerModelById,
         getFormularNavnIdBySkabelonId,
         getFormularFelterBySkabelonNavnId,
