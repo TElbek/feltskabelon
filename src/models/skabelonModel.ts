@@ -1,7 +1,7 @@
 import type { formularSkabelonNavnType } from "@/types/formularSkabelonNavnType"
 import type { formularSkabelonType } from "@/types/formularSkabelonType"
 
-export type skabelonRedigerModel = {
+export type skabelonModel = {
     formularSkabelon: formularSkabelonType,
     formularSkabelonNavn: formularSkabelonNavnType
 }

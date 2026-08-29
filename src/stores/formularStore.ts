@@ -5,7 +5,7 @@ import type { formularSkabelonType } from '@/types/formularSkabelonType'
 import type { formularSkabelonNavnType } from '@/types/formularSkabelonNavnType';
 import type { formularSkabelonFeltType } from '@/types/formularSkabelonFeltType';
 import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
-import type { skabelonRedigerModel } from '@/models/skabelonRedigerModel';
+import type { skabelonModel } from '@/models/skabelonModel';
 import type { skabelonFormularFeltModelType } from '@/models/skabelonFormularFeltModel';
 import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFelt';
 import type { licensHaverType } from '@/types/licensHaverType';
@@ -33,7 +33,7 @@ export const useFormularStore = defineStore('formularStore', () => {
             Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1 : 1;
     }
 
-    function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonRedigerModel | undefined {
+    function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonModel | undefined {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
         let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.formularSkabelonId == formularSkabelonId);
         if (skabelon && skabelonNavn) {
@@ -78,7 +78,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         return false;
     }
 
-    function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonRedigerModel {
+    function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonModel {
         return {
             formularSkabelon: skabelon,
             formularSkabelonNavn: skabelonNavn
@@ -122,7 +122,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         licenshaverId.value = id;
     }
 
-    function opdaterSkabelon(skabelonRedigerModel: skabelonRedigerModel): void {
+    function opdaterSkabelon(skabelonRedigerModel: skabelonModel): void {
         if (skabelonRedigerModel.formularSkabelon.id > 0) {
             let skabelon = formularSkabelonListe.value.find((item => item.id == skabelonRedigerModel.formularSkabelon.id));
             if (skabelon) {

@@ -10,5 +10,11 @@
         "formularSkabelonId": 2,
         "licenshaverId": null,
         "skabelonNavn": "Skabelon 2"
+    },
+    {
+        "id": 3,
+        "formularSkabelonId": 1,
+        "licenshaverId": 2,
+        "skabelonNavn": "Kopi af Skabelon 1"
     }
 ]
