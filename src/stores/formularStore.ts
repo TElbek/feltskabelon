@@ -102,8 +102,8 @@ export const useFormularStore = defineStore('formularStore', () => {
 
     function skabelonModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonModelType {
         return {
-            formularSkabelon: skabelon,
-            formularSkabelonNavn: skabelonNavn
+            formularSkabelon: { ...skabelon},
+            formularSkabelonNavn: { ...skabelonNavn}
         }
     }
 
@@ -111,8 +111,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonFelt: formularSkabelonFeltType,
         maerkningsFormularFelt: MaerkningsFormularFeltType): skabelonFeltModelType {
         return { 
-            formularSkabelonFelt: formularSkabelonFelt, 
-            maerkningsFormularFelt: maerkningsFormularFelt 
+            formularSkabelonFelt: { ...formularSkabelonFelt}, 
+            maerkningsFormularFelt: { ...maerkningsFormularFelt} 
         };
     }
 
