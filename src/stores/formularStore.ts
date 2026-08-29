@@ -178,6 +178,9 @@ export const useFormularStore = defineStore('formularStore', () => {
     }
 
     function formularSkabelonFeltFactory(formularSkabelonNavnId :number, maerkningsFormularFeltId: number) : formularSkabelonFeltType {
+
+        //console.log(erAdministrator.value);
+
         return {
            id: getNewIdForSkabelonFelt(),
            erMinimumsFelt: erAdministrator.value, 

@@ -4,7 +4,8 @@
             <a :class="!formularStore.erAdministrator && model.formularSkabelonFelt.erMinimumsFelt ? 'disableClick' : ''"
                 class="cursor-pointer" @click="fjernSkabelonFelt(model.formularSkabelonFelt.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2">
-                    <div class="w-2.5 h-2.5 rounded-full relative top-2"
+                    <div v-if="!formularStore.erAdministrator"
+                         class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
                         :class="[model.formularSkabelonFelt.erMinimumsFelt ? 'bg-red-500' : 'bg-green-500']"></div>
                     <span
                         :title="model.formularSkabelonFelt.id + ' ' + model.formularSkabelonFelt.maerkningsFormularFeltId">{{
