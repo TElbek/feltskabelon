@@ -27,3 +27,9 @@ input[type=number] {
 }
 
 input::placeholder { color: var(--color-gray-500); }
+
+.router-link-exact-active,
+.router-link-active {
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-snhm);
+}

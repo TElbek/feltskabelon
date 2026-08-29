@@ -7,11 +7,11 @@
     {
         "id": 2,
         "erAdmin": false,
-        "navn": "Blåvand Fuglestation"
+        "navn": "Blåvand"
     },
     {
         "id": 3,
         "erAdmin": false,
-        "navn": "Gedser Fuglestation"
+        "navn": "Gedser"
     }
 ]

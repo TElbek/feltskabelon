@@ -12,7 +12,7 @@ export function useRouteLogic() {
     });
 
     const isAtSkabelonListeRoute = computed(() => {
-        return route.name === 'formularskabelonliste';
+        return route.name === 'skabelonliste';
     });
 
     const visibleRoutes = computed(() => {

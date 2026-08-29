@@ -24,6 +24,11 @@ export const useFormularStore = defineStore('formularStore', () => {
         return licenshaverListe.value.some((item) => item.id == licenshaverId.value && item.erAdmin);
     });
 
+    const licenshaverNavn = computed(() => {
+        return licenshaverListe.value.some((item) => item.id == licenshaverId.value) ?
+               licenshaverListe.value.find((item) => item.id == licenshaverId.value)?.navn : ''
+    });
+
     function opdaterGenopfriskIndex() {
         genopfriskIndex.value ++;
     }
@@ -197,6 +202,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         getFormularFelterBySkabelonNavnId,
         getVaelgMaerkningsFeltBySkabelonNavnId,
         erAdministrator,
+        licenshaverNavn,
 
         harSkabelonNavnDetteFelt,
         fjernSkabelonFelt,

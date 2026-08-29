@@ -23,8 +23,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/formularskabelon/snm/liste',
-      name: 'formularskabelonliste',
+      path: '/skabelon/liste',
+      name: 'skabelonliste',
       component: () => import('@/views/formularSkabelonListeView.vue'),
       meta: {
         showInNavBar: true,
