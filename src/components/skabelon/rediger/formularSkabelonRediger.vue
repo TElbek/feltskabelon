@@ -28,7 +28,7 @@
 import { useRoute, useRouter } from 'vue-router';
 import { useFormularStore } from '@/stores/formularStore';
 import { onMounted, reactive } from 'vue';
-import type { skabelonModel } from '@/models/skabelonModel';
+import type { skabelonModelType } from '@/models/skabelonModelType';
 
 const formularStore = useFormularStore();
 const route = useRoute();
@@ -36,7 +36,7 @@ const router = useRouter();
 
 const state = reactive({
     hasData: false as boolean,
-    skabelonRedigerModel: {} as skabelonModel
+    skabelonRedigerModel: {} as skabelonModelType
 });
 
 onMounted(() => {

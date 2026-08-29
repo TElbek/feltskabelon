@@ -5,8 +5,8 @@ import type { formularSkabelonType } from '@/types/formularSkabelonType'
 import type { formularSkabelonNavnType } from '@/types/formularSkabelonNavnType';
 import type { formularSkabelonFeltType } from '@/types/formularSkabelonFeltType';
 import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
-import type { skabelonModel } from '@/models/skabelonModel';
-import type { skabelonFormularFeltModelType } from '@/models/skabelonFormularFeltModel';
+import type { skabelonModelType } from '@/models/skabelonModelType';
+import type { skabelonFeltModelType } from '@/models/skabelonFeltModelType';
 import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFelt';
 import type { licensHaverType } from '@/types/licensHaverType';
 
@@ -33,7 +33,7 @@ export const useFormularStore = defineStore('formularStore', () => {
             Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1 : 1;
     }
 
-    function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonModel | undefined {
+    function getSkabelonRedigerModelById(formularSkabelonId: number): skabelonModelType | undefined {
         let skabelon = formularSkabelonListe.value.find((item) => item.id == formularSkabelonId);
         let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.formularSkabelonId == formularSkabelonId);
         if (skabelon && skabelonNavn) {
@@ -47,8 +47,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         return formularSkabelonNavn ? formularSkabelonNavn.id : undefined;
     }
 
-    function getFormularFelterBySkabelonNavnId(skabelonNavnId: number): skabelonFormularFeltModelType[] {
-        let listOfModel = [] as skabelonFormularFeltModelType[];
+    function getFormularFelterBySkabelonNavnId(skabelonNavnId: number): skabelonFeltModelType[] {
+        let listOfModel = [] as skabelonFeltModelType[];
         let formularSkabelonFeltList = formularSkabelonFeltListe.value.filter((item) => item.formularSkabelonNavnId == skabelonNavnId);
         formularSkabelonFeltList.forEach((formularSkabelonFelt) => {
             let maerkningsFelt = maerkningsFormularFeltListe.value.find((item) => item.id == formularSkabelonFelt.maerkningsFormularFeltId);
@@ -78,7 +78,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         return false;
     }
 
-    function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonModel {
+    function skabelonRedigerModelFactory(skabelon: formularSkabelonType, skabelonNavn: formularSkabelonNavnType): skabelonModelType {
         return {
             formularSkabelon: skabelon,
             formularSkabelonNavn: skabelonNavn
@@ -87,7 +87,7 @@ export const useFormularStore = defineStore('formularStore', () => {
 
     function skabelonFormularFeltModelFactory(
         formularSkabelonFelt: formularSkabelonFeltType,
-        maerkningsFormularFelt: MaerkningsFormularFeltType): skabelonFormularFeltModelType {
+        maerkningsFormularFelt: MaerkningsFormularFeltType): skabelonFeltModelType {
         return { 
             formularSkabelonFelt: formularSkabelonFelt, 
             maerkningsFormularFelt: maerkningsFormularFelt 
@@ -122,7 +122,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         licenshaverId.value = id;
     }
 
-    function opdaterSkabelon(skabelonRedigerModel: skabelonModel): void {
+    function opdaterSkabelon(skabelonRedigerModel: skabelonModelType): void {
         if (skabelonRedigerModel.formularSkabelon.id > 0) {
             let skabelon = formularSkabelonListe.value.find((item => item.id == skabelonRedigerModel.formularSkabelon.id));
             if (skabelon) {

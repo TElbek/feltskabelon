@@ -15,14 +15,14 @@ import { computed, onMounted, reactive, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useFormularStore } from '@/stores/formularStore';
 import { useRoute } from 'vue-router';
-import type { skabelonFormularFeltModelType } from '@/models/skabelonFormularFeltModel';
+import type { skabelonFeltModelType } from '@/models/skabelonFeltModelType';
 
 const formularStore = useFormularStore();
 const { genopfriskIndex } = storeToRefs(formularStore);
 const route = useRoute();
 
 const state = reactive({
-    skabelonFormularFeltModelList: [] as skabelonFormularFeltModelType[]
+    skabelonFormularFeltModelList: [] as skabelonFeltModelType[]
 });
 
 onMounted(() => {
