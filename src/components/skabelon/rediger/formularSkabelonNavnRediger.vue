@@ -40,7 +40,7 @@ import { useRouteLogic } from '@/composables/route-logic';
 const formularStore = useFormularStore();
 const route = useRoute();
 const router = useRouter();
-const routeLogic = useRouteLogic();
+const {isAtSkabelonKopierRoute} = useRouteLogic();
 
 const state = reactive({
     hasData: false as boolean,
@@ -48,7 +48,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-    if(routeLogic.isAtSkabelonKopierRoute) {
+    if(isAtSkabelonKopierRoute.value) {
         getSkabelonNavnModelKopi();
     }
     else {
@@ -64,7 +64,7 @@ const scenarieNavn = computed(() => {
 });
 
 function getSkabelonNavnModel(): void {
-    let value = formularStore.getSkabelonNavnRedigerModelById(Number(route.params.skabelonNavnId));
+    let value = formularStore.getSkabelonNavnModelById(Number(route.params.skabelonNavnId));
     if (value) {
         state.skabelonRedigerModel = value;
         state.hasData = true;
@@ -80,7 +80,7 @@ function getSkabelonNavnModelKopi(): void {
 }
 
 function save() {
-    if(routeLogic.isAtSkabelonKopierRoute) {
+    if(isAtSkabelonKopierRoute.value) {
         formularStore.opretSkabelonNavn(state.skabelonRedigerModel);
     }
     else {

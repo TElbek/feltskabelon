@@ -63,7 +63,7 @@ export const useFormularStore = defineStore('formularStore', () => {
             Math.max(...formularSkabelonFeltListe.value.map(o => o.id)) + 1 : 1;
     }
 
-    function getSkabelonNavnRedigerModelById(formularSkabelonNavnId: number): skabelonModelType | undefined {
+    function getSkabelonNavnModelById(formularSkabelonNavnId: number): skabelonModelType | undefined {
         let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.id == formularSkabelonNavnId);
         if(skabelonNavn) {
             let skabelon = formularSkabelonListe.value.find((item) => item.id == skabelonNavn.formularSkabelonId);
@@ -193,7 +193,7 @@ export const useFormularStore = defineStore('formularStore', () => {
     }
 
     function kopierSkabelonNavn(skabelonNavnId: number) : skabelonModelType | undefined {
-        let skabelonNavnModel = getSkabelonNavnRedigerModelById(skabelonNavnId);
+        let skabelonNavnModel = getSkabelonNavnModelById(skabelonNavnId);
         if(skabelonNavnModel) {
             skabelonNavnModel.formularSkabelonNavn.id = 0;
             skabelonNavnModel.formularSkabelonNavn.licenshaverId = licenshaverId.value;
@@ -218,7 +218,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         licenshaverId,
 
         getSkabelonListe,
-        getSkabelonNavnRedigerModelById,
+        getSkabelonNavnModelById,
         getFormularNavnIdBySkabelonId,
         getFormularFelterBySkabelonNavnId,
         getVaelgMaerkningsFeltBySkabelonNavnId,
