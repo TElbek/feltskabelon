@@ -1,6 +1,6 @@
 <template>
     <div v-if="state.hasData"  class="lg:w-5/10">
-        <div class="text-xl text-snhm">{{ route.meta.title }}: {{ state.skabelonRedigerModel.formularSkabelon.id }}</div>
+        <div class="text-xl text-snhm">{{ state.skabelonRedigerModel.formularSkabelonNavn.skabelonNavn }}</div>
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">

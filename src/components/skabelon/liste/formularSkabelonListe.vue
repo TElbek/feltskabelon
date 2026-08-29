@@ -14,14 +14,24 @@
                 <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.formularSkabelonNavn.id }}</div>
                 <div class="border-e border-gray-300">{{ getScenarieNavnById(skabelon.formularSkabelon.maerkningsScenarieId) }}</div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link :to="`/formularskabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
+                    <router-link 
+                        v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
+                        :to="`/formularskabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
                         <span>{{ skabelon.formularSkabelonNavn.skabelonNavn }}</span>
                     </router-link>
+                    <div v-else class="text-gray-500">
+                        {{ skabelon.formularSkabelonNavn.skabelonNavn }}
+                    </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link :to="`/formularskabelonfelter/rediger/${skabelon.formularSkabelonNavn.id}`">
-                        <span>Felter</span>
+                    <router-link 
+                        v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
+                        :to="`/formularskabelonfelter/rediger/${skabelon.formularSkabelonNavn.id}`">
+                        <span>Rediger felter</span>
                     </router-link>
+                    <div v-else>
+                        <span>Se felter **to be implemented**</span>
+                    </div>
                 </div>
                 <div class="border-b col-span-4 border-gray-300"></div>
             </template>
@@ -38,5 +48,9 @@ const router = useRouter();
 
 function getScenarieNavnById(id: number): string {
     return formularStore.maerkningsScenarieListe.find((item) => item.id == id)?.navn ?? 'ukendt';
+}
+
+function canEdit(licenshaverId: number) : boolean {
+    return formularStore.erAdministrator || licenshaverId == formularStore.licenshaverId;
 }
 </script>
