@@ -81,7 +81,9 @@ export const useFormularStore = defineStore('formularStore', () => {
 
     function getFormularFelterBySkabelonNavnId(skabelonNavnId: number): skabelonFeltModelType[] {
         let listOfModel = [] as skabelonFeltModelType[];
-        let formularSkabelonFeltList = formularSkabelonFeltListe.value.filter((item) => item.formularSkabelonNavnId == skabelonNavnId);
+        let skabelonNavnIdSet = getSkabelonNavnIdSetFromId(skabelonNavnId);
+
+        let formularSkabelonFeltList = formularSkabelonFeltListe.value.filter((item) => skabelonNavnIdSet.has(item.formularSkabelonNavnId));
         formularSkabelonFeltList.forEach((formularSkabelonFelt) => {
             let maerkningsFelt = maerkningsFormularFeltListe.value.find((item) => item.id == formularSkabelonFelt.maerkningsFormularFeltId);
             if(maerkningsFelt) {
@@ -92,19 +94,22 @@ export const useFormularStore = defineStore('formularStore', () => {
     }
 
     function getVaelgMaerkningsFeltBySkabelonNavnId(skabelonNavnId: number) : MaerkningsFormularFeltType[] {
-        let existingIdSet = new Set([...new Set(formularSkabelonFeltListe.value
-            .filter((item => item.formularSkabelonNavnId == skabelonNavnId))
+        let skabelonNavnIdSet = getSkabelonNavnIdSetFromId(skabelonNavnId);
+        
+        let existingIdSet = new Set([...new Set(formularSkabelonFeltListe.value.filter((item => skabelonNavnIdSet.has(item.formularSkabelonNavnId)))
             .map((item) => item.maerkningsFormularFeltId))]);
 
-        return maerkningsFormularFeltListe.value.filter(
-            (item) => !existingIdSet.has(item.id));
+        return maerkningsFormularFeltListe.value.filter((item) => !existingIdSet.has(item.id));
     }
 
     function harSkabelonNavnDetteFelt(skabelonNavnId: number, feltNavn: string) : boolean {
+
+        let skabelonNavnIdSet = getSkabelonNavnIdSetFromId(skabelonNavnId);
+
         if(maerkningsFormularFeltListe.value.some((item) => item.feltNavn == feltNavn)) {
             let maerkningsFormularFelt = maerkningsFormularFeltListe.value.find(item => item.feltNavn == feltNavn);
             return formularSkabelonFeltListe.value.some(
-                (item) => item.formularSkabelonNavnId == skabelonNavnId && 
+                (item) => skabelonNavnIdSet.has(item.formularSkabelonNavnId) && 
                           item.maerkningsFormularFeltId == maerkningsFormularFelt?.id);
         }
         return false;
@@ -175,7 +180,7 @@ export const useFormularStore = defineStore('formularStore', () => {
     function formularSkabelonFeltFactory(formularSkabelonNavnId :number, maerkningsFormularFeltId: number) : formularSkabelonFeltType {
         return {
            id: getNewIdForSkabelonFelt(),
-           erMinimumsFelt: true, 
+           erMinimumsFelt: erAdministrator.value, 
            formularSkabelonNavnId: formularSkabelonNavnId,
            maerkningsFormularFeltId: maerkningsFormularFeltId
         }
@@ -208,6 +213,20 @@ export const useFormularStore = defineStore('formularStore', () => {
         formularSkabelonNavnListe.value.push(skabelonNavnModel.formularSkabelonNavn)
     }
 
+    function getSkabelonNavnIdSetFromId(skabelonNavnId: number) {
+        let skabelonNavn = formularSkabelonNavnListe.value.find((item) => item.id == skabelonNavnId);
+        let skabelonNavnIdSet = new Set();
+
+        if(skabelonNavn && skabelonNavn?.licenshaverId > 0) {
+            let skabelonNavnListe = formularSkabelonNavnListe.value.filter((item => item.formularSkabelonId == skabelonNavn.formularSkabelonId));
+            skabelonNavnListe.forEach((skabelonNavnListeitem) => {skabelonNavnIdSet.add(skabelonNavnListeitem.id)});
+        }
+        else {
+            skabelonNavnIdSet.add(skabelonNavn?.id);
+        }
+        return skabelonNavnIdSet;
+    }
+
     return {
         formularSkabelonListe,
         formularSkabelonNavnListe,
@@ -222,6 +241,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         getFormularNavnIdBySkabelonId,
         getFormularFelterBySkabelonNavnId,
         getVaelgMaerkningsFeltBySkabelonNavnId,
+
         erAdministrator,
         licenshaverNavn,
 
