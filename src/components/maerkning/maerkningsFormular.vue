@@ -28,7 +28,7 @@
                 <tw-input :type="'text'" :name="'BroodPatch'" class="w-30" :placeholder="'Brood Patch'" />
                 <tw-input :type="'text'" :name="'project_Moult'" class="w-30" :placeholder="'Moult'" />
                 <tw-input :type="'number'" :name="'FatScore'" class="w-25 text-end" :placeholder="'FatScore'" />
-                <tw-input :type="'text'" :name="'FatScoreMethod'" class="w-40" :placeholder="'FatScoreMethod'" />
+                <tw-input :type="'text'" :name="'FatScoreMethod'" class="w-" :placeholder="'FatScoreMethod'" />
                 <tw-input :type="'text'" :name="'project_HabitatType'" class="w-30" :placeholder="'HabitatType'" />
                 <tw-input :type="'number'" :name="'project_TotalNetLength'" class="w-25 text-end"
                     :placeholder="'NetLength'" />
