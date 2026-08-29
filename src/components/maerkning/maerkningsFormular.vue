@@ -7,7 +7,7 @@
                 <tw-input :type="'text'" :name="'IdentificationNumber'" class="w-40 text-end"
                     :placeholder="'RingNummer'" />
                 <tw-input :type="'text'" :name="'euringDate'" class="w-30 text-center" :placeholder="'åååå-mm-dd'" />
-                <tw-input :type="'text'" :name="'euringTime'" class="w-15 text-center" :placeholder="'tt:mm'" />
+                <tw-input :type="'text'" :name="'euringTime'" class="w-20 text-center" :placeholder="'tt:mm'" />
                 <tw-input :type="'text'" :name="'SpeciesReported'" class="w-50" :placeholder="'Art'" />
                 <tw-input :type="'text'" :name="'SexReported'" class="w-20" :placeholder="'Køn'" />
                 <tw-input :type="'text'" :name="'AgeReported'" class="w-20 text-end" :placeholder="'Alder'" />
@@ -27,7 +27,7 @@
                 <tw-input :type="'text'" :name="'Remarks'" class="w-50" :placeholder="'Bemærkninger'" />
                 <tw-input :type="'text'" :name="'BroodPatch'" class="w-30" :placeholder="'Brood Patch'" />
                 <tw-input :type="'text'" :name="'project_Moult'" class="w-30" :placeholder="'Moult'" />
-                <tw-input :type="'number'" :name="'FatScore'" class="w-20 text-end" :placeholder="'FatScore'" />
+                <tw-input :type="'number'" :name="'FatScore'" class="w-25 text-end" :placeholder="'FatScore'" />
                 <tw-input :type="'text'" :name="'FatScoreMethod'" class="w-35" :placeholder="'FatScoreMethod'" />
                 <tw-input :type="'text'" :name="'project_HabitatType'" class="w-30" :placeholder="'HabitatType'" />
                 <tw-input :type="'number'" :name="'project_TotalNetLength'" class="w-25 text-end"

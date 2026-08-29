@@ -1,6 +1,6 @@
 <template>
     <input :type="type" :name="name" @input="updateInputValue" :value="modelValue" :placeholder="placeholder"
-        class="px-2 focus:outline-2 focus:outline-snhm rounded border border-gray-300 "/>
+        class="px-2 focus:outline-2 focus:outline-snhm rounded border border-gray-300 " :class="class"/>
 </template>
 
 <script setup lang="ts">
@@ -24,6 +24,9 @@ defineProps({
     placeholder: {
         type: String,
         default: ''
+    },
+    class: {
+        type: String
     }})
 const emit = defineEmits(['update:modelValue'])
 function updateInputValue(event: Event) {
