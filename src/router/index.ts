@@ -58,6 +58,15 @@ const router = createRouter({
         title: 'Rediger Skabelon'
       },
     },
+      {
+      path: '/formularskabelonfelter/vis/:skabelonNavnId',
+      name: 'formularskabelonFelterVis',
+      component: () => import('@/views/formularSkabelonFelterRedigerView.vue'),
+      meta: {
+        showInNavBar: false,
+        title: 'Rediger Skabelon'
+      },
+    },
     {
       path: '/licenshaver/:licenshaverId',
       name: 'licenshaver',

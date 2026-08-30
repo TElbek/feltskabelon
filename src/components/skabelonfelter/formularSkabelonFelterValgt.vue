@@ -1,8 +1,9 @@
 <template>
     <tw-flex>
-        <div v-for="model in sortedSkabelonFormularFeltModelList">
+        <div v-for="model in sortedSkabelonFormularFeltModelList"
+            :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
             <a :class="!formularStore.erAdministrator && model.formularSkabelonFelt.erMinimumsFelt ? 'disableClick' : ''"
-                class="cursor-pointer" @click="fjernSkabelonFelt(model.formularSkabelonFelt.id)">
+                @click="fjernSkabelonFelt(model.formularSkabelonFelt.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2"
                 :class="[model.maerkningsFormularFelt.basisfelt ? 'border-2 border-gray-400' : 'border border-gray-300']">
                     <div v-if="!formularStore.erAdministrator"
@@ -22,12 +23,16 @@
 import { computed, onMounted, reactive, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useFormularStore } from '@/stores/formularStore';
-import { useRoute } from 'vue-router';
 import type { skabelonFeltModelType } from '@/models/skabelonFeltModelType';
+import { useRoute } from 'vue-router';
+import { useRouteLogic } from '@/composables/route-logic';
+
+const routeLogic = useRouteLogic();
+const route = useRoute();
 
 const formularStore = useFormularStore();
 const { genopfriskIndex } = storeToRefs(formularStore);
-const route = useRoute();
+
 
 const state = reactive({
     skabelonFormularFeltModelList: [] as skabelonFeltModelType[]
@@ -46,7 +51,9 @@ const sortedSkabelonFormularFeltModelList = computed(() => {
 });
 
 function fjernSkabelonFelt(formularSkabelonFeltId: number): void {
-    formularStore.fjernSkabelonFelt(formularSkabelonFeltId);
+    if(routeLogic.isSkabelonFelterRedigerRoute.value) {
+        formularStore.fjernSkabelonFelt(formularSkabelonFeltId);
+    }
 }
 
 watch(genopfriskIndex, () => {

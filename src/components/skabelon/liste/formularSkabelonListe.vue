@@ -17,11 +17,12 @@
 
                 <div v-if="index == 0" class="border-b border-gray-300 col-span-5"></div>
 
-                <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.formularSkabelonNavn.id }}</div>
-                <div class="border-e border-gray-300">{{ getScenarieNavnById(skabelon.formularSkabelon.maerkningsScenarieId) }}</div>
+                <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.formularSkabelonNavn.id }}
+                </div>
+                <div class="border-e border-gray-300">{{
+                    getScenarieNavnById(skabelon.formularSkabelon.maerkningsScenarieId) }}</div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link 
-                        v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
+                    <router-link v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
                         :to="`/skabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
                         <span>{{ skabelon.formularSkabelonNavn.skabelonNavn }}</span>
                     </router-link>
@@ -30,18 +31,18 @@
                     </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link 
-                        v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
+                    <router-link v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
                         :to="`/formularskabelonfelter/rediger/${skabelon.formularSkabelonNavn.id}`">
                         <span>Rediger</span>
                     </router-link>
                     <div v-else>
-                        <span>Vis</span>
+                        <router-link :to="`/formularskabelonfelter/vis/${skabelon.formularSkabelonNavn.id}`">
+                            <span>Vis</span>
+                        </router-link>
                     </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link 
-                        :to="`/skabelonnavn/kopier/${skabelon.formularSkabelonNavn.id}`"
+                    <router-link :to="`/skabelonnavn/kopier/${skabelon.formularSkabelonNavn.id}`"
                         v-if="!formularStore.erAdministrator && skabelon.formularSkabelonNavn.licenshaverId == undefined">
                         Kopier
                     </router-link>
@@ -60,7 +61,7 @@ function getScenarieNavnById(id: number): string {
     return formularStore.maerkningsScenarieListe.find((item) => item.id == id)?.navn ?? 'ukendt';
 }
 
-function canEdit(licenshaverId: number) : boolean {
+function canEdit(licenshaverId: number): boolean {
     return formularStore.erAdministrator || licenshaverId == formularStore.licenshaverId;
 }
 </script>

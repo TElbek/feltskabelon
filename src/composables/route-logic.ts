@@ -19,6 +19,10 @@ export function useRouteLogic() {
         return route.name === 'skabelonNavnKopier';
     });
 
+    const isSkabelonFelterRedigerRoute = computed(() => {
+        return route.name === 'formularskabelonFelterRediger';
+    });
+
     const visibleRoutes = computed(() => {
         return router.options.routes.filter((route) => route.meta?.showInNavBar == true)
     });
@@ -28,6 +32,7 @@ export function useRouteLogic() {
         isAtHomeRoute,
         isAtSkabelonListeRoute,
         isAtSkabelonKopierRoute,
+        isSkabelonFelterRedigerRoute,
         visibleRoutes
     };
 }
