@@ -11,7 +11,7 @@ const route = useRoute();
 const router = useRouter();
 
 onMounted(() => {
-    formularStore.setLicenshaver(Number(route.params.licenshaverId));
+    formularStore.setLicenshaverId(Number(route.params.licenshaverId));
     router.back();
 });
 </script>

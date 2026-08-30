@@ -155,7 +155,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         licenshaverListe.value = liste;
     }
 
-    function setLicenshaver(id: number) {
+    function setLicenshaverId(id: number) {
         licenshaverId.value = id;
     }
 
@@ -258,7 +258,7 @@ export const useFormularStore = defineStore('formularStore', () => {
         setMaerkningsScenarieListe,
         setMaerkningsFormularFeltListe,
         setLicenshaverListe,
-        setLicenshaver,
+        setLicenshaverId,
 
         kopierSkabelonNavn,
         opretSkabelonNavn,
