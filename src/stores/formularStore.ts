@@ -178,9 +178,6 @@ export const useFormularStore = defineStore('formularStore', () => {
     }
 
     function formularSkabelonFeltFactory(formularSkabelonNavnId :number, maerkningsFormularFeltId: number) : formularSkabelonFeltType {
-
-        //console.log(erAdministrator.value);
-
         return {
            id: getNewIdForSkabelonFelt(),
            erMinimumsFelt: erAdministrator.value, 
@@ -221,7 +218,8 @@ export const useFormularStore = defineStore('formularStore', () => {
         let skabelonNavnIdSet = new Set();
 
         if(skabelonNavn && skabelonNavn?.licenshaverId > 0) {
-            let skabelonNavnListe = formularSkabelonNavnListe.value.filter((item => item.formularSkabelonId == skabelonNavn.formularSkabelonId));
+            let skabelonNavnListe = formularSkabelonNavnListe.value.filter
+                ((item => item.formularSkabelonId == skabelonNavn.formularSkabelonId && (item.licenshaverId == skabelonNavn.licenshaverId || item.licenshaverId == undefined)));
             skabelonNavnListe.forEach((skabelonNavnListeitem) => {skabelonNavnIdSet.add(skabelonNavnListeitem.id)});
         }
         else {
