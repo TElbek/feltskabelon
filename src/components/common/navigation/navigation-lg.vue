@@ -13,15 +13,14 @@
                     </router-link>
                 </li>
             </ul>
-            <ul class="flex gap-x-4 text-base cursor-pointer">
-                <template v-if="isAtSkabelonListeRoute">
-                    <li v-for="licenshaver in formularStore.licenshaverListe">
-                        <router-link :to="`/licenshaver/${licenshaver.id}`">
-                            <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']"
-                                class="relative top-1.5">{{ licenshaver.navn }}</span>
-                        </router-link>
-                    </li>
-                </template>
+            <ul class="flex gap-x-4 text-base">
+                <li v-for="licenshaver in formularStore.licenshaverListe">
+                    <router-link :to="`/licenshaver/${licenshaver.id}`"
+                        :class="[isAtSkabelonListeRoute ? 'cursor-pointer' : 'disableClick']">
+                        <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']"
+                            class="relative top-1.5">{{ licenshaver.navn }}</span>
+                    </router-link>
+                </li>
             </ul>
         </div>
     </div>
