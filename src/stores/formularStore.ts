@@ -7,7 +7,7 @@ import type { formularSkabelonFeltType } from '@/types/formularSkabelonFeltType'
 import type { maerkningsScenarieType } from '@/types/maerkningsScenarieType';
 import type { skabelonModelType } from '@/models/skabelonModelType';
 import type { skabelonFeltModelType } from '@/models/skabelonFeltModelType';
-import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFelt';
+import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFeltType';
 import type { licensHaverType } from '@/types/licensHaverType';
 
 export const useFormularStore = defineStore('formularStore', () => {

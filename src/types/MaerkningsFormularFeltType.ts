@@ -1,5 +1,6 @@
 export type MaerkningsFormularFeltType = {
     id: number,
     feltNavn: string,
-    placeholder: string
+    placeholder: string,
+    baisfelt: boolean
 }

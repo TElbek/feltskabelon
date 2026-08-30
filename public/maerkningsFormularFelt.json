@@ -2,32 +2,38 @@
     {
         "id": 1,
         "feltNavn": "RingingScheme",
-        "placeholder": "Scheme"
+        "placeholder": "Scheme",
+        "basisfelt": true
     },
     {
         "id": 2,
         "feltNavn": "euringDate",
-        "placeholder": "åååå-mm-dd"
+        "placeholder": "åååå-mm-dd",
+        "basisfelt": true
     },
     {
         "id": 3,
         "feltNavn": "euringTime",
-        "placeholder": "tt:mm"
+        "placeholder": "tt:mm",
+        "basisfelt": true
     },
     {
         "id": 4,
         "feltNavn": "LokalitetID",
-        "placeholder": "Lokalitet"
+        "placeholder": "Lokalitet",
+        "basisfelt": true
     },
     {
         "id": 5,
         "feltNavn": "PlaceName",
-        "placeholder": "Præcis Sted"
+        "placeholder": "Præcis Sted",
+        "basisfelt": false
     },
     {
         "id": 6,
         "feltNavn": "LicensNr",
-        "placeholder": "LicensNr"
+        "placeholder": "LicensNr",
+        "basisfelt": true
     },
     {
         "id": 7,
@@ -37,121 +43,145 @@
     {
         "id": 8,
         "feltNavn": "CatchingMethod",
-        "placeholder": "Fangstmetode"
+        "placeholder": "Fangstmetode",
+        "basisfelt": true
     },
     {
         "id": 9,
         "feltNavn": "IdentificationNumber",
-        "placeholder": "RingNummer"
+        "placeholder": "RingNummer",
+        "basisfelt": true
     },
     {
         "id": 10,
         "feltNavn": "SpeciesReported",
-        "placeholder": "Art"
+        "placeholder": "Art",
+        "basisfelt": true
     },
     {
         "id": 11,
         "feltNavn": "AgeReported",
-        "placeholder": "Alder"
+        "placeholder": "Alder",
+        "basisfelt": false
     },
     {
         "id": 12,
         "feltNavn": "Status",
-        "placeholder": "Status"
+        "placeholder": "Status",
+        "basisfelt": true
     },
     {
         "id": 13,
         "feltNavn": "Mass",
-        "placeholder": "Vægt (g)"
+        "placeholder": "Vægt (g)",
+        "basisfelt": false
     },
     {
         "id": 14,
         "feltNavn": "WingLength",
-        "placeholder": "Vinge (mm)"
+        "placeholder": "Vinge (mm)",
+        "basisfelt": false
     },
     {
         "id": 15,
         "feltNavn": "Remarks",
-        "placeholder": "Bemærkninger"
+        "placeholder": "Bemærkninger",
+        "basisfelt": true
     },
     {
         "id": 16,
         "feltNavn": "data_type",
-        "placeholder": "DataType"
+        "placeholder": "DataType",
+        "basisfelt": true
     },
     {
         "id": 17,
         "feltNavn": "BroodPatch",
-        "placeholder": "Brood Patch"
+        "placeholder": "Brood Patch",
+        "basisfelt": false
     },
     {
         "id": 18,
         "feltNavn": "project_Moult",
-        "placeholder": "Moult"
+        "placeholder": "Moult",
+        "basisfelt": false
     },
     {
         "id": 19,
         "feltNavn": "FatScore",
-        "placeholder": "FatScore"
+        "placeholder": "FatScore",
+        "basisfelt": false
     },
     {
         "id": 20,
         "feltNavn": "FatScoreMethod",
-        "placeholder": "FatScoreMethod"
+        "placeholder": "FatScoreMethod",
+        "basisfelt": false
     },
     {
         "id": 21,
         "feltNavn": "project_HabitatType",
-        "placeholder": "HabitatType"
+        "placeholder": "HabitatType",
+        "basisfelt": false
     },
     {
         "id": 22,
         "feltNavn": "project_TotalNetLength",
-        "placeholder": "NetLength"
+        "placeholder": "NetLength",
+        "basisfelt": false
     },
     {
         "id": 23,
         "feltNavn": "project_VisitPeriod",
-        "placeholder": "VisitPeriod"
+        "placeholder": "VisitPeriod",
+        "basisfelt": false
     },
     {
         "id": 24,
         "feltNavn": "project_TimeStart",
-        "placeholder": "Start (tt:mm)"
+        "placeholder": "Start (tt:mm)",
+        "basisfelt": false
     },
     {
         "id": 25,
         "feltNavn": "project_TimeEnd",
-        "placeholder": "Slut (tt:mm)"
+        "placeholder": "Slut (tt:mm)",
+        "basisfelt": false
     },
     {
         "id": 26,
         "feltNavn": "ColorRing",
-        "placeholder": "Farvering"
+        "placeholder": "Farvering",
+        "basisfelt": false
     },
     {
         "id": 27,
         "feltNavn": "ColorRingNr",
-        "placeholder": "Farvering Nr"
+        "placeholder": "Farvering Nr",
+        "basisfelt": false
     },
     {
         "id": 28,
         "feltNavn": "CatchingLures",
-        "placeholder": "Lokkemetode"
+        "placeholder": "Lokkemetode",
+        "basisfelt": false
     },
     {
         "id": 29,
         "feltNavn": "SexReported",
-        "placeholder": "Køn"
+        "placeholder": "Køn",
+        "basisfelt": false
     },
     {
         "id": 30,
         "feltNavn": "BroodSize",
-        "placeholder": "Kuld"
+        "placeholder": "Kuld",
+        "basisfelt": false
     },
     {
         "id": 31,
         "feltNavn": "PullusAge",
-        "placeholder": "Unge alder"
+        "placeholder": "Unge alder",
+        "basisfelt": false
     }
 ]
