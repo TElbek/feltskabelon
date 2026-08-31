@@ -2,40 +2,39 @@
     <div>
         <form id="maerkningForm" :class="[formIsVisible ? 'visible' : 'hidden']">
             <div class="flex flex-row flex-wrap mt-2 gap-2">
-                <tw-input :type="'text'" :name="'data_type'" class="w-25" :placeholder="'DataType'" />
-                <tw-input :type="'text'" :name="'RingingScheme'" class="w-20" :placeholder="'Scheme'" />
-                <tw-input :type="'text'" :name="'IdentificationNumber'" class="w-40 text-end"
-                    :placeholder="'RingNummer'" />
-                <tw-input :type="'text'" :name="'euringDate'" class="w-30 text-center" :placeholder="'åååå-mm-dd'" />
-                <tw-input :type="'text'" :name="'euringTime'" class="w-20 text-center" :placeholder="'tt:mm'" />
-                <tw-input :type="'text'" :name="'SpeciesReported'" class="w-50" :placeholder="'Art'" />
-                <tw-input :type="'text'" :name="'SexReported'" class="w-20" :placeholder="'Køn'" />
-                <tw-input :type="'text'" :name="'AgeReported'" class="w-20 text-end" :placeholder="'Alder'" />
-                <tw-input :type="'text'" :name="'LokalitetID'" class="w-50" :placeholder="'Lokalitet'" />
-                <tw-input :type="'number'" :name="'LicensNr'" class="w-30 text-end" :placeholder="'LicensNr'" />
-                <tw-input :type="'text'" :name="'CatchingMethod'" class="w-35" :placeholder="'Fangstmetode'" />
-                <tw-input :type="'text'" :name="'PlaceName'" class="w-30" :placeholder="'Præcis sted'" />
-                <tw-input :type="'text'" :name="'ColorRing'" class="w-30" :placeholder="'Farvering'" />
-                <tw-input :type="'number'" :name="'ColorRingNr'" class="w-30 text-end" :placeholder="'Farvering Nr'" />
-                <tw-input :type="'text'" :name="'Status'" class="w-30" :placeholder="'Status'" />
-                <tw-input :type="'number'" :name="'Sub-licensNr'" class="w-30 text-end" :placeholder="'Sub-licensNr'" />
-                <tw-input :type="'number'" :name="'BroodSize'" class="w-30 text-end" :placeholder="'Kuld'" />
-                <tw-input :type="'text'" :name="'PullusAge'" class="w-30" :placeholder="'Unge alder'" />
-                <tw-input :type="'text'" :name="'CatchingLures'" class="w-30" :placeholder="'Lokkemetode'" />
-                <tw-input :type="'number'" :name="'Mass'" class="w-20 text-end" :placeholder="'Vægt (g)'" />
-                <tw-input :type="'number'" :name="'WingLength'" class="w-25 text-end" :placeholder="'Vinge (mm)'" />
-                <tw-input :type="'text'" :name="'Remarks'" class="w-50" :placeholder="'Bemærkninger'" />
-                <tw-input :type="'text'" :name="'BroodPatch'" class="w-30" :placeholder="'Brood Patch'" />
-                <tw-input :type="'text'" :name="'project_Moult'" class="w-30" :placeholder="'Moult'" />
-                <tw-input :type="'number'" :name="'FatScore'" class="w-25 text-end" :placeholder="'FatScore'" />
-                <tw-input :type="'text'" :name="'FatScoreMethod'" class="w-" :placeholder="'FatScoreMethod'" />
-                <tw-input :type="'text'" :name="'project_HabitatType'" class="w-30" :placeholder="'HabitatType'" />
-                <tw-input :type="'number'" :name="'project_TotalNetLength'" class="w-25 text-end"
+                <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
+                <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Scheme'" />
+                <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" />
+                <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'åååå-mm-dd'" />
+                <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'tt:mm'" />
+                <tw-input :type="'text'" :name="'SpeciesReported'" :placeholder="'Art'" />
+                <tw-input :type="'text'" :name="'SexReported'" :placeholder="'Køn'" />
+                <tw-input :type="'text'" :name="'AgeReported'" class="text-end" :placeholder="'Alder'" />
+                <tw-input :type="'text'" :name="'LokalitetID'" :placeholder="'Lokalitet'" />
+                <tw-input :type="'number'" :name="'LicensNr'" class="text-end" :placeholder="'LicensNr'" />
+                <tw-input :type="'text'" :name="'CatchingMethod'" :placeholder="'Fangstmetode'" />
+                <tw-input :type="'text'" :name="'PlaceName'" :placeholder="'Præcis sted'" />
+                <tw-input :type="'text'" :name="'ColorRing'" :placeholder="'Farvering'" />
+                <tw-input :type="'number'" :name="'ColorRingNr'" class="text-end" :placeholder="'Farvering Nr'" />
+                <tw-input :type="'text'" :name="'Status'" :placeholder="'Status'" />
+                <tw-input :type="'number'" :name="'Sub-licensNr'" class="text-end" :placeholder="'Sub-licensNr'" />
+                <tw-input :type="'number'" :name="'BroodSize'" class="text-end" :placeholder="'Kuld'" />
+                <tw-input :type="'text'" :name="'PullusAge'" :placeholder="'Unge alder'" />
+                <tw-input :type="'text'" :name="'CatchingLures'" :placeholder="'Lokkemetode'" />
+                <tw-input :type="'number'" :name="'Mass'" class="text-end" :placeholder="'Vægt (g)'" />
+                <tw-input :type="'number'" :name="'WingLength'" class="text-end" :placeholder="'Vinge (mm)'" />
+                <tw-input :type="'text'" :name="'Remarks'" :placeholder="'Bemærkninger'" />
+                <tw-input :type="'text'" :name="'BroodPatch'" :placeholder="'Brood Patch'" />
+                <tw-input :type="'text'" :name="'project_Moult'" :placeholder="'Moult'" />
+                <tw-input :type="'number'" :name="'FatScore'" class="text-end" :placeholder="'FatScore'" />
+                <tw-input :type="'text'" :name="'FatScoreMethod'" :placeholder="'FatScoreMethod'" />
+                <tw-input :type="'text'" :name="'project_HabitatType'" :placeholder="'HabitatType'" />
+                <tw-input :type="'number'" :name="'project_TotalNetLength'" class="text-end"
                     :placeholder="'NetLength'" />
-                <tw-input :type="'text'" :name="'project_VisitPeriod'" class="w-25" :placeholder="'VisitPeriod'" />
-                <tw-input :type="'text'" :name="'project_TimeStart'" class="w-30 text-center"
+                <tw-input :type="'text'" :name="'project_VisitPeriod'" :placeholder="'VisitPeriod'" />
+                <tw-input :type="'text'" :name="'project_TimeStart'" class="text-center"
                     :placeholder="'Start (tt:mm)'" />
-                <tw-input :type="'text'" :name="'project_TimeEnd'" class="w-30 text-center"
+                <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center"
                     :placeholder="'End (tt:mm)'" />
             </div>
         </form>
@@ -96,3 +95,11 @@ watch(genopfriskIndex, () => {
     hideAndShow();
 })
 </script>
+
+<style scoped>
+input {
+    field-sizing: content;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+</style>
