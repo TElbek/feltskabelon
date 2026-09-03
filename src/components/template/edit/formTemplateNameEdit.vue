@@ -1,16 +1,23 @@
 <template>
     <div v-if="state.hasData" class="lg:w-5/10">
-        <div class="text-xl text-snhm">{{ state.templateModel.formTemplateNameType.templateName }}</div>
+        <div class="text-xl text-snhm">{{ state.templateModel.formTemplateName.templateName }}</div>
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">
-                    <tw-label :for="'formTemplateId'">Name</tw-label>
-                    <tw-input :name="'formTemplateId'" :type="'text'"
-                        v-model="state.templateModel.formTemplateNameType.templateName" v-focus></tw-input>
+                    <div class="grid grid-cols-[1fr_max-content] gap-x-3">
+                        <div class="flex flex-col gap-1">
+                            <tw-label :for="'formTemplateId'">Name</tw-label>
+                            <tw-input :name="'formTemplateId'" :type="'text'"
+                                v-model="state.templateModel.formTemplateName.templateName" v-focus></tw-input>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <tw-label :for="'isActive'">Active</tw-label>
+                            <tw-input-checkbox v-model="state.templateModel.formTemplateName.isActive" :name="'isActive'" />
+                        </div>
+                    </div>
                     <tw-label :for="'bandingScenarioId'">Scenario</tw-label>
                     <tw-input-select v-if="dataStore.isAdministrator"
-                        v-model="state.templateModel.formTemplateType.bandingScenarioId"
-                        :name="'bandingScenarioId'">
+                        v-model="state.templateModel.formTemplate.bandingScenarioId" :name="'bandingScenarioId'">
                         <option v-for="scenario in dataStore.bandingScenarioList" :value="scenario.id">
                             {{ scenario.name }}
                         </option>
@@ -40,7 +47,7 @@ import { useRouteLogic } from '@/composables/route-logic';
 const dataStore = useDataStore();
 const route = useRoute();
 const router = useRouter();
-const {isAtTemplateNameCopyRoute} = useRouteLogic();
+const { isAtTemplateNameCopyRoute } = useRouteLogic();
 
 const state = reactive({
     hasData: false as boolean,
@@ -48,7 +55,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-    if(isAtTemplateNameCopyRoute.value) {
+    if (isAtTemplateNameCopyRoute.value) {
         getCopyOfTemplateNameModel();
     }
     else {
@@ -58,9 +65,9 @@ onMounted(() => {
 
 const scenarioName = computed(() => {
     return dataStore.bandingScenarioList
-        .some((item) => item.id == state.templateModel.formTemplateType.bandingScenarioId) ?
+        .some((item) => item.id == state.templateModel.formTemplate.bandingScenarioId) ?
         dataStore.bandingScenarioList
-            .find((item) => item.id == state.templateModel.formTemplateType.bandingScenarioId)?.name : ''
+            .find((item) => item.id == state.templateModel.formTemplate.bandingScenarioId)?.name : ''
 });
 
 function getTemplateNameModel(): void {
@@ -80,7 +87,7 @@ function getCopyOfTemplateNameModel(): void {
 }
 
 function save() {
-    if(isAtTemplateNameCopyRoute.value) {
+    if (isAtTemplateNameCopyRoute.value) {
         dataStore.createTemplateName(state.templateModel);
     }
     else {

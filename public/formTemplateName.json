@@ -3,12 +3,14 @@
         "id": 10,
         "formTemplateId": 1,
         "licenseeId": null,
-        "templateName": "Template 1"
+        "templateName": "Template 1",
+        "isActive": true
     },
     {
         "id": 20,
         "formTemplateId": 2,
         "licenseeId": null,
-        "templateName": "Template 2"
+        "templateName": "Template 2",
+        "isActive": true
     }
 ]

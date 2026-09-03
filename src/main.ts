@@ -45,6 +45,7 @@ function registerTailWindComponents() {
     app.component('tw-flex', defineAsyncComponent(() => import('./components/common/tailwind/tw-flex.vue')));
     app.component('tw-grid-cols-generic', defineAsyncComponent(() => import('./components/common/tailwind/tw-grid-cols-generic.vue')));
     app.component('tw-input', defineAsyncComponent(() => import('./components/common/tailwind/tw-input.vue')));
+    app.component('tw-input-checkbox', defineAsyncComponent(() => import('./components/common/tailwind/tw-input-checkbox.vue')));
     app.component('tw-input-select', defineAsyncComponent(() => import('./components/common/tailwind/tw-input-select.vue')));
     app.component('tw-label', defineAsyncComponent(() => import('./components/common/tailwind/tw-label.vue')));
     app.component('tw-show-lg', defineAsyncComponent(() => import('./components/common/tailwind/tw-show-lg.vue')));

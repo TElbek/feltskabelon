@@ -28,6 +28,9 @@ input[type=number] {
 
 input::placeholder { color: var(--color-gray-500); }
 
+input[type="checkbox"]:checked {
+  accent-color: var(--color-snhm);
+}
 .router-link-exact-active,
 .router-link-active {
   padding-bottom: 10px;

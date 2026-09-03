@@ -36,17 +36,17 @@ export const useDataStore = defineStore('dataStore', () => {
     function getTemplateModelList() : templateModelType[] {
         let listOfModel = [] as templateModelType[];
 
-        formTemplateNameList.value.filter((item) => item.licenseeId == LicenseeId.value).forEach((templateName) => {
-            let template = formTemplateList.value.find((item) => item.id == templateName.formTemplateId);
-            if(template) {
-                listOfModel.push(templateModelFactory(template, templateName));
+        formTemplateNameList.value.filter((formTemplateName) => formTemplateName.licenseeId == LicenseeId.value).forEach((templateName) => {
+            let formTemplate = formTemplateList.value.find((item) => item.id == templateName.formTemplateId);
+            if(formTemplate && formTemplateNameList.value.some((item) => item.formTemplateId == formTemplate.id && item.licenseeId == undefined && item.isActive)) {
+                listOfModel.push(templateModelFactory(formTemplate, templateName));
             }
         });
 
-        formTemplateNameList.value.filter((item) => item.licenseeId == undefined).forEach((templateName) => {
-            let template = formTemplateList.value.find((item) => item.id == templateName.formTemplateId);
-            if(template && !listOfModel.some((listOfModelItem) => listOfModelItem.formTemplateType.id == template.id)) {
-                listOfModel.push(templateModelFactory(template, templateName));
+        formTemplateNameList.value.filter((formTemplateName) => formTemplateName.licenseeId == undefined).forEach((templateName) => {
+            let formTemplate = formTemplateList.value.find((item) => item.id == templateName.formTemplateId);
+            if(formTemplate && !listOfModel.some((listOfModelItem) => listOfModelItem.formTemplate.id == formTemplate.id)) {
+                listOfModel.push(templateModelFactory(formTemplate, templateName));
             }
         });
 
@@ -117,8 +117,8 @@ export const useDataStore = defineStore('dataStore', () => {
 
     function templateModelFactory(template: formTemplateType, templateName: formTemplateNameType): templateModelType {
         return {
-            formTemplateType: { ...template},
-            formTemplateNameType: { ...templateName}
+            formTemplate: { ...template},
+            formTemplateName: { ...templateName}
         }
     }
 
@@ -160,14 +160,15 @@ export const useDataStore = defineStore('dataStore', () => {
     }
 
     function updateFormTemplate(templateModel: templateModelType): void {
-        if (templateModel.formTemplateType.id > 0) {
-            let formTemplate = formTemplateList.value.find((item => item.id == templateModel.formTemplateType.id));
+        if (templateModel.formTemplate.id > 0) {
+            let formTemplate = formTemplateList.value.find((item => item.id == templateModel.formTemplate.id));
             if (formTemplate) {
-                formTemplate.bandingScenarioId = templateModel.formTemplateType.bandingScenarioId;
+                formTemplate.bandingScenarioId = templateModel.formTemplate.bandingScenarioId;
             }
-            let formTemplateName = formTemplateNameList.value.find((item) => item.id == templateModel.formTemplateNameType.id);
+            let formTemplateName = formTemplateNameList.value.find((item) => item.id == templateModel.formTemplateName.id);
             if (formTemplateName) {
-                formTemplateName.templateName = templateModel.formTemplateNameType.templateName;
+                formTemplateName.templateName = templateModel.formTemplateName.templateName;
+                formTemplateName.isActive = templateModel.formTemplateName.isActive;
             }
         }
     }
@@ -200,17 +201,17 @@ export const useDataStore = defineStore('dataStore', () => {
     function copyTemplateName(templateNameId: number) : templateModelType | undefined {
         let templateNameModel = getTemplateNameModelById(templateNameId);
         if(templateNameModel) {
-            templateNameModel.formTemplateNameType.id = 0;
-            templateNameModel.formTemplateNameType.licenseeId = LicenseeId.value;
-            templateNameModel.formTemplateNameType.templateName = 'Copy of ' + templateNameModel.formTemplateNameType.templateName;
+            templateNameModel.formTemplateName.id = 0;
+            templateNameModel.formTemplateName.licenseeId = LicenseeId.value;
+            templateNameModel.formTemplateName.templateName = 'Copy of ' + templateNameModel.formTemplateName.templateName;
             return templateNameModel;
         }
         return undefined;
     }
 
     function createTemplateName(templateModel: templateModelType): void {
-        templateModel.formTemplateNameType.id = getNewIdForTemplateName();
-        formTemplateNameList.value.push(templateModel.formTemplateNameType)
+        templateModel.formTemplateName.id = getNewIdForTemplateName();
+        formTemplateNameList.value.push(templateModel.formTemplateName)
     }
 
     function getTemplateNameIdSetFromId(templateNameId: number) {
@@ -261,7 +262,7 @@ export const useDataStore = defineStore('dataStore', () => {
         copyTemplateName: copyTemplateName,
         createTemplateName: createTemplateName,
         
-        updateFormTemplate: updateFormTemplate,
+        updateFormTemplate,
         refreshIndex
     }
 })

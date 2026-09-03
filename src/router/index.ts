@@ -29,7 +29,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateListView.vue'),
       meta: {
         showInNavBar: true,
-        title: 'Template List'
+        title: 'Templates'
       },
     },
     {
