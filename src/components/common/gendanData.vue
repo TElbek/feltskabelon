@@ -15,11 +15,11 @@ import { useDataStore } from '@/stores/dataStore';
 
 const dataLoader = useDataLoader();
 const router = useRouter();
-const { setLicenshaverId } = useDataStore();
+const { setLicenseeId } = useDataStore();
 
 function gendanData(): void {
     dataLoader.loadJSONData();
-    setLicenshaverId(1);
+    setLicenseeId(1);
     goBack();
 }
 

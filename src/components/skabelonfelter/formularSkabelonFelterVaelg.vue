@@ -24,7 +24,7 @@ const routeLogic = useRouteLogic();
 const route = useRoute();
 
 const formularStore = useDataStore();
-const { genopfriskIndex } = storeToRefs(formularStore);
+const { refreshIndex: genopfriskIndex } = storeToRefs(formularStore);
 
 const state = reactive({
     MaerkningsFormularFeltList: [] as bandingFormType[]
@@ -39,12 +39,12 @@ onMounted(() => {
 });
 
 function getVaelgMaerkningsFelter() {
-    state.MaerkningsFormularFeltList = formularStore.getVaelgMaerkningsFeltBySkabelonNavnId(Number(route.params.skabelonNavnId))
+    state.MaerkningsFormularFeltList = formularStore.getChooseBandingFieldsByTemplateNameId(Number(route.params.skabelonNavnId))
 }
 
 function tilfoejSkabelonFelt(maerkningsFeltId: number) {
     if(routeLogic.isSkabelonFelterRedigerRoute.value) {
-        formularStore.tilfoejSkabelonFelt(Number(route.params.skabelonNavnId), maerkningsFeltId);
+        formularStore.addFormTemplateField(Number(route.params.skabelonNavnId), maerkningsFeltId);
     }
 }
 

@@ -83,12 +83,12 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const formularStore = useDataStore();
   if(to.name == 'formularskabelonFelterRediger') {
-    if(formularStore.formularSkabelonNavnListe.some((item) => item.id == Number(to.params.skabelonNavnId) && 
-                                                              item.licenseeId == formularStore.licenshaverId)) {
+    if(formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.skabelonNavnId) && 
+                                                              item.licenseeId == formularStore.LicenseeId)) {
       next();
     }
-    else if(formularStore.erAdministrator &&
-            formularStore.formularSkabelonNavnListe.some((item) => item.id == Number(to.params.skabelonNavnId) && 
+    else if(formularStore.isAdministrator &&
+            formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.skabelonNavnId) && 
                                                                    item.licenseeId == undefined)) {
       next();
     }

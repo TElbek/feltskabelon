@@ -14,11 +14,11 @@
                 </li>
             </ul>
             <ul class="flex gap-x-4 text-base">
-                <li v-for="licenshaver in formularStore.licenshaverListe">
-                    <router-link :to="`/licenshaver/${licenshaver.id}`"
+                <li v-for="licensee in dataStore.licenseeList" :key="licensee.id">
+                    <router-link :to="`/licenshaver/${licensee.id}`"
                         :class="[isAtSkabelonListeRoute ? 'cursor-pointer' : 'disableClick']">
-                        <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']"
-                            class="relative top-1.5">{{ licenshaver.name }}</span>
+                        <span :class="[dataStore.LicenseeId == licensee.id ? 'font-bold' : '']"
+                            class="relative top-1.5">{{ licensee.name }}</span>
                     </router-link>
                 </li>
             </ul>
@@ -31,6 +31,6 @@
 import { useRouteLogic } from '@/composables/route-logic.ts'
 import { useDataStore } from '@/stores/dataStore';
 
-const formularStore = useDataStore();
+const dataStore = useDataStore();
 const { visibleRoutes, homeRoute, isAtSkabelonListeRoute } = useRouteLogic();
 </script>

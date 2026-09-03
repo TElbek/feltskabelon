@@ -7,22 +7,22 @@ export function useDataLoader() {
 
         await Promise.all([
             api.get('formularSkabelon.json').then(res =>
-                formularStore.setformularSkabelonListe(res.data)
+                formularStore.setFormTemplateList(res.data)
             ),
             api.get('formularSkabelonNavn.json').then(res =>
-                formularStore.setformularSkabelonNavnListe(res.data)
+                formularStore.setFormTemplateNameList(res.data)
             ),
             api.get('formularSkabelonFelt.json').then(res =>
-                formularStore.setformularSkabelonFeltListe(res.data)
+                formularStore.setFormTemplateFieldList(res.data)
             ),
             api.get('maerkningsScenarie.json').then(res =>
-                formularStore.setMaerkningsScenarieListe(res.data)
+                formularStore.setBandingScenarioList(res.data)
             ),
             api.get('maerkningsFormularFelt.json').then(res =>
-                formularStore.setMaerkningsFormularFeltListe(res.data)
+                formularStore.setBandingFormList(res.data)
             ),
             api.get('licensHaver.json').then(res =>
-                formularStore.setLicenshaverListe(res.data)
+                formularStore.setLicenseeList(res.data)
             ),
         ])
     }

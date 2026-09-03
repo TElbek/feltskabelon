@@ -17,7 +17,7 @@ interface formularSkabelonHeaderProps {
 }
 
 const props = defineProps<formularSkabelonHeaderProps>();
-const formularStore = useDataStore();
+const dataStore = useDataStore();
 
 const state = reactive({
     formularSkabelon: {} as formTemplateType | undefined,
@@ -26,11 +26,11 @@ const state = reactive({
 });
 
 onMounted(() => {
-    state.formularSkabelonNavn = formularStore.formularSkabelonNavnListe.find((item) => item.id == props.formularSkabelonNavnId);
+    state.formularSkabelonNavn = dataStore.formTemplateNameList.find((item) => item.id == props.formularSkabelonNavnId);
     if(state.formularSkabelonNavn) {
-        state.formularSkabelon = formularStore.formularSkabelonListe.find((item) => item.id == state.formularSkabelonNavn?.formTemplateId);
+        state.formularSkabelon = dataStore.formTemplateList.find((item) => item.id == state.formularSkabelonNavn?.formTemplateId);
         if(state.formularSkabelon) {
-            state.maerkningsScenarieType = formularStore.maerkningsScenarieListe.find((item) => item.id == state.formularSkabelon?.bandingScenarioId)
+            state.maerkningsScenarieType = dataStore.bandingScenarioList.find((item) => item.id == state.formularSkabelon?.bandingScenarioId)
         }
     }
 })

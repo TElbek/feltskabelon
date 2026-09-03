@@ -49,7 +49,7 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const formularStore = useDataStore();
-const { genopfriskIndex } = storeToRefs(formularStore);
+const { refreshIndex: genopfriskIndex } = storeToRefs(formularStore);
 
 const formIsVisible = ref(false);
 const formularSkabelonNavnId = computed(() => Number(route.params.skabelonNavnId));
@@ -81,7 +81,7 @@ function loopElementList(elementList: HTMLCollectionOf<Element>) {
     for (let index = 0; index < elementList.length; ++index) {
         let element = elementList[index];
         if (element instanceof HTMLInputElement) {
-            formularStore.harSkabelonNavnDetteFelt(formularSkabelonNavnId.value, element.name) ?
+            formularStore.hasFormTemplateNameThisField(formularSkabelonNavnId.value, element.name) ?
                 element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
         }
     }

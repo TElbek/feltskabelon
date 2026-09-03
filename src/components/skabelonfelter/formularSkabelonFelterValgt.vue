@@ -2,11 +2,11 @@
     <tw-flex>
         <div v-for="model in sortedSkabelonFormularFeltModelList"
             :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
-            <a :class="!formularStore.erAdministrator && model.formTemplateFieldType.isMinimumsField ? 'disableClick' : ''"
+            <a :class="!formularStore.isAdministrator && model.formTemplateFieldType.isMinimumsField ? 'disableClick' : ''"
                 @click="fjernSkabelonFelt(model.formTemplateFieldType.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2"
                 :class="[model.bandingFormType.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
-                    <div v-if="!formularStore.erAdministrator"
+                    <div v-if="!formularStore.isAdministrator"
                          class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
                         :class="[model.formTemplateFieldType.isMinimumsField ? 'bg-red-500' : 'bg-green-500']"></div>
                     <span                        
@@ -31,7 +31,7 @@ const routeLogic = useRouteLogic();
 const route = useRoute();
 
 const formularStore = useDataStore();
-const { genopfriskIndex } = storeToRefs(formularStore);
+const { refreshIndex: genopfriskIndex } = storeToRefs(formularStore);
 
 
 const state = reactive({
@@ -43,7 +43,7 @@ onMounted(() => {
 });
 
 function getFormularSkabelonFelter(): void {
-    state.skabelonFormularFeltModelList = formularStore.getFormularFelterBySkabelonNavnId(Number(route.params.skabelonNavnId));
+    state.skabelonFormularFeltModelList = formularStore.getTemplateFieldsByTemplateNameId(Number(route.params.skabelonNavnId));
 }
 
 const sortedSkabelonFormularFeltModelList = computed(() => {
@@ -52,7 +52,7 @@ const sortedSkabelonFormularFeltModelList = computed(() => {
 
 function fjernSkabelonFelt(formularSkabelonFeltId: number): void {
     if(routeLogic.isSkabelonFelterRedigerRoute.value) {
-        formularStore.fjernSkabelonFelt(formularSkabelonFeltId);
+        formularStore.removeFormTemplateField(formularSkabelonFeltId);
     }
 }
 

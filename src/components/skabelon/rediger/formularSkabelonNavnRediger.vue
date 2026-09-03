@@ -8,10 +8,10 @@
                     <tw-input :name="'formularSkabelonId'" :type="'text'"
                         v-model="state.skabelonRedigerModel.formTemplateNameType.templateName" v-focus></tw-input>
                     <tw-label :for="'maerkningsScenarieId'">Scenarie</tw-label>
-                    <tw-input-select v-if="formularStore.erAdministrator"
+                    <tw-input-select v-if="formularStore.isAdministrator"
                         v-model="state.skabelonRedigerModel.formTemplateType.bandingScenarioId"
                         :name="'maerkningsScenarieId'">
-                        <option v-for="scenarie in formularStore.maerkningsScenarieListe" :value="scenarie.id">
+                        <option v-for="scenarie in formularStore.bandingScenarioList" :value="scenarie.id">
                             {{ scenarie.name }}
                         </option>
                     </tw-input-select>
@@ -57,14 +57,14 @@ onMounted(() => {
 });
 
 const scenarieNavn = computed(() => {
-    return formularStore.maerkningsScenarieListe
+    return formularStore.bandingScenarioList
         .some((item) => item.id == state.skabelonRedigerModel.formTemplateType.bandingScenarioId) ?
-        formularStore.maerkningsScenarieListe
+        formularStore.bandingScenarioList
             .find((item) => item.id == state.skabelonRedigerModel.formTemplateType.bandingScenarioId)?.name : ''
 });
 
 function getSkabelonNavnModel(): void {
-    let value = formularStore.getSkabelonNavnModelById(Number(route.params.skabelonNavnId));
+    let value = formularStore.getTemplateNameModelById(Number(route.params.skabelonNavnId));
     if (value) {
         state.skabelonRedigerModel = value;
         state.hasData = true;
@@ -72,7 +72,7 @@ function getSkabelonNavnModel(): void {
 }
 
 function getSkabelonNavnModelKopi(): void {
-    let value = formularStore.kopierSkabelonNavn(Number(route.params.skabelonNavnId));
+    let value = formularStore.copyTemplateName(Number(route.params.skabelonNavnId));
     if (value) {
         state.skabelonRedigerModel = value;
         state.hasData = true;
@@ -81,10 +81,10 @@ function getSkabelonNavnModelKopi(): void {
 
 function save() {
     if(isAtSkabelonKopierRoute.value) {
-        formularStore.opretSkabelonNavn(state.skabelonRedigerModel);
+        formularStore.createTemplateName(state.skabelonRedigerModel);
     }
     else {
-        formularStore.opdaterSkabelon(state.skabelonRedigerModel);
+        formularStore.updateFormTemplate(state.skabelonRedigerModel);
     }
     router.back();
 }
