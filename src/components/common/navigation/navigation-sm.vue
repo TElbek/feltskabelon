@@ -26,6 +26,13 @@
                         <span>{{ route.meta?.title }}</span>
                     </router-link>
                 </li>
+                <li v-for="licensee in dataStore.licenseeList" :key="licensee.id">
+                    <router-link :to="`/licensee/${licensee.id}`"
+                        :class="[isAtTemplateListRoute ? 'cursor-pointer' : 'disableClick']">
+                        <span :class="[dataStore.LicenseeId == licensee.id ? 'font-bold' : '']"
+                            class="relative top-1.5">{{ licensee.name }}</span>
+                    </router-link>
+                </li>
             </ul>
         </aside>
     </div>
@@ -34,8 +41,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouteLogic } from '@/composables/route-logic'
+import { useDataStore } from '@/stores/dataStore';
 
-const { visibleRoutes, homeRoute, isAtHomeRoute } = useRouteLogic();
+const dataStore = useDataStore();
+const { visibleRoutes, homeRoute, isAtTemplateListRoute } = useRouteLogic();
 const isOpen = ref(false);
 
 function toggleIsOpen() {

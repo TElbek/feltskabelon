@@ -49,7 +49,7 @@
 import { useDataStore } from '@/stores/dataStore';
 import { onMounted, ref, watch } from 'vue';
 import bandingButtons from '@/components/banding/bandingButtons.vue';
-import validitet_roed_20px from '@/components/banding/validitet_roed_20px.vue';
+import validitet_roed_20px from '@/components/banding/icons/validitet_roed_20px.vue';
 
 const dataStore = useDataStore();
 
