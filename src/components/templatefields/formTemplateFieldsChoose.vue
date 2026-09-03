@@ -1,11 +1,11 @@
 <template>
     <tw-flex>
-        <template v-for="maerkningsFormularFelt in sortBandingFormFieldList">
-            <a @click="addFormTemplateField(maerkningsFormularFelt.id)" 
-                :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
+        <template v-for="bandingForm in sortBandingFormFieldList">
+            <a @click="addFormTemplateField(bandingForm.id)" 
+                :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
                 <span class="text-gray-500  px-1 rounded"
-                     :class="[maerkningsFormularFelt.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
-                      {{ maerkningsFormularFelt.placeholder }}</span>
+                     :class="[bandingForm.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
+                      {{ bandingForm.placeholder }}</span>
             </a>
         </template>
     </tw-flex>
@@ -42,7 +42,7 @@ function getbandingFormList() {
 }
 
 function addFormTemplateField(maerkningsFeltId: number) {
-    if(routeLogic.isSkabelonFelterRedigerRoute.value) {
+    if(routeLogic.isAtTemplateFieldsEditRoute.value) {
         dataStore.addFormTemplateField(Number(route.params.templateNameId), maerkningsFeltId);
     }
 }

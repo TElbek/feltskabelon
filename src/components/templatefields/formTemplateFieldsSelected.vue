@@ -1,7 +1,7 @@
 <template>
     <tw-flex>
         <div v-for="model in sortedSkabelonFormularFeltModelList"
-            :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
+            :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
             <a :class="!formularStore.isAdministrator && model.formTemplateFieldType.isMinimumsField ? 'disableClick' : ''"
                 @click="fjernSkabelonFelt(model.formTemplateFieldType.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2"
@@ -51,7 +51,7 @@ const sortedSkabelonFormularFeltModelList = computed(() => {
 });
 
 function fjernSkabelonFelt(formularSkabelonFeltId: number): void {
-    if(routeLogic.isSkabelonFelterRedigerRoute.value) {
+    if(routeLogic.isAtTemplateFieldsEditRoute.value) {
         formularStore.removeFormTemplateField(formularSkabelonFeltId);
     }
 }

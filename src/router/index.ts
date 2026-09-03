@@ -33,7 +33,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/template/name/rediger/:templateNameId',
+      path: '/template/name/edit/:templateNameId',
       name: 'templatenameEdit',
       component: () => import('@/views/formTemplateNameEditView.vue'),
       meta: {
@@ -51,7 +51,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/template/felter/rediger/:templateNameId',
+      path: '/template/fields/edit/:templateNameId',
       name: 'templateFieldsEdit',
       component: () => import('@/views/formTemplateFieldsView.vue'),
       meta: {
@@ -60,7 +60,7 @@ const router = createRouter({
       },
     },
       {
-      path: '/template/felter/vis/:templateNameId',
+      path: '/template/fields/view/:templateNameId',
       name: 'templateFieldsView',
       component: () => import('@/views/formTemplateFieldsView.vue'),
       meta: {

@@ -40,7 +40,7 @@ import { useRouteLogic } from '@/composables/route-logic';
 const dataStore = useDataStore();
 const route = useRoute();
 const router = useRouter();
-const {isAtSkabelonKopierRoute} = useRouteLogic();
+const {isAtTemplateNameCopyRoute} = useRouteLogic();
 
 const state = reactive({
     hasData: false as boolean,
@@ -48,7 +48,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-    if(isAtSkabelonKopierRoute.value) {
+    if(isAtTemplateNameCopyRoute.value) {
         getCopyOfTemplateNameModel();
     }
     else {
@@ -80,7 +80,7 @@ function getCopyOfTemplateNameModel(): void {
 }
 
 function save() {
-    if(isAtSkabelonKopierRoute.value) {
+    if(isAtTemplateNameCopyRoute.value) {
         dataStore.createTemplateName(state.templateModel);
     }
     else {

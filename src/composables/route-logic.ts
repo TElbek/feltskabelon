@@ -11,16 +11,16 @@ export function useRouteLogic() {
         return route.name === 'home';
     });
 
-    const isAtSkabelonListeRoute = computed(() => {
-        return route.name === 'skabelonliste';
+    const isAtTemplateListRoute = computed(() => {
+        return route.name === 'templateList';
     });
 
-    const isAtSkabelonKopierRoute = computed(() => {
-        return route.name === 'skabelonNavnKopier';
+    const isAtTemplateNameCopyRoute = computed(() => {
+        return route.name === 'templateNameCopy';
     });
 
-    const isSkabelonFelterRedigerRoute = computed(() => {
-        return route.name === 'formularskabelonFelterRediger';
+    const isAtTemplateFieldsEditRoute = computed(() => {
+        return route.name === 'templateFieldsEdit';
     });
 
     const visibleRoutes = computed(() => {
@@ -30,9 +30,9 @@ export function useRouteLogic() {
     return {
         homeRoute,
         isAtHomeRoute,
-        isAtSkabelonListeRoute,
-        isAtSkabelonKopierRoute,
-        isSkabelonFelterRedigerRoute,
+        isAtTemplateListRoute,
+        isAtTemplateNameCopyRoute,
+        isAtTemplateFieldsEditRoute,
         visibleRoutes
     };
 }

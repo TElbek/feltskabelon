@@ -23,7 +23,7 @@
                     getScenarioNameById(template.formTemplateType.bandingScenarioId) }}</div>
                 <div class="border-e border-gray-300 pe-2">
                     <router-link v-if="canEdit(template.formTemplateNameType.licenseeId)"
-                        :to="`/skabelonnavn/rediger/${template.formTemplateNameType.id}`">
+                        :to="`/template/name/edit/${template.formTemplateNameType.id}`">
                         <span>{{ template.formTemplateNameType.templateName }}</span>
                     </router-link>
                     <div v-else class="text-gray-500">
@@ -32,17 +32,17 @@
                 </div>
                 <div class="border-e border-gray-300 pe-2">
                     <router-link v-if="canEdit(template.formTemplateNameType.licenseeId)"
-                        :to="`/formularskabelonfelter/rediger/${template.formTemplateNameType.id}`">
+                        :to="`/template/fields/edit/${template.formTemplateNameType.id}`">
                         <span>Rediger</span>
                     </router-link>
                     <div v-else>
-                        <router-link :to="`/formularskabelonfelter/vis/${template.formTemplateNameType.id}`">
+                        <router-link :to="`/template/fields/view/${template.formTemplateNameType.id}`">
                             <span>Vis</span>
                         </router-link>
                     </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link :to="`/skabelonnavn/kopier/${template.formTemplateNameType.id}`"
+                    <router-link :to="`/template/name/copy/${template.formTemplateNameType.id}`"
                         v-if="!dataStore.isAdministrator && template.formTemplateNameType.licenseeId == undefined">
                         Kopier
                     </router-link>
