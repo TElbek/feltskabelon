@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import new_blank_20pxb from './new_blank_20pxb.vue'
-import new_duplicate_20px from './new_duplicate_20px.vue'
-import new_duplicate_more_20px from './new_duplicate_more_20px.vue'
-import delete_red_20px from './delete_red_20px.vue'
+import new_blank_20pxb from './icons/new_blank_20pxb.vue'
+import new_duplicate_20px from './icons/new_duplicate_20px.vue'
+import new_duplicate_more_20px from './icons/new_duplicate_more_20px.vue'
+import delete_red_20px from './icons/delete_red_20px.vue'
 </script>

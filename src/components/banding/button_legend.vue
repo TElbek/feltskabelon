@@ -44,14 +44,14 @@
 </template>
 
 <script setup lang="ts">
-import delete_red_20px from './delete_red_20px.vue'
-import new_blank_20pxb from './new_blank_20pxb.vue'
-import new_duplicate_20px from './new_duplicate_20px.vue'
-import new_duplicate_more_20px from './new_duplicate_more_20px.vue'
-import validitet_roed_20px from './validitet_roed_20px.vue'
-import validitet_gul_20px from './validitet_gul_20px.vue'
-import validitet_groen_20px from './validitet_groen_20px.vue'
+import delete_red_20px from './icons/delete_red_20px.vue'
+import new_blank_20pxb from './icons/new_blank_20pxb.vue'
+import new_duplicate_20px from './icons/new_duplicate_20px.vue'
+import new_duplicate_more_20px from './icons/new_duplicate_more_20px.vue'
+import validitet_roed_20px from './icons/validitet_roed_20px.vue'
+import validitet_gul_20px from './icons/validitet_gul_20px.vue'
+import validitet_groen_20px from './icons/validitet_groen_20px.vue'
 
-import data_type_m from './data_type_m.vue'
-import data_type_g from './data_type_g.vue'
+import data_type_m from './icons/data_type_m.vue'
+import data_type_g from './icons/data_type_g.vue'
 </script>
