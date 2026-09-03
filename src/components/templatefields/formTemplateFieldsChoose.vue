@@ -41,9 +41,9 @@ function getbandingFormList() {
     state.bandingFormList = dataStore.getChooseBandingFieldsByTemplateNameId(Number(route.params.templateNameId));
 }
 
-function addFormTemplateField(maerkningsFeltId: number) {
+function addFormTemplateField(bandingFormId: number) {
     if(routeLogic.isAtTemplateFieldsEditRoute.value) {
-        dataStore.addFormTemplateField(Number(route.params.templateNameId), maerkningsFeltId);
+        dataStore.addFormTemplateField(Number(route.params.templateNameId), bandingFormId);
     }
 }
 

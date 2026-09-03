@@ -83,11 +83,11 @@ export const useDataStore = defineStore('dataStore', () => {
         let listOfModel = [] as templateFieldModelType[];
         let templateNameIdSet = getTemplateNameIdSetFromId(templateNameId);
 
-        let formularSkabelonFeltList = formTemplateFieldList.value.filter((item) => templateNameIdSet.has(item.formTemplateNameId));
-        formularSkabelonFeltList.forEach((formularSkabelonFelt) => {
-            let maerkningsFelt = bandingFormList.value.find((item) => item.id == formularSkabelonFelt.bandingFormId);
-            if(maerkningsFelt) {
-                listOfModel.push(templateFieldModelFactory(formularSkabelonFelt, maerkningsFelt))
+        let templateFieldList = formTemplateFieldList.value.filter((item) => templateNameIdSet.has(item.formTemplateNameId));
+        templateFieldList.forEach((templateField) => {
+            let bandingFormField = bandingFormList.value.find((item) => item.id == templateField.bandingFormId);
+            if(bandingFormField) {
+                listOfModel.push(templateFieldModelFactory(templateField, bandingFormField))
             }
         });
         return listOfModel;
@@ -115,10 +115,10 @@ export const useDataStore = defineStore('dataStore', () => {
         return false;
     }
 
-    function templateModelFactory(skabelon: formTemplateType, skabelonNavn: formTemplateNameType): templateModelType {
+    function templateModelFactory(template: formTemplateType, templateName: formTemplateNameType): templateModelType {
         return {
-            formTemplateType: { ...skabelon},
-            formTemplateNameType: { ...skabelonNavn}
+            formTemplateType: { ...template},
+            formTemplateNameType: { ...templateName}
         }
     }
 
@@ -173,16 +173,16 @@ export const useDataStore = defineStore('dataStore', () => {
     }
 
     function addFormTemplateField(formTemplateNameId: number, bandingFormId: number): void {
-        formTemplateFieldList.value.push(formularSkabelonFeltFactory(formTemplateNameId, bandingFormId));
+        formTemplateFieldList.value.push(formTemplateFieldFactory(formTemplateNameId, bandingFormId));
         incrementRefreshIndex();
     }
 
-    function formularSkabelonFeltFactory(formularSkabelonNavnId :number, maerkningsFormularFeltId: number) : formTemplateFieldType {
+    function formTemplateFieldFactory(formTemplateNameId :number, bandingFormId: number) : formTemplateFieldType {
         return {
            id: getNewIdForTemplateField(),
            isMinimumsField: isAdministrator.value, 
-           formTemplateNameId: formularSkabelonNavnId,
-           bandingFormId: maerkningsFormularFeltId
+           formTemplateNameId: formTemplateNameId,
+           bandingFormId: bandingFormId
         }
     }
 

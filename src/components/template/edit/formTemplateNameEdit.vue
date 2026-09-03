@@ -4,15 +4,15 @@
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">
-                    <tw-label :for="'formularSkabelonId'">Navn</tw-label>
-                    <tw-input :name="'formularSkabelonId'" :type="'text'"
+                    <tw-label :for="'formTemplateId'">Name</tw-label>
+                    <tw-input :name="'formTemplateId'" :type="'text'"
                         v-model="state.templateModel.formTemplateNameType.templateName" v-focus></tw-input>
-                    <tw-label :for="'maerkningsScenarieId'">Scenarie</tw-label>
+                    <tw-label :for="'bandingScenarioId'">Scenario</tw-label>
                     <tw-input-select v-if="dataStore.isAdministrator"
                         v-model="state.templateModel.formTemplateType.bandingScenarioId"
-                        :name="'maerkningsScenarieId'">
-                        <option v-for="scenarie in dataStore.bandingScenarioList" :value="scenarie.id">
-                            {{ scenarie.name }}
+                        :name="'bandingScenarioId'">
+                        <option v-for="scenario in dataStore.bandingScenarioList" :value="scenario.id">
+                            {{ scenario.name }}
                         </option>
                     </tw-input-select>
                     <div v-else>
@@ -23,8 +23,8 @@
                 </div>
             </form>
             <tw-flex class="mt-3">
-                <tw-button :caption="'Gem'" @clicked="save"></tw-button>
-                <tw-button :caption="'Fortryd'" @clicked="cancel"></tw-button>
+                <tw-button :caption="'Save'" @clicked="save"></tw-button>
+                <tw-button :caption="'Cancel'" @clicked="cancel"></tw-button>
             </tw-flex>
         </div>
     </div>

@@ -59,7 +59,7 @@ const router = createRouter({
         title: 'Edit Template Fields'
       },
     },
-      {
+    {
       path: '/template/fields/view/:templateNameId',
       name: 'templateFieldsView',
       component: () => import('@/views/formTemplateFieldsView.vue'),
@@ -81,22 +81,24 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const formularStore = useDataStore();
-  if(to.name == 'templateFieldsEdit') {
-    if(formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.templateNameId) && 
-                                                              item.licenseeId == formularStore.LicenseeId)) {
+  const dataStore = useDataStore();
+  if (to.name == 'templateFieldsEdit') {
+    if (dataStore.formTemplateNameList.some((item) => item.id == Number(to.params.templateNameId) &&
+      item.licenseeId == dataStore.LicenseeId)) {
       next();
     }
-    else if(formularStore.isAdministrator &&
-            formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.templateNameId) && 
-                                                                   item.licenseeId == undefined)) {
+    else if (dataStore.isAdministrator &&
+      dataStore.formTemplateNameList.some((item) => item.id == Number(to.params.templateNameId) &&
+        item.licenseeId == undefined)) {
       next();
     }
     else {
-      next({path: '/'});
+      next({ path: '/' });
     }
   }
-  next();
+  else {
+    next();
+  }
 });
 
 export default router

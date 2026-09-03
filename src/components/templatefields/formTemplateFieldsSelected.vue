@@ -1,12 +1,12 @@
 <template>
     <tw-flex>
-        <div v-for="model in sortedSkabelonFormularFeltModelList"
+        <div v-for="model in sortedFormTemplateFieldModelList"
             :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
-            <a :class="!formularStore.isAdministrator && model.formTemplateFieldType.isMinimumsField ? 'disableClick' : ''"
-                @click="fjernSkabelonFelt(model.formTemplateFieldType.id)">
+            <a :class="!dataStore.isAdministrator && model.formTemplateFieldType.isMinimumsField ? 'disableClick' : ''"
+                @click="removeTemplateField(model.formTemplateFieldType.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2"
                 :class="[model.bandingFormType.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
-                    <div v-if="!formularStore.isAdministrator"
+                    <div v-if="!dataStore.isAdministrator"
                          class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
                         :class="[model.formTemplateFieldType.isMinimumsField ? 'bg-red-500' : 'bg-green-500']"></div>
                     <span                        
@@ -30,34 +30,34 @@ import { useRouteLogic } from '@/composables/route-logic';
 const routeLogic = useRouteLogic();
 const route = useRoute();
 
-const formularStore = useDataStore();
-const { refreshIndex: genopfriskIndex } = storeToRefs(formularStore);
+const dataStore = useDataStore();
+const { refreshIndex } = storeToRefs(dataStore);
 
 
 const state = reactive({
-    skabelonFormularFeltModelList: [] as templateFieldModelType[]
+    templateFieldModelList: [] as templateFieldModelType[]
 });
 
 onMounted(() => {
-    getFormularSkabelonFelter();
+    getFormTemplateFields();
 });
 
-function getFormularSkabelonFelter(): void {
-    state.skabelonFormularFeltModelList = formularStore.getTemplateFieldsByTemplateNameId(Number(route.params.templateNameId));
+function getFormTemplateFields(): void {
+    state.templateFieldModelList = dataStore.getTemplateFieldsByTemplateNameId(Number(route.params.templateNameId));
 }
 
-const sortedSkabelonFormularFeltModelList = computed(() => {
-    return state.skabelonFormularFeltModelList.sort((a, b) => a.bandingFormType.placeholder.localeCompare(b.bandingFormType.placeholder));
+const sortedFormTemplateFieldModelList = computed(() => {
+    return state.templateFieldModelList.sort((a, b) => a.bandingFormType.placeholder.localeCompare(b.bandingFormType.placeholder));
 });
 
-function fjernSkabelonFelt(formularSkabelonFeltId: number): void {
+function removeTemplateField(formTemplateFieldId: number): void {
     if(routeLogic.isAtTemplateFieldsEditRoute.value) {
-        formularStore.removeFormTemplateField(formularSkabelonFeltId);
+        dataStore.removeFormTemplateField(formTemplateFieldId);
     }
 }
 
-watch(genopfriskIndex, () => {
-    getFormularSkabelonFelter();
+watch(refreshIndex, () => {
+    getFormTemplateFields();
 })
 
 </script>

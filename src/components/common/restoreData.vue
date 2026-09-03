@@ -1,9 +1,9 @@
 <template>
-    <div class="text-2xl text-snhm mt-3">Ønsker Du at gendanne Data?</div>
+    <div class="text-2xl text-snhm mt-3">Restore Data?</div>
     <div class="mt-3">
         <tw-flex>
-            <tw-button :caption="'Ja'" @click="gendanData()"></tw-button>
-            <tw-button :caption="'Nej'" @click="goBack()"></tw-button>
+            <tw-button :caption="'Yes'" @click="restoreData()"></tw-button>
+            <tw-button :caption="'No'" @click="goBack()"></tw-button>
         </tw-flex>
     </div>
 </template>
@@ -17,7 +17,7 @@ const dataLoader = useDataLoader();
 const router = useRouter();
 const { setLicenseeId } = useDataStore();
 
-function gendanData(): void {
+function restoreData(): void {
     dataLoader.loadJSONData();
     setLicenseeId(1);
     goBack();

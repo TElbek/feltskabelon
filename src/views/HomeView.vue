@@ -4,5 +4,5 @@
 
 <script setup lang="ts">
 import {useDataStore} from '@/stores/dataStore'
-const formularStore = useDataStore();
+const dataStore = useDataStore();
 </script>

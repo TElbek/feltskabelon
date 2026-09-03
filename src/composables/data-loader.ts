@@ -3,26 +3,26 @@ import { useDataStore } from '@/stores/dataStore'
 
 export function useDataLoader() {
     async function loadJSONData(): Promise<void> {
-        const formularStore = useDataStore();
+        const dataStore = useDataStore();
 
         await Promise.all([
             api.get('formTemplate.json').then(res =>
-                formularStore.setFormTemplateList(res.data)
+                dataStore.setFormTemplateList(res.data)
             ),
             api.get('formTemplateName.json').then(res =>
-                formularStore.setFormTemplateNameList(res.data)
+                dataStore.setFormTemplateNameList(res.data)
             ),
             api.get('formTemplateField.json').then(res =>
-                formularStore.setFormTemplateFieldList(res.data)
+                dataStore.setFormTemplateFieldList(res.data)
             ),
             api.get('bandingScenario.json').then(res =>
-                formularStore.setBandingScenarioList(res.data)
+                dataStore.setBandingScenarioList(res.data)
             ),
             api.get('bandingForm.json').then(res =>
-                formularStore.setBandingFormList(res.data)
+                dataStore.setBandingFormList(res.data)
             ),
             api.get('licensee.json').then(res =>
-                formularStore.setLicenseeList(res.data)
+                dataStore.setLicenseeList(res.data)
             ),
         ])
     }
