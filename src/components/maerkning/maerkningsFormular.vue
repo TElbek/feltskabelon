@@ -42,13 +42,13 @@
 </template>
 
 <script setup lang="ts">
-import { useFormularStore } from '@/stores/formularStore';
+import { useDataStore } from '@/stores/dataStore';
 import { computed, onMounted, ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const formularStore = useFormularStore();
+const formularStore = useDataStore();
 const { genopfriskIndex } = storeToRefs(formularStore);
 
 const formIsVisible = ref(false);

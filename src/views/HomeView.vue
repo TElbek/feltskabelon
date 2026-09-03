@@ -3,6 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import {useFormularStore} from '@/stores/formularStore'
-const formularStore = useFormularStore();
+import {useDataStore} from '@/stores/dataStore'
+const formularStore = useDataStore();
 </script>

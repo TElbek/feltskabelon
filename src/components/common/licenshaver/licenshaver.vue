@@ -2,11 +2,11 @@
 </template>
 
 <script setup lang="ts">
-import { useFormularStore } from '@/stores/formularStore';
+import { useDataStore } from '@/stores/dataStore';
 import { useRoute, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 
-const formularStore = useFormularStore();
+const formularStore = useDataStore();
 const route = useRoute();
 const router = useRouter();
 

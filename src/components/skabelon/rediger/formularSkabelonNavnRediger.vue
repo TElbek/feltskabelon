@@ -1,18 +1,18 @@
 <template>
     <div v-if="state.hasData" class="lg:w-5/10">
-        <div class="text-xl text-snhm">{{ state.skabelonRedigerModel.formularSkabelonNavn.skabelonNavn }}</div>
+        <div class="text-xl text-snhm">{{ state.skabelonRedigerModel.formTemplateNameType.templateName }}</div>
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">
                     <tw-label :for="'formularSkabelonId'">Navn</tw-label>
                     <tw-input :name="'formularSkabelonId'" :type="'text'"
-                        v-model="state.skabelonRedigerModel.formularSkabelonNavn.skabelonNavn" v-focus></tw-input>
+                        v-model="state.skabelonRedigerModel.formTemplateNameType.templateName" v-focus></tw-input>
                     <tw-label :for="'maerkningsScenarieId'">Scenarie</tw-label>
                     <tw-input-select v-if="formularStore.erAdministrator"
-                        v-model="state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId"
+                        v-model="state.skabelonRedigerModel.formTemplateType.bandingScenarioId"
                         :name="'maerkningsScenarieId'">
                         <option v-for="scenarie in formularStore.maerkningsScenarieListe" :value="scenarie.id">
-                            {{ scenarie.navn }}
+                            {{ scenarie.name }}
                         </option>
                     </tw-input-select>
                     <div v-else>
@@ -32,19 +32,19 @@
 
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
-import { useFormularStore } from '@/stores/formularStore';
+import { useDataStore } from '@/stores/dataStore';
 import { computed, onMounted, reactive } from 'vue';
-import type { skabelonModelType } from '@/models/skabelonModelType';
+import type { templateModelType } from '@/models/templateModelType';
 import { useRouteLogic } from '@/composables/route-logic';
 
-const formularStore = useFormularStore();
+const formularStore = useDataStore();
 const route = useRoute();
 const router = useRouter();
 const {isAtSkabelonKopierRoute} = useRouteLogic();
 
 const state = reactive({
     hasData: false as boolean,
-    skabelonRedigerModel: {} as skabelonModelType
+    skabelonRedigerModel: {} as templateModelType
 });
 
 onMounted(() => {
@@ -58,9 +58,9 @@ onMounted(() => {
 
 const scenarieNavn = computed(() => {
     return formularStore.maerkningsScenarieListe
-        .some((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId) ?
+        .some((item) => item.id == state.skabelonRedigerModel.formTemplateType.bandingScenarioId) ?
         formularStore.maerkningsScenarieListe
-            .find((item) => item.id == state.skabelonRedigerModel.formularSkabelon.maerkningsScenarieId)?.navn : ''
+            .find((item) => item.id == state.skabelonRedigerModel.formTemplateType.bandingScenarioId)?.name : ''
 });
 
 function getSkabelonNavnModel(): void {

@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import { useFormularStore } from '@/stores/formularStore.ts';
+import { useDataStore } from '@/stores/dataStore.ts';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -81,15 +81,15 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const formularStore = useFormularStore();
+  const formularStore = useDataStore();
   if(to.name == 'formularskabelonFelterRediger') {
     if(formularStore.formularSkabelonNavnListe.some((item) => item.id == Number(to.params.skabelonNavnId) && 
-                                                              item.licenshaverId == formularStore.licenshaverId)) {
+                                                              item.licenseeId == formularStore.licenshaverId)) {
       next();
     }
     else if(formularStore.erAdministrator &&
             formularStore.formularSkabelonNavnListe.some((item) => item.id == Number(to.params.skabelonNavnId) && 
-                                                                   item.licenshaverId == undefined)) {
+                                                                   item.licenseeId == undefined)) {
       next();
     }
     else {

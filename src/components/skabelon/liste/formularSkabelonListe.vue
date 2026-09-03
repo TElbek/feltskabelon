@@ -17,33 +17,33 @@
 
                 <div v-if="index == 0" class="border-b border-gray-300 col-span-5"></div>
 
-                <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.formularSkabelonNavn.id }}
+                <div class="text-end pe-2 border-s border-e border-gray-300">{{ skabelon.formTemplateNameType.id }}
                 </div>
                 <div class="border-e border-gray-300">{{
-                    getScenarieNavnById(skabelon.formularSkabelon.maerkningsScenarieId) }}</div>
+                    getScenarieNavnById(skabelon.formTemplateType.bandingScenarioId) }}</div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
-                        :to="`/skabelonnavn/rediger/${skabelon.formularSkabelonNavn.id}`">
-                        <span>{{ skabelon.formularSkabelonNavn.skabelonNavn }}</span>
+                    <router-link v-if="canEdit(skabelon.formTemplateNameType.licenseeId)"
+                        :to="`/skabelonnavn/rediger/${skabelon.formTemplateNameType.id}`">
+                        <span>{{ skabelon.formTemplateNameType.templateName }}</span>
                     </router-link>
                     <div v-else class="text-gray-500">
-                        {{ skabelon.formularSkabelonNavn.skabelonNavn }}
+                        {{ skabelon.formTemplateNameType.templateName }}
                     </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link v-if="canEdit(skabelon.formularSkabelonNavn.licenshaverId)"
-                        :to="`/formularskabelonfelter/rediger/${skabelon.formularSkabelonNavn.id}`">
+                    <router-link v-if="canEdit(skabelon.formTemplateNameType.licenseeId)"
+                        :to="`/formularskabelonfelter/rediger/${skabelon.formTemplateNameType.id}`">
                         <span>Rediger</span>
                     </router-link>
                     <div v-else>
-                        <router-link :to="`/formularskabelonfelter/vis/${skabelon.formularSkabelonNavn.id}`">
+                        <router-link :to="`/formularskabelonfelter/vis/${skabelon.formTemplateNameType.id}`">
                             <span>Vis</span>
                         </router-link>
                     </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
-                    <router-link :to="`/skabelonnavn/kopier/${skabelon.formularSkabelonNavn.id}`"
-                        v-if="!formularStore.erAdministrator && skabelon.formularSkabelonNavn.licenshaverId == undefined">
+                    <router-link :to="`/skabelonnavn/kopier/${skabelon.formTemplateNameType.id}`"
+                        v-if="!formularStore.erAdministrator && skabelon.formTemplateNameType.licenseeId == undefined">
                         Kopier
                     </router-link>
                 </div>
@@ -54,11 +54,11 @@
 </template>
 
 <script setup lang="ts">
-import { useFormularStore } from '@/stores/formularStore';
-const formularStore = useFormularStore();
+import { useDataStore } from '@/stores/dataStore';
+const formularStore = useDataStore();
 
 function getScenarieNavnById(id: number): string {
-    return formularStore.maerkningsScenarieListe.find((item) => item.id == id)?.navn ?? 'ukendt';
+    return formularStore.maerkningsScenarieListe.find((item) => item.id == id)?.name ?? 'ukendt';
 }
 
 function canEdit(licenshaverId: number): boolean {

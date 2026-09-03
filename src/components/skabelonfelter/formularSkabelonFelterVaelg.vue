@@ -5,7 +5,7 @@
             <a @click="tilfoejSkabelonFelt(maerkningsFormularFelt.id)" 
                 :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
                 <span class="text-gray-500  px-1 rounded"
-                     :class="[maerkningsFormularFelt.basisfelt ? 'border-2 border-gray-400' : 'border border-gray-300']">
+                     :class="[maerkningsFormularFelt.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
                       {{ maerkningsFormularFelt.placeholder }}</span>
             </a>
         </template>
@@ -15,19 +15,19 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, watch } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useFormularStore } from '@/stores/formularStore';
+import { useDataStore } from '@/stores/dataStore';
 import { useRoute } from 'vue-router';
 import { useRouteLogic } from '@/composables/route-logic';
-import type { MaerkningsFormularFeltType } from '@/types/MaerkningsFormularFeltType';
+import type { bandingFormType } from '@/types/bandingFormType';
 
 const routeLogic = useRouteLogic();
 const route = useRoute();
 
-const formularStore = useFormularStore();
+const formularStore = useDataStore();
 const { genopfriskIndex } = storeToRefs(formularStore);
 
 const state = reactive({
-    MaerkningsFormularFeltList: [] as MaerkningsFormularFeltType[]
+    MaerkningsFormularFeltList: [] as bandingFormType[]
 });
 
 const sortMaerkningsFormularFeltList = computed(() => {

@@ -2,16 +2,16 @@
     <tw-flex>
         <div v-for="model in sortedSkabelonFormularFeltModelList"
             :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
-            <a :class="!formularStore.erAdministrator && model.formularSkabelonFelt.erMinimumsFelt ? 'disableClick' : ''"
-                @click="fjernSkabelonFelt(model.formularSkabelonFelt.id)">
+            <a :class="!formularStore.erAdministrator && model.formTemplateFieldType.isMinimumsField ? 'disableClick' : ''"
+                @click="fjernSkabelonFelt(model.formTemplateFieldType.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2"
-                :class="[model.maerkningsFormularFelt.basisfelt ? 'border-2 border-gray-400' : 'border border-gray-300']">
+                :class="[model.bandingFormType.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
                     <div v-if="!formularStore.erAdministrator"
                          class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
-                        :class="[model.formularSkabelonFelt.erMinimumsFelt ? 'bg-red-500' : 'bg-green-500']"></div>
+                        :class="[model.formTemplateFieldType.isMinimumsField ? 'bg-red-500' : 'bg-green-500']"></div>
                     <span                        
-                        :title="model.formularSkabelonFelt.id + ' ' + model.formularSkabelonFelt.maerkningsFormularFeltId">{{
-                            model.maerkningsFormularFelt.placeholder
+                        :title="model.formTemplateFieldType.id + ' ' + model.formTemplateFieldType.bandingFormId">{{
+                            model.bandingFormType.placeholder
                         }}</span>
                 </div>
             </a>
@@ -22,20 +22,20 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, watch } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useFormularStore } from '@/stores/formularStore';
-import type { skabelonFeltModelType } from '@/models/skabelonFeltModelType';
+import { useDataStore } from '@/stores/dataStore';
+import type { templateFieldModelType } from '@/models/templateFieldModelType';
 import { useRoute } from 'vue-router';
 import { useRouteLogic } from '@/composables/route-logic';
 
 const routeLogic = useRouteLogic();
 const route = useRoute();
 
-const formularStore = useFormularStore();
+const formularStore = useDataStore();
 const { genopfriskIndex } = storeToRefs(formularStore);
 
 
 const state = reactive({
-    skabelonFormularFeltModelList: [] as skabelonFeltModelType[]
+    skabelonFormularFeltModelList: [] as templateFieldModelType[]
 });
 
 onMounted(() => {
@@ -47,7 +47,7 @@ function getFormularSkabelonFelter(): void {
 }
 
 const sortedSkabelonFormularFeltModelList = computed(() => {
-    return state.skabelonFormularFeltModelList.sort((a, b) => a.maerkningsFormularFelt.placeholder.localeCompare(b.maerkningsFormularFelt.placeholder));
+    return state.skabelonFormularFeltModelList.sort((a, b) => a.bandingFormType.placeholder.localeCompare(b.bandingFormType.placeholder));
 });
 
 function fjernSkabelonFelt(formularSkabelonFeltId: number): void {

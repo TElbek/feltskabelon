@@ -11,11 +11,11 @@
 <script setup lang="ts">
 import { useDataLoader } from '@/composables/data-loader.ts'
 import { useRouter } from 'vue-router';
-import { useFormularStore } from '@/stores/formularStore';
+import { useDataStore } from '@/stores/dataStore';
 
 const dataLoader = useDataLoader();
 const router = useRouter();
-const { setLicenshaverId } = useFormularStore();
+const { setLicenshaverId } = useDataStore();
 
 function gendanData(): void {
     dataLoader.loadJSONData();

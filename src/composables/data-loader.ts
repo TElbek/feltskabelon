@@ -1,9 +1,9 @@
 import api from '@/apijson'
-import { useFormularStore } from '@/stores/formularStore.ts'
+import { useDataStore } from '@/stores/dataStore'
 
 export function useDataLoader() {
     async function loadJSONData(): Promise<void> {
-        const formularStore = useFormularStore();
+        const formularStore = useDataStore();
 
         await Promise.all([
             api.get('formularSkabelon.json').then(res =>

@@ -18,7 +18,7 @@
                     <router-link :to="`/licenshaver/${licenshaver.id}`"
                         :class="[isAtSkabelonListeRoute ? 'cursor-pointer' : 'disableClick']">
                         <span :class="[formularStore.licenshaverId == licenshaver.id ? 'font-bold' : '']"
-                            class="relative top-1.5">{{ licenshaver.navn }}</span>
+                            class="relative top-1.5">{{ licenshaver.name }}</span>
                     </router-link>
                 </li>
             </ul>
@@ -29,8 +29,8 @@
 <script setup lang="ts">
 
 import { useRouteLogic } from '@/composables/route-logic.ts'
-import { useFormularStore } from '@/stores/formularStore';
+import { useDataStore } from '@/stores/dataStore';
 
-const formularStore = useFormularStore();
+const formularStore = useDataStore();
 const { visibleRoutes, homeRoute, isAtSkabelonListeRoute } = useRouteLogic();
 </script>
