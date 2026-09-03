@@ -1,187 +1,187 @@
 [
     {
         "id": 1,
-        "feltNavn": "RingingScheme",
+        "fieldName": "RingingScheme",
         "placeholder": "Scheme",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 2,
-        "feltNavn": "euringDate",
+        "fieldName": "euringDate",
         "placeholder": "åååå-mm-dd",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 3,
-        "feltNavn": "euringTime",
+        "fieldName": "euringTime",
         "placeholder": "tt:mm",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 4,
-        "feltNavn": "LokalitetID",
+        "fieldName": "LokalitetID",
         "placeholder": "Lokalitet",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 5,
-        "feltNavn": "PlaceName",
+        "fieldName": "PlaceName",
         "placeholder": "Præcis Sted",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 6,
-        "feltNavn": "LicensNr",
+        "fieldName": "LicensNr",
         "placeholder": "LicensNr",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 7,
-        "feltNavn": "Sub-licensNr",
+        "fieldName": "Sub-licensNr",
         "placeholder": "Sub-licensNr"
     },
     {
         "id": 8,
-        "feltNavn": "CatchingMethod",
+        "fieldName": "CatchingMethod",
         "placeholder": "Fangstmetode",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 9,
-        "feltNavn": "IdentificationNumber",
+        "fieldName": "IdentificationNumber",
         "placeholder": "RingNummer",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 10,
-        "feltNavn": "SpeciesReported",
+        "fieldName": "SpeciesReported",
         "placeholder": "Art",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 11,
-        "feltNavn": "AgeReported",
+        "fieldName": "AgeReported",
         "placeholder": "Alder",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 12,
-        "feltNavn": "Status",
+        "fieldName": "Status",
         "placeholder": "Status",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 13,
-        "feltNavn": "Mass",
+        "fieldName": "Mass",
         "placeholder": "Vægt (g)",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 14,
-        "feltNavn": "WingLength",
+        "fieldName": "WingLength",
         "placeholder": "Vinge (mm)",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 15,
-        "feltNavn": "Remarks",
+        "fieldName": "Remarks",
         "placeholder": "Bemærkninger",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 16,
-        "feltNavn": "data_type",
+        "fieldName": "data_type",
         "placeholder": "DataType",
-        "basisfelt": true
+        "isBasicField": true
     },
     {
         "id": 17,
-        "feltNavn": "BroodPatch",
+        "fieldName": "BroodPatch",
         "placeholder": "Brood Patch",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 18,
-        "feltNavn": "project_Moult",
+        "fieldName": "project_Moult",
         "placeholder": "Moult",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 19,
-        "feltNavn": "FatScore",
+        "fieldName": "FatScore",
         "placeholder": "FatScore",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 20,
-        "feltNavn": "FatScoreMethod",
+        "fieldName": "FatScoreMethod",
         "placeholder": "FatScoreMethod",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 21,
-        "feltNavn": "project_HabitatType",
+        "fieldName": "project_HabitatType",
         "placeholder": "HabitatType",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 22,
-        "feltNavn": "project_TotalNetLength",
+        "fieldName": "project_TotalNetLength",
         "placeholder": "NetLength",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 23,
-        "feltNavn": "project_VisitPeriod",
+        "fieldName": "project_VisitPeriod",
         "placeholder": "VisitPeriod",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 24,
-        "feltNavn": "project_TimeStart",
+        "fieldName": "project_TimeStart",
         "placeholder": "Start (tt:mm)",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 25,
-        "feltNavn": "project_TimeEnd",
+        "fieldName": "project_TimeEnd",
         "placeholder": "Slut (tt:mm)",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 26,
-        "feltNavn": "ColorRing",
+        "fieldName": "ColorRing",
         "placeholder": "Farvering",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 27,
-        "feltNavn": "ColorRingNr",
+        "fieldName": "ColorRingNr",
         "placeholder": "Farvering Nr",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 28,
-        "feltNavn": "CatchingLures",
+        "fieldName": "CatchingLures",
         "placeholder": "Lokkemetode",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 29,
-        "feltNavn": "SexReported",
+        "fieldName": "SexReported",
         "placeholder": "Køn",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 30,
-        "feltNavn": "BroodSize",
+        "fieldName": "BroodSize",
         "placeholder": "Kuld",
-        "basisfelt": false
+        "isBasicField": false
     },
     {
         "id": 31,
-        "feltNavn": "PullusAge",
+        "fieldName": "PullusAge",
         "placeholder": "Unge alder",
-        "basisfelt": false
+        "isBasicField": false
     }
 ]

@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "isAdmin": true,
+        "name": "SNM"
+    },
+    {
+        "id": 2,
+        "isAdmin": false,
+        "name": "Blåvand"
+    },
+    {
+        "id": 3,
+        "isAdmin": false,
+        "name": "Gedser"
+    }
+]

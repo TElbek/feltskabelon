@@ -6,22 +6,22 @@ export function useDataLoader() {
         const formularStore = useDataStore();
 
         await Promise.all([
-            api.get('formularSkabelon.json').then(res =>
+            api.get('formTemplate.json').then(res =>
                 formularStore.setFormTemplateList(res.data)
             ),
-            api.get('formularSkabelonNavn.json').then(res =>
+            api.get('formTemplateName.json').then(res =>
                 formularStore.setFormTemplateNameList(res.data)
             ),
-            api.get('formularSkabelonFelt.json').then(res =>
+            api.get('formTemplateField.json').then(res =>
                 formularStore.setFormTemplateFieldList(res.data)
             ),
-            api.get('maerkningsScenarie.json').then(res =>
+            api.get('bandingScenario.json').then(res =>
                 formularStore.setBandingScenarioList(res.data)
             ),
-            api.get('maerkningsFormularFelt.json').then(res =>
+            api.get('bandingForm.json').then(res =>
                 formularStore.setBandingFormList(res.data)
             ),
-            api.get('licensHaver.json').then(res =>
+            api.get('licensee.json').then(res =>
                 formularStore.setLicenseeList(res.data)
             ),
         ])
