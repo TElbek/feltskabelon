@@ -1,7 +1,8 @@
 <template>
     <div>
         <form id="maerkningForm" :class="[formIsVisible ? 'visible' : 'hidden']">
-            <div class="flex flex-row flex-wrap mt-2 gap-2">
+            <div class="flex flex-row flex-wrap mt-2 gap-x-1.5 gap-y-1">
+                <validitet_roed_20px></validitet_roed_20px>                
                 <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
                 <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Scheme'" />
                 <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" />
@@ -36,6 +37,9 @@
                     :placeholder="'Start (tt:mm)'" />
                 <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center"
                     :placeholder="'End (tt:mm)'" />
+                <div class="ms-2 mt-0.5">
+                    <banding-buttons></banding-buttons>
+                </div>
             </div>
         </form>
     </div>
@@ -43,17 +47,20 @@
 
 <script setup lang="ts">
 import { useDataStore } from '@/stores/dataStore';
-import { computed, onMounted, ref, watch } from 'vue';
-import { storeToRefs } from 'pinia';
-import { useRoute } from 'vue-router';
+import { onMounted, ref, watch } from 'vue';
+import bandingButtons from '@/components/banding/bandingButtons.vue';
+import validitet_roed_20px from '@/components/banding/validitet_roed_20px.vue';
 
-const route = useRoute();
 const dataStore = useDataStore();
-const { refreshIndex: genopfriskIndex } = storeToRefs(dataStore);
 
 const formIsVisible = ref(false);
-const formTemplateNameId = computed(() => Number(route.params.templateNameId));
 const waitTimeInms = 100;
+
+interface bandingFormProps {
+    formTemplateNameId: number
+}
+
+const props = defineProps<bandingFormProps>();
 
 onMounted(() => {
     setTimeout(() => {
@@ -81,7 +88,7 @@ function loopElementList(elementList: HTMLCollectionOf<Element>) {
     for (let index = 0; index < elementList.length; ++index) {
         let element = elementList[index];
         if (element instanceof HTMLInputElement) {
-            dataStore.hasFormTemplateNameThisField(formTemplateNameId.value, element.name) ?
+            dataStore.hasFormTemplateNameThisField(props.formTemplateNameId, element.name) ?
                 element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
         }
     }
@@ -91,7 +98,7 @@ function getFormElementById(formId: string): HTMLElement | null {
     return document.getElementById(formId);
 }
 
-watch(genopfriskIndex, () => {
+watch(() => props.formTemplateNameId, () => {
     hideAndShow();
 })
 </script>

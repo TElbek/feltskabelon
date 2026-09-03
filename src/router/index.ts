@@ -76,6 +76,15 @@ const router = createRouter({
         showInNavBar: false,
         title: 'Licensee'
       }
+    },
+    {
+      path: '/banding/',
+      name: 'banding',
+      component: () => import('@/views/bandingView.vue'),
+      meta: {
+        showInNavBar: true,
+        title: 'Banding'
+      }
     }
   ],
 })

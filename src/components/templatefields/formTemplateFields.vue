@@ -12,10 +12,6 @@
                     <div class="text-xl text-snhm mb-2">Available Fields</div>
                     <formTemplateFieldsChoose></formTemplateFieldsChoose>
                 </div>
-                <div class="border border-gray-400 rounded p-3 lg:col-span-2">
-                    <div class="text-xl text-snhm mb-2">Banding Form</div>
-                    <bandingForm></bandingForm>
-                </div>
             </div>
         </div>
         <tw-button :caption="'OK'" @click="goBack()" class="mt-2 w-20"></tw-button>
