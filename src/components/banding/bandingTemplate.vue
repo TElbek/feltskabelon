@@ -25,7 +25,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-    state.templateModelList = dataStore.getTemplateModelList();
+    state.templateModelList = dataStore.getTemplateModelListForBanding();
 });
 
 watch(() => state.selectedFormTemplateNameId, (newValue: number | undefined) => {

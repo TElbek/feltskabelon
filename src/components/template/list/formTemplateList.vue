@@ -4,7 +4,7 @@
             <span>Template Overview: {{ dataStore.licenseeName }}</span>
         </div>
         <div class="grid grid-cols-[max-content_max-content_max-content_max-content_max-content_1fr] gap-x-3">
-            <template v-for="(template, index) in listSortedById" :key="template.formTemplateName.id">
+            <template v-for="(template, index) in state.formTemplateModelList " :key="template.formTemplateName.id">
                 <div class="border-b border-gray-300 col-span-6" v-if="index == 0"></div>
 
                 <span class="font-semibold border-s border-e border-gray-300 ps-2 pe-2" v-if="index == 0">Id</span>
@@ -70,14 +70,6 @@ const state = reactive({
 
 onMounted(() => {
     state.formTemplateModelList = dataStore.getTemplateModelList();
-});
-
-const listSortedById = computed(() => {
-    return dataStore.isAdministrator ?
-        state.formTemplateModelList.sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName) : (a.formTemplateName.isActive ? -1 : 1)) :
-        state.formTemplateModelList.filter((item) => item.formTemplateName.isActive || item.formTemplateName.licenseeId == dataStore.LicenseeId)
-            .sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName) : (a.formTemplateName.isActive ? -1 : 1));
-
 });
 
 function getScenarioNameById(id: number): string {
