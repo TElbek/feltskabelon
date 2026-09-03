@@ -43,7 +43,7 @@ onMounted(() => {
 });
 
 function getFormularSkabelonFelter(): void {
-    state.skabelonFormularFeltModelList = formularStore.getTemplateFieldsByTemplateNameId(Number(route.params.skabelonNavnId));
+    state.skabelonFormularFeltModelList = formularStore.getTemplateFieldsByTemplateNameId(Number(route.params.templateNameId));
 }
 
 const sortedSkabelonFormularFeltModelList = computed(() => {

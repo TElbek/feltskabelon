@@ -1,8 +1,7 @@
 <template>
-    <div class="text-xl text-snhm mb-2">Vælg felter</div>
     <tw-flex>
-        <template v-for="maerkningsFormularFelt in sortMaerkningsFormularFeltList">
-            <a @click="tilfoejSkabelonFelt(maerkningsFormularFelt.id)" 
+        <template v-for="maerkningsFormularFelt in sortBandingFormFieldList">
+            <a @click="addFormTemplateField(maerkningsFormularFelt.id)" 
                 :class="[routeLogic.isSkabelonFelterRedigerRoute.value ? 'cursor-pointer' : 'cursor-default']">
                 <span class="text-gray-500  px-1 rounded"
                      :class="[maerkningsFormularFelt.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
@@ -23,32 +22,32 @@ import type { bandingFormType } from '@/types/bandingFormType';
 const routeLogic = useRouteLogic();
 const route = useRoute();
 
-const formularStore = useDataStore();
-const { refreshIndex: genopfriskIndex } = storeToRefs(formularStore);
+const dataStore = useDataStore();
+const { refreshIndex } = storeToRefs(dataStore);
 
 const state = reactive({
-    MaerkningsFormularFeltList: [] as bandingFormType[]
+    bandingFormList: [] as bandingFormType[]
 });
 
-const sortMaerkningsFormularFeltList = computed(() => {
-    return state.MaerkningsFormularFeltList.sort((a,b) => a.placeholder.localeCompare(b.placeholder));
+const sortBandingFormFieldList = computed(() => {
+    return state.bandingFormList.sort((a,b) => a.placeholder.localeCompare(b.placeholder));
 })
 
 onMounted(() => {
-    getVaelgMaerkningsFelter(); 
+    getbandingFormList(); 
 });
 
-function getVaelgMaerkningsFelter() {
-    state.MaerkningsFormularFeltList = formularStore.getChooseBandingFieldsByTemplateNameId(Number(route.params.skabelonNavnId))
+function getbandingFormList() {
+    state.bandingFormList = dataStore.getChooseBandingFieldsByTemplateNameId(Number(route.params.templateNameId));
 }
 
-function tilfoejSkabelonFelt(maerkningsFeltId: number) {
+function addFormTemplateField(maerkningsFeltId: number) {
     if(routeLogic.isSkabelonFelterRedigerRoute.value) {
-        formularStore.addFormTemplateField(Number(route.params.skabelonNavnId), maerkningsFeltId);
+        dataStore.addFormTemplateField(Number(route.params.templateNameId), maerkningsFeltId);
     }
 }
 
-watch(genopfriskIndex, () => {
-    getVaelgMaerkningsFelter();
+watch(refreshIndex, () => {
+    getbandingFormList();
 })
 </script>

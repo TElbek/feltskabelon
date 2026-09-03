@@ -48,11 +48,11 @@ import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const formularStore = useDataStore();
-const { refreshIndex: genopfriskIndex } = storeToRefs(formularStore);
+const dataStore = useDataStore();
+const { refreshIndex: genopfriskIndex } = storeToRefs(dataStore);
 
 const formIsVisible = ref(false);
-const formularSkabelonNavnId = computed(() => Number(route.params.skabelonNavnId));
+const formTemplateNameId = computed(() => Number(route.params.templateNameId));
 const waitTimeInms = 100;
 
 onMounted(() => {
@@ -81,7 +81,7 @@ function loopElementList(elementList: HTMLCollectionOf<Element>) {
     for (let index = 0; index < elementList.length; ++index) {
         let element = elementList[index];
         if (element instanceof HTMLInputElement) {
-            formularStore.hasFormTemplateNameThisField(formularSkabelonNavnId.value, element.name) ?
+            dataStore.hasFormTemplateNameThisField(formTemplateNameId.value, element.name) ?
                 element.classList.remove('skjul-felt') : element.classList.add('skjul-felt');
         }
     }

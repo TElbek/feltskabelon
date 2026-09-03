@@ -6,12 +6,12 @@ import { useDataStore } from '@/stores/dataStore';
 import { useRoute, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 
-const formularStore = useDataStore();
+const dataStore = useDataStore();
 const route = useRoute();
 const router = useRouter();
 
 onMounted(() => {
-    formularStore.setLicenseeId(Number(route.params.licenshaverId));
+    dataStore.setLicenseeId(Number(route.params.licenseeId));
     router.back();
 });
 </script>

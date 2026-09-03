@@ -15,66 +15,66 @@ const router = createRouter({
       },
     },
     {
-      path: '/gendan-data',
-      name: 'gendan-data',
-      component: () => import('@/components/common/gendanData.vue'),
+      path: '/restore-data',
+      name: 'restoreData',
+      component: () => import('@/components/common/restoreData.vue'),
       meta: {
         showInNavBar: true,
-        title: 'Gendan Data'
+        title: 'Restore Data'
       },
     },
     {
-      path: '/skabelon/liste',
-      name: 'skabelonliste',
-      component: () => import('@/views/formularSkabelonListeView.vue'),
+      path: '/template/list',
+      name: 'templateList',
+      component: () => import('@/views/formTemplateListView.vue'),
       meta: {
         showInNavBar: true,
-        title: 'Skabeloner'
+        title: 'Template List'
       },
     },
     {
-      path: '/skabelonnavn/rediger/:skabelonNavnId',
-      name: 'skabelonNavnRediger',
-      component: () => import('@/views/formularSkabelonNavnRedigerView.vue'),
+      path: '/template/name/rediger/:templateNameId',
+      name: 'templatenameEdit',
+      component: () => import('@/views/formTemplateNameEditView.vue'),
       meta: {
         showInNavBar: false,
-        title: 'Rediger Skabelon'
+        title: 'Edit Template'
       },
     },
     {
-      path: '/skabelonnavn/kopier/:skabelonNavnId',
-      name: 'skabelonNavnKopier',
-      component: () => import('@/views/formularSkabelonNavnRedigerView.vue'),
+      path: '/template/name/copy/:templateNameId',
+      name: 'templateNameCopy',
+      component: () => import('@/views/formTemplateNameEditView.vue'),
       meta: {
         showInNavBar: false,
-        title: 'Kopier Skabelon'
+        title: 'Copy Template'
       },
     },
     {
-      path: '/formularskabelonfelter/rediger/:skabelonNavnId',
-      name: 'formularskabelonFelterRediger',
-      component: () => import('@/views/formularSkabelonFelterRedigerView.vue'),
+      path: '/template/felter/rediger/:templateNameId',
+      name: 'templateFieldsEdit',
+      component: () => import('@/views/formTemplateFieldsView.vue'),
       meta: {
         showInNavBar: false,
-        title: 'Rediger Skabelon'
+        title: 'Edit Template Fields'
       },
     },
       {
-      path: '/formularskabelonfelter/vis/:skabelonNavnId',
-      name: 'formularskabelonFelterVis',
-      component: () => import('@/views/formularSkabelonFelterRedigerView.vue'),
+      path: '/template/felter/vis/:templateNameId',
+      name: 'templateFieldsView',
+      component: () => import('@/views/formTemplateFieldsView.vue'),
       meta: {
         showInNavBar: false,
-        title: 'Rediger Skabelon'
+        title: 'View Template Fields'
       },
     },
     {
-      path: '/licenshaver/:licenshaverId',
-      name: 'licenshaver',
-      component: () => import('@/components/common/licenshaver/licenshaver.vue'),
+      path: '/licensee/:licenseeId',
+      name: 'licensee',
+      component: () => import('@/components/common/licensee/licensee.vue'),
       meta: {
         showInNavBar: false,
-        title: 'licenshaver'
+        title: 'Licensee'
       }
     }
   ],
@@ -82,13 +82,13 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   const formularStore = useDataStore();
-  if(to.name == 'formularskabelonFelterRediger') {
-    if(formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.skabelonNavnId) && 
+  if(to.name == 'templateFieldsEdit') {
+    if(formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.templateNameId) && 
                                                               item.licenseeId == formularStore.LicenseeId)) {
       next();
     }
     else if(formularStore.isAdministrator &&
-            formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.skabelonNavnId) && 
+            formularStore.formTemplateNameList.some((item) => item.id == Number(to.params.templateNameId) && 
                                                                    item.licenseeId == undefined)) {
       next();
     }
