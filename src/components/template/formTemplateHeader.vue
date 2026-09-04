@@ -1,9 +1,4 @@
 <template>
-    <!-- <div class="flex flew-row gap-x-2 text-xl text-snhm">
-        <span>Template: {{ state.formTemplateName?.templateName }}</span>
-        <span>Scenario: {{ state.bandingScenario?.name }}</span>
-        <span>Licensee: {{  dataStore.licenseeName }}</span>
-    </div> -->
     <div class="text-base">
         <div class="flex flex-col lg:flex-row lg:gap-3">
             <tw-flex>
