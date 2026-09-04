@@ -3,7 +3,7 @@
         <div class="text-2xl text-snhm">Banding</div>
 
         <div>
-            <div class="text-lg text-snhm">Standard Value</div>
+            <div class="text-lg text-snhm">Standard Values</div>
             <div class="border-b border-snhm"></div>
             <standardvalues class="mt-2"></standardvalues>
             <tw-show-lg>

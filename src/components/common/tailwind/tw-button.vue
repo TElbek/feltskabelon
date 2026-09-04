@@ -1,6 +1,6 @@
 <template>
     <button type="button"
-        class="focus:outline-2 focus:outline-snhm text-sm text-snhm cursor-pointer border border-gray-300 rounded min-w-15 p-2"
+        class="focus:outline-2 focus:outline-snhm text-sm text-snhm cursor-pointer border border-gray-300 rounded min-w-15 p-1"
         @click="clicked">
         <span>{{ props.caption }}</span>
     </button>
