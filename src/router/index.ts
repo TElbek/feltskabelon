@@ -11,6 +11,7 @@ const router = createRouter({
       component: HomeView,
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'SNM'
       },
     },
@@ -20,6 +21,7 @@ const router = createRouter({
       component: () => import('@/components/common/restoreData.vue'),
       meta: {
         showInNavBar: true,
+        requireAdmin: true,
         title: 'Restore Data'
       },
     },
@@ -29,6 +31,7 @@ const router = createRouter({
       component: () => import('@/views/scenarioListView.vue'),
       meta: {
         showInNavBar: true,
+        requireAdmin: true,
         title: 'Scenarios'
       },
     },
@@ -38,6 +41,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateListView.vue'),
       meta: {
         showInNavBar: true,
+        requireAdmin: false,
         title: 'Templates'
       },
     },
@@ -47,6 +51,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateNameEditView.vue'),
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'Add Template'
       },
     },
@@ -56,6 +61,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateNameEditView.vue'),
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'Edit Template'
       },
     },
@@ -65,6 +71,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateNameEditView.vue'),
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'Copy Template'
       },
     },
@@ -74,6 +81,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateFieldsView.vue'),
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'Edit Template Fields'
       },
     },
@@ -83,6 +91,7 @@ const router = createRouter({
       component: () => import('@/views/formTemplateFieldsView.vue'),
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'View Template Fields'
       },
     },
@@ -92,6 +101,7 @@ const router = createRouter({
       component: () => import('@/components/common/licensee/licensee.vue'),
       meta: {
         showInNavBar: false,
+        requireAdmin: false,
         title: 'Licensee'
       }
     },
@@ -101,6 +111,7 @@ const router = createRouter({
       component: () => import('@/views/bandingView.vue'),
       meta: {
         showInNavBar: true,
+        requireAdmin: false,
         title: 'Banding'
       }
     }
