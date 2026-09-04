@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="grid grid-cols-[1fr_max-content] gap-x-3 mt-2">
         <form id="maerkningForm" :class="[formIsVisible ? 'visible' : 'hidden']">
-            <div class="flex flex-row flex-wrap mt-2 gap-x-1.5 gap-y-1">
-                <validitet_roed_20px></validitet_roed_20px>                
+            <div class="flex flex-row flex-wrap gap-x-1.5 gap-y-1">
+                <validitet_roed_20px></validitet_roed_20px>
                 <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
                 <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Scheme'" />
                 <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" />
@@ -35,13 +35,12 @@
                 <tw-input :type="'text'" :name="'project_VisitPeriod'" :placeholder="'VisitPeriod'" />
                 <tw-input :type="'text'" :name="'project_TimeStart'" class="text-center"
                     :placeholder="'Start (tt:mm)'" />
-                <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center"
-                    :placeholder="'End (tt:mm)'" />
-                <div class="ms-2 mt-0.5">
-                    <banding-buttons></banding-buttons>
-                </div>
+                <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center" :placeholder="'End (tt:mm)'" />
             </div>
         </form>
+        <div class="mt-0.5">
+            <banding-buttons></banding-buttons>
+        </div>
     </div>
 </template>
 
