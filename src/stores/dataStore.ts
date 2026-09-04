@@ -60,6 +60,11 @@ export const useDataStore = defineStore('dataStore', () => {
                 .sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName) : (a.formTemplateName.isActive ? -1 : 1));
     }
 
+    function getNewIdForTemplate() {
+        return formTemplateList.value.length > 0 ?
+            Math.max(...formTemplateList.value.map(o => o.id)) + 1 : 1;
+    }
+
     function getNewIdForTemplateName() {
         return formTemplateNameList.value.length > 0 ?
             Math.max(...formTemplateNameList.value.map(o => o.id)) + 1 : 1;
@@ -89,6 +94,8 @@ export const useDataStore = defineStore('dataStore', () => {
     function getTemplateFieldsByTemplateNameId(templateNameId: number): templateFieldModelType[] {
         let listOfModel = [] as templateFieldModelType[];
         let templateNameIdSet = getTemplateNameIdSetFromId(templateNameId);
+
+        console.log('templateNameIdSet', templateNameIdSet);
 
         let templateFieldList = formTemplateFieldList.value.filter((item) => templateNameIdSet.has(item.formTemplateNameId));
         templateFieldList.forEach((templateField) => {
@@ -126,6 +133,22 @@ export const useDataStore = defineStore('dataStore', () => {
         return {
             formTemplate: { ...template },
             formTemplateName: { ...templateName }
+        }
+    }
+
+    function addTemplateModelFactory(): templateModelType {
+        return {
+            formTemplate: {
+                id: 0,
+                bandingScenarioId: 0
+            },
+            formTemplateName: {
+                id: 0,
+                licenseeId: undefined,
+                formTemplateId: 0,
+                templateName: '',
+                isActive: false
+            }
         }
     }
 
@@ -180,6 +203,19 @@ export const useDataStore = defineStore('dataStore', () => {
         }
     }
 
+    function addTemplateModel(templateModel: templateModelType): void {
+        if (templateModel.formTemplate.id == 0) {
+            templateModel.formTemplate.id = getNewIdForTemplate();
+            templateModel.formTemplateName.formTemplateId = templateModel.formTemplate.id;  
+        }
+        if (templateModel.formTemplateName.id == 0) {
+            templateModel.formTemplateName.id = getNewIdForTemplateName();
+        }
+
+        formTemplateList.value.push(templateModel.formTemplate);
+        formTemplateNameList.value.push(templateModel.formTemplateName);
+    }
+
     function addFormTemplateField(formTemplateNameId: number, bandingFieldId: number): void {
         formTemplateFieldList.value.push(formTemplateFieldFactory(formTemplateNameId, bandingFieldId));
         incrementRefreshIndex();
@@ -225,7 +261,7 @@ export const useDataStore = defineStore('dataStore', () => {
         let templateName = formTemplateNameList.value.find((item) => item.id == templateNameId);
         let templateNameIdSet = new Set();
 
-        if (templateName && templateName?.licenseeId > 0) {
+        if (templateName && templateName?.licenseeId != undefined) {
             let templateNameList = formTemplateNameList.value.filter
                 ((item => item.formTemplateId == templateName.formTemplateId && (item.licenseeId == templateName.licenseeId || item.licenseeId == undefined)));
             templateNameList.forEach((templateNameItem) => { templateNameIdSet.add(templateNameItem.id) });
@@ -257,6 +293,7 @@ export const useDataStore = defineStore('dataStore', () => {
 
         hasFormTemplateNameThisField,
         removeFormTemplateField,
+        addTemplateModelFactory,
         addFormTemplateField,
 
         setFormTemplateList,
@@ -270,6 +307,7 @@ export const useDataStore = defineStore('dataStore', () => {
         copyTemplateName: copyTemplateName,
         createTemplateName: createTemplateName,
 
+        addTemplateModel,
         updateFormTemplate,
         refreshIndex
     }

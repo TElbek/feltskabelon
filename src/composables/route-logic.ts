@@ -15,6 +15,10 @@ export function useRouteLogic() {
         return route.name === 'templateList';
     });
 
+    const isAtTemplateAddRoute = computed(() => {
+        return route.name === 'templateAdd';
+    });
+
     const isAtTemplateNameCopyRoute = computed(() => {
         return route.name === 'templateNameCopy';
     });
@@ -31,6 +35,7 @@ export function useRouteLogic() {
         homeRoute,
         isAtHomeRoute,
         isAtTemplateListRoute,
+        isAtTemplateAddRoute,
         isAtTemplateNameCopyRoute,
         isAtTemplateFieldsEditRoute,
         visibleRoutes

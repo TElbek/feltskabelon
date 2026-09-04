@@ -30,7 +30,7 @@
                 </div>
             </form>
             <tw-flex class="mt-3">
-                <tw-button :caption="'Save'" @clicked="save"></tw-button>
+                <tw-button :caption="'Save'" @clicked="save" :disabled="!isValid()"></tw-button>
                 <tw-button :caption="'Cancel'" @clicked="cancel"></tw-button>
             </tw-flex>
         </div>
@@ -47,7 +47,7 @@ import { useRouteLogic } from '@/composables/route-logic';
 const dataStore = useDataStore();
 const route = useRoute();
 const router = useRouter();
-const { isAtTemplateNameCopyRoute } = useRouteLogic();
+const { isAtTemplateNameCopyRoute, isAtTemplateAddRoute } = useRouteLogic();
 
 const state = reactive({
     hasData: false as boolean,
@@ -57,6 +57,10 @@ const state = reactive({
 onMounted(() => {
     if (isAtTemplateNameCopyRoute.value) {
         getCopyOfTemplateNameModel();
+    }
+    else if (isAtTemplateAddRoute.value) {
+        state.templateModel = dataStore.addTemplateModelFactory();
+        state.hasData = true;
     }
     else {
         getTemplateNameModel();
@@ -90,10 +94,18 @@ function save() {
     if (isAtTemplateNameCopyRoute.value) {
         dataStore.createTemplateName(state.templateModel);
     }
+    else if (isAtTemplateAddRoute.value) {
+        dataStore.addTemplateModel(state.templateModel);
+    }
     else {
         dataStore.updateFormTemplate(state.templateModel);
     }
     router.back();
+}
+
+function isValid() {
+    return state.templateModel.formTemplateName.templateName.length > 0 && 
+           state.templateModel.formTemplate.bandingScenarioId > 0;
 }
 
 function cancel() {

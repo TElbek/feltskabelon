@@ -4,7 +4,7 @@
             <span>Template Overview: {{ dataStore.licenseeName }}</span>
         </div>
         <div class="grid grid-cols-[max-content_max-content_max-content_max-content_max-content_1fr] gap-x-3">
-            <template v-for="(template, index) in state.formTemplateModelList " :key="template.formTemplateName.id">
+            <template v-for="(template, index) in state.formTemplateModelList" :key="template.formTemplateName.id">
                 <div class="border-b border-gray-300 col-span-6" v-if="index == 0"></div>
 
                 <span class="font-semibold border-s border-e border-gray-300 ps-2 pe-2" v-if="index == 0">Id</span>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="border-e border-gray-300">
                     <div class="text-center pe-2">{{ template.formTemplateName.isActive ? 'Yes' : 'No' }}</div>
-                </div>              
+                </div>
                 <div class="border-e border-gray-300 pe-2">
                     <router-link v-if="canEdit(template.formTemplateName.licenseeId)"
                         :to="`/template/name/edit/${template.formTemplateName.id}`">
@@ -31,8 +31,9 @@
                         <span>{{ template.formTemplateName.templateName }}</span>
                     </div>
                 </div>
-                  <div class="border-e border-gray-300">
-                    <div class="text-start pe-2">{{ getScenarioNameById(template.formTemplate.bandingScenarioId) }}</div>
+                <div class="border-e border-gray-300">
+                    <div class="text-start pe-2">{{ getScenarioNameById(template.formTemplate.bandingScenarioId) }}
+                    </div>
                 </div>
                 <div class="border-e border-gray-300 pe-2">
                     <router-link v-if="canEdit(template.formTemplateName.licenseeId)"
@@ -54,14 +55,21 @@
                 <div class="border-b col-span-6 border-gray-300"></div>
             </template>
         </div>
+        <div class="mt-3" v-if="dataStore.isAdministrator">
+            <tw-button @click="addTemplate" :caption="'Add Template'">
+            </tw-button>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { templateModelType } from '@/models/templateModelType';
 import { useDataStore } from '@/stores/dataStore';
-import { computed, onMounted, reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
 const dataStore = useDataStore();
+const router = useRouter();
 
 const state = reactive({
     hasData: false as boolean,
@@ -72,11 +80,15 @@ onMounted(() => {
     state.formTemplateModelList = dataStore.getTemplateModelList();
 });
 
+function addTemplate(): void {
+    router.push('/template/add');
+}
+
 function getScenarioNameById(id: number): string {
     return dataStore.bandingScenarioList.find((item) => item.id == id)?.name ?? 'ukendt';
 }
 
-function canEdit(licenseeId: number): boolean {
+function canEdit(licenseeId: number | undefined): boolean {
     return dataStore.isAdministrator || licenseeId == dataStore.LicenseeId;
 }
 </script>

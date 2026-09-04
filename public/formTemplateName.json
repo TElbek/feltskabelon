@@ -1,16 +1,1 @@
-[
-    {
-        "id": 10,
-        "formTemplateId": 1,
-        "licenseeId": null,
-        "templateName": "SNM Udefinerbar",
-        "isActive": true
-    },
-    {
-        "id": 20,
-        "formTemplateId": 2,
-        "licenseeId": null,
-        "templateName": "SNM Fuglestation",
-        "isActive": true
-    }
-]
+[]

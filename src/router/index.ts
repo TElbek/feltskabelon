@@ -33,6 +33,15 @@ const router = createRouter({
       },
     },
     {
+      path: '/template/add',
+      name: 'templateAdd',
+      component: () => import('@/views/formTemplateNameEditView.vue'),
+      meta: {
+        showInNavBar: false,
+        title: 'Add Template'
+      },
+    },
+    {
       path: '/template/name/edit/:templateNameId',
       name: 'templatenameEdit',
       component: () => import('@/views/formTemplateNameEditView.vue'),
