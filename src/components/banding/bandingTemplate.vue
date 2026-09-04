@@ -17,7 +17,7 @@
             <tw-input-select v-model="state.selectedFormTemplateNameId" :name="'formTemplateNameSelection'">
             <option v-for="template in state.templateModelList" :key="template.formTemplateName.id"
                 :value="template.formTemplateName.id">
-                <span>{{ template.formTemplateName.templateName }}</span>
+                <div>{{ template.formTemplateName.templateName }}</div>
             </option>
         </tw-input-select>
         </div>

@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/homeView.vue'
 import { useDataStore } from '@/stores/dataStore.ts';
 
 const router = createRouter({
@@ -21,6 +21,15 @@ const router = createRouter({
       meta: {
         showInNavBar: true,
         title: 'Restore Data'
+      },
+    },
+    {
+      path: '/scenario/list',
+      name: 'scenarioList',
+      component: () => import('@/views/scenarioListView.vue'),
+      meta: {
+        showInNavBar: true,
+        title: 'Scenarios'
       },
     },
     {

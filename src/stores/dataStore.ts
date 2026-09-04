@@ -33,6 +33,22 @@ export const useDataStore = defineStore('dataStore', () => {
         refreshIndex.value++;
     }
 
+    function getTemplateModelListForScenario(scenarioId: number): templateModelType[] {
+        let listOfModel = [] as templateModelType[];
+        formTemplateList.value.filter((item) => item.bandingScenarioId == scenarioId).forEach((formTemplate) => {
+            formTemplateNameList.value.filter((item) =>
+                item.formTemplateId == formTemplate.id &&
+                item.isActive).forEach((formTemplateName) => {
+                    if(formTemplateNameList.value.some((item) => item.formTemplateId == formTemplate.id && item.licenseeId == undefined && item.isActive))
+                    {
+                        listOfModel.push(templateModelFactory(formTemplate, formTemplateName));
+                    }                    
+                })
+        })
+
+        return listOfModel;
+    }
+
     function getTemplateModelListForBanding(): templateModelType[] {
         return getTemplateModelList().filter((item) => item.formTemplateName.isActive);
     }
@@ -206,7 +222,7 @@ export const useDataStore = defineStore('dataStore', () => {
     function addTemplateModel(templateModel: templateModelType): void {
         if (templateModel.formTemplate.id == 0) {
             templateModel.formTemplate.id = getNewIdForTemplate();
-            templateModel.formTemplateName.formTemplateId = templateModel.formTemplate.id;  
+            templateModel.formTemplateName.formTemplateId = templateModel.formTemplate.id;
         }
         if (templateModel.formTemplateName.id == 0) {
             templateModel.formTemplateName.id = getNewIdForTemplateName();
@@ -282,6 +298,7 @@ export const useDataStore = defineStore('dataStore', () => {
         LicenseeId,
 
         getTemplateModelList,
+        getTemplateModelListForScenario,
         getTemplateModelListForBanding,
         getTemplateNameModelById,
         getTemplateNameIdByTemplateId,
