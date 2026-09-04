@@ -19,7 +19,6 @@ const { setLicenseeId } = useDataStore();
 
 function restoreData(): void {
     dataLoader.loadJSONData();
-    setLicenseeId(1);
     goBack();
 }
 

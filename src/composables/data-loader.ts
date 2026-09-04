@@ -23,7 +23,8 @@ export function useDataLoader() {
             ),
             api.get('licensee.json').then(res =>
                 dataStore.setLicenseeList(res.data)
-            ),
+            ),            
+            dataStore.setLicenseeId(1)
         ])
     }
 
