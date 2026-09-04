@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import bandingForm from '@/components/banding/bandingForm.vue';
 import formTemplateHeader from '@/components/template/formTemplateHeader.vue';
 import formTemplateFieldsSelected from '@/components/templatefields/formTemplateFieldsSelected.vue';
 import formTemplateFieldsChoose from '@/components/templatefields/formTemplateFieldsChoose.vue';

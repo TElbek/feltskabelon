@@ -1,4 +1,4 @@
-export type bandingFormType = {
+export type bandingFieldType = {
     id: number,
     fieldName: string,
     placeholder: string,

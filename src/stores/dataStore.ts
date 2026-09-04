@@ -7,7 +7,7 @@ import type { formTemplateFieldType } from '@/types/formTemplateFieldType';
 import type { bandingScenarioType } from '@/types/bandingScenarioType';
 import type { templateModelType } from '@/models/templateModelType';
 import type { templateFieldModelType } from '@/models/templateFieldModelType';
-import type { bandingFormType } from '@/types/bandingFormType';
+import type { bandingFieldType } from '@/types/bandingFieldType';
 import type { licenseeType } from '@/types/licenseeType';
 
 export const useDataStore = defineStore('dataStore', () => {
@@ -15,7 +15,7 @@ export const useDataStore = defineStore('dataStore', () => {
     const formTemplateNameList = ref([] as formTemplateNameType[]);
     const formTemplateFieldList = ref([] as formTemplateFieldType[]);
     const bandingScenarioList = ref([] as bandingScenarioType[]);
-    const bandingFormList = ref([] as bandingFormType[]);
+    const bandingFieldList = ref([] as bandingFieldType[]);
     const licenseeList = ref([] as licenseeType[])
     const LicenseeId = ref(1 as number);
     const refreshIndex = ref(0 as number);
@@ -92,32 +92,32 @@ export const useDataStore = defineStore('dataStore', () => {
 
         let templateFieldList = formTemplateFieldList.value.filter((item) => templateNameIdSet.has(item.formTemplateNameId));
         templateFieldList.forEach((templateField) => {
-            let bandingFormField = bandingFormList.value.find((item) => item.id == templateField.bandingFormId);
-            if (bandingFormField) {
-                listOfModel.push(templateFieldModelFactory(templateField, bandingFormField))
+            let bandingField = bandingFieldList.value.find((item) => item.id == templateField.bandingFieldId);
+            if (bandingField) {
+                listOfModel.push(templateFieldModelFactory(templateField, bandingField))
             }
         });
         return listOfModel;
     }
 
-    function getChooseBandingFieldsByTemplateNameId(templateNameId: number): bandingFormType[] {
+    function getChooseBandingFieldsByTemplateNameId(templateNameId: number): bandingFieldType[] {
         let templateNameIdSet = getTemplateNameIdSetFromId(templateNameId);
 
         let existingIdSet = new Set([...new Set(formTemplateFieldList.value.filter((item => templateNameIdSet.has(item.formTemplateNameId)))
-            .map((item) => item.bandingFormId))]);
+            .map((item) => item.bandingFieldId))]);
 
-        return bandingFormList.value.filter((item) => !existingIdSet.has(item.id));
+        return bandingFieldList.value.filter((item) => !existingIdSet.has(item.id));
     }
 
     function hasFormTemplateNameThisField(templateNameId: number, fieldName: string): boolean {
 
         let templateNameIdSet = getTemplateNameIdSetFromId(templateNameId);
 
-        if (bandingFormList.value.some((item) => item.fieldName == fieldName)) {
-            let bandingFormField = bandingFormList.value.find(item => item.fieldName == fieldName);
+        if (bandingFieldList.value.some((item) => item.fieldName == fieldName)) {
+            let bandingField = bandingFieldList.value.find(item => item.fieldName == fieldName);
             return formTemplateFieldList.value.some(
                 (item) => templateNameIdSet.has(item.formTemplateNameId) &&
-                    item.bandingFormId == bandingFormField?.id);
+                    item.bandingFieldId == bandingField?.id);
         }
         return false;
     }
@@ -131,10 +131,10 @@ export const useDataStore = defineStore('dataStore', () => {
 
     function templateFieldModelFactory(
         formTemplateField: formTemplateFieldType,
-        bandingForm: bandingFormType): templateFieldModelType {
+        bandingField: bandingFieldType): templateFieldModelType {
         return {
             formTemplateFieldType: { ...formTemplateField },
-            bandingFormType: { ...bandingForm }
+            bandingFieldType: { ...bandingField }
         };
     }
 
@@ -154,8 +154,8 @@ export const useDataStore = defineStore('dataStore', () => {
         bandingScenarioList.value = liste;
     }
 
-    function setBandingFormList(liste: bandingFormType[]): void {
-        bandingFormList.value = liste;
+    function setBandingFieldList(liste: bandingFieldType[]): void {
+        bandingFieldList.value = liste;
     }
 
     function setLicenseeList(liste: licenseeType[]): void {
@@ -180,17 +180,17 @@ export const useDataStore = defineStore('dataStore', () => {
         }
     }
 
-    function addFormTemplateField(formTemplateNameId: number, bandingFormId: number): void {
-        formTemplateFieldList.value.push(formTemplateFieldFactory(formTemplateNameId, bandingFormId));
+    function addFormTemplateField(formTemplateNameId: number, bandingFieldId: number): void {
+        formTemplateFieldList.value.push(formTemplateFieldFactory(formTemplateNameId, bandingFieldId));
         incrementRefreshIndex();
     }
 
-    function formTemplateFieldFactory(formTemplateNameId: number, bandingFormId: number): formTemplateFieldType {
+    function formTemplateFieldFactory(formTemplateNameId: number, bandingFieldId: number): formTemplateFieldType {
         return {
             id: getNewIdForTemplateField(),
             isMinimumsField: isAdministrator.value,
             formTemplateNameId: formTemplateNameId,
-            bandingFormId: bandingFormId
+            bandingFieldId: bandingFieldId
         }
     }
 
@@ -241,7 +241,7 @@ export const useDataStore = defineStore('dataStore', () => {
         formTemplateNameList,
         formTemplateFieldList,
         bandingScenarioList,
-        bandingFormList,
+        bandingFieldList,
         licenseeList,
         LicenseeId,
 
@@ -263,7 +263,7 @@ export const useDataStore = defineStore('dataStore', () => {
         setFormTemplateNameList,
         setFormTemplateFieldList,
         setBandingScenarioList,
-        setBandingFormList,
+        setBandingFieldList,
         setLicenseeList,
         setLicenseeId,
 

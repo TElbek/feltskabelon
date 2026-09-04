@@ -1,11 +1,11 @@
 <template>
     <tw-flex>
-        <template v-for="bandingForm in sortBandingFormFieldList">
-            <a @click="addFormTemplateField(bandingForm.id)" 
+        <template v-for="bandingField in sortBandingFieldList">
+            <a @click="addFormTemplateField(bandingField.id)" 
                 :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
                 <span class="text-gray-500  px-1 rounded"
-                     :class="[bandingForm.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
-                      {{ bandingForm.placeholder }}</span>
+                     :class="[bandingField.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
+                      {{ bandingField.placeholder }}</span>
             </a>
         </template>
     </tw-flex>
@@ -17,7 +17,7 @@ import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/dataStore';
 import { useRoute } from 'vue-router';
 import { useRouteLogic } from '@/composables/route-logic';
-import type { bandingFormType } from '@/types/bandingFormType';
+import type { bandingFieldType } from '@/types/bandingFieldType';
 
 const routeLogic = useRouteLogic();
 const route = useRoute();
@@ -26,28 +26,28 @@ const dataStore = useDataStore();
 const { refreshIndex } = storeToRefs(dataStore);
 
 const state = reactive({
-    bandingFormList: [] as bandingFormType[]
+    bandingFieldList: [] as bandingFieldType[]
 });
 
-const sortBandingFormFieldList = computed(() => {
-    return state.bandingFormList.sort((a,b) => a.placeholder.localeCompare(b.placeholder));
+const sortBandingFieldList = computed(() => {
+    return state.bandingFieldList.sort((a,b) => a.placeholder.localeCompare(b.placeholder));
 })
 
 onMounted(() => {
-    getbandingFormList(); 
+    getbandingFieldList(); 
 });
 
-function getbandingFormList() {
-    state.bandingFormList = dataStore.getChooseBandingFieldsByTemplateNameId(Number(route.params.templateNameId));
+function getbandingFieldList() {
+    state.bandingFieldList = dataStore.getChooseBandingFieldsByTemplateNameId(Number(route.params.templateNameId));
 }
 
-function addFormTemplateField(bandingFormId: number) {
+function addFormTemplateField(bandingFieldId: number) {
     if(routeLogic.isAtTemplateFieldsEditRoute.value) {
-        dataStore.addFormTemplateField(Number(route.params.templateNameId), bandingFormId);
+        dataStore.addFormTemplateField(Number(route.params.templateNameId), bandingFieldId);
     }
 }
 
 watch(refreshIndex, () => {
-    getbandingFormList();
+    getbandingFieldList();
 })
 </script>

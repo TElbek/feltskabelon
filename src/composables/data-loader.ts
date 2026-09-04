@@ -18,8 +18,8 @@ export function useDataLoader() {
             api.get('bandingScenario.json').then(res =>
                 dataStore.setBandingScenarioList(res.data)
             ),
-            api.get('bandingForm.json').then(res =>
-                dataStore.setBandingFormList(res.data)
+            api.get('bandingField.json').then(res =>
+                dataStore.setBandingFieldList(res.data)
             ),
             api.get('licensee.json').then(res =>
                 dataStore.setLicenseeList(res.data)
