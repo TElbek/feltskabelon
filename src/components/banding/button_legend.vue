@@ -3,41 +3,41 @@
         <div class="flex flex-col gap-2">
             <div class="flex gap-2">
                 <new_blank_20pxb></new_blank_20pxb>
-                <span class="text-sm text-gray-500">Opret tom formular</span>
+                <span class="text-sm text-gray-500">Add empty form</span>
             </div>
             <div class="flex gap-2">
                 <new_duplicate_20px></new_duplicate_20px>
-                <span class="text-sm text-gray-500">Opret kopi af denne formular</span>
+                <span class="text-sm text-gray-500">Add cpoy of this form</span>
             </div>
             <div class="flex gap-2">
                 <new_duplicate_more_20px></new_duplicate_more_20px>
-                <span class="text-sm text-gray-500">Opret ønskede antal kopier af denne formular</span>
+                <span class="text-sm text-gray-500">Add requested number of copies of this form</span>
             </div>
             <div class="flex gap-2">
                 <delete_red_20px></delete_red_20px>
-                <span class="text-sm text-gray-500">Slet post</span>
+                <span class="text-sm text-gray-500">Remove form</span>
             </div>
         </div>
         <div class="flex flex-col gap-2">
             <div class="flex gap-2">
                 <validitet_roed_20px></validitet_roed_20px>
-                <span class="text-sm text-gray-500">Indtastning er mangelfuld</span>
+                <span class="text-sm text-gray-500">Input is incomplete.</span>
             </div>
             <div class="flex gap-2">
                 <validitet_gul_20px></validitet_gul_20px>
-                <span class="text-sm text-gray-500">Indtastning kan være mangelfuld</span>
+                <span class="text-sm text-gray-500">Input can be incomplete.</span>
             </div>
             <div class="flex gap-2">
                 <validitet_groen_20px></validitet_groen_20px>
-                <span class="text-sm text-gray-500">Indtastning er korrekt</span>
+                <span class="text-sm text-gray-500">Input is correct</span>
             </div>
             <div class="flex gap-2">
                 <data_type_m></data_type_m>
-                <span class="text-sm text-gray-500">Mærkningsdata</span>
+                <span class="text-sm text-gray-500">Bandingdata</span>
             </div>
             <div class="flex gap-2">
                 <data_type_g></data_type_g>
-                <span class="text-sm text-gray-500">Aflæsninger / Genmeldinger</span>
+                <span class="text-sm text-gray-500">Readings / Re‑reports</span>
             </div>
         </div>
     </div>

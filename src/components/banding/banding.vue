@@ -1,21 +1,19 @@
 <template>
     <div class="flex flex-col gap-6 mt-2">
-        <div class="text-2xl text-snhm">Ringmærkningsdata</div>
+        <div class="text-2xl text-snhm">Banding</div>
 
         <div>
-            <div class="text-lg text-snhm">Standard indstillinger</div>
+            <div class="text-lg text-snhm">Standard Value</div>
             <div class="border-b border-snhm"></div>
             <standardvalues class="mt-2"></standardvalues>
             <tw-show-lg>
-                <span class="text-gray-500 italic text-sm">Udfyld de felter som du ønsker gentaget under hver enkelt
-                    mærkning. <strong>Bemærk:</strong> kun data
-                    fra efter den 1. januar 2015 kan indtastes via formularen. </span>
+                <span class="text-gray-500 italic text-sm">Fill in the fields you want repeated under each individual label. <strong>Note:</strong> only data from after January 1st, 2015 can be entered via the form. </span>
             </tw-show-lg>
         </div>
 
         <div>
             <div class="flex flex-row justify-between gap-2 mb-1 lg:mb-0">
-                <div class="text-lg text-snhm relative top-1 lg:top-0.5">Mærkningsdata</div>
+                <div class="text-lg text-snhm relative top-1 lg:top-0.5">Banding Data</div>
                 <bandingTemplate @formTemplateNameId="handleTemplateSelected"></bandingTemplate>
             </div>
             <div class="border-b border-snhm mt-2 lg:mt-0"></div>
@@ -24,7 +22,7 @@
         </div>
 
         <tw-show-lg>
-            <div class="text-lg text-snhm">Tegnforklaring</div>
+            <div class="text-lg text-snhm">Legend</div>
             <div class="border-b border-snhm mt-2 lg:mt-0"></div>
             <div class="mt-2">
                 <button_legend></button_legend>

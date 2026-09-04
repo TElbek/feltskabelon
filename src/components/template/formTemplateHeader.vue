@@ -1,7 +1,8 @@
 <template>
     <div class="flex flew-row gap-x-2 text-xl text-snhm">
-        <span>{{ state.formTemplateName?.templateName }}</span>
-        <span>({{ state.bandingScenario?.name }})</span>
+        <span>Template: {{ state.formTemplateName?.templateName }}</span>
+        <span>Scenario: {{ state.bandingScenario?.name }}</span>
+        <span>Licensee: {{  dataStore.licenseeName }}</span>
     </div>
 </template>
 

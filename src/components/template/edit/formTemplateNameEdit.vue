@@ -1,6 +1,6 @@
 <template>
     <div v-if="state.hasData" class="lg:w-5/10">
-        <div class="text-xl text-snhm">{{ state.templateModel.formTemplateName.templateName }}</div>
+        <form-template-header :formTemplateNameId="state.templateModel.formTemplateName.id"></form-template-header>
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">
@@ -41,6 +41,7 @@
 import { useRoute, useRouter } from 'vue-router';
 import { useDataStore } from '@/stores/dataStore';
 import { computed, onMounted, reactive } from 'vue';
+import formTemplateHeader from '@/components/template/formTemplateHeader.vue'
 import type { templateModelType } from '@/models/templateModelType';
 import { useRouteLogic } from '@/composables/route-logic';
 
