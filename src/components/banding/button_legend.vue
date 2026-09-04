@@ -7,7 +7,7 @@
             </div>
             <div class="flex gap-2">
                 <new_duplicate_20px></new_duplicate_20px>
-                <span class="text-sm text-gray-500">Add cpoy of this form</span>
+                <span class="text-sm text-gray-500">Add copy of this form</span>
             </div>
             <div class="flex gap-2">
                 <new_duplicate_more_20px></new_duplicate_more_20px>
