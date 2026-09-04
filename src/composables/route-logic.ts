@@ -36,6 +36,14 @@ export function useRouteLogic() {
         return route.name === 'templateFieldsEdit';
     });
 
+    const isAtBandingRoute = computed(() => {
+        return route.name === 'banding';
+    });
+
+    const canSwitchLicensee = computed(() => {
+        return isAtTemplateListRoute.value || isAtBandingRoute.value
+    });
+
     const visibleRoutes = computed(() => {
         return router.options.routes.filter((route) => route.meta?.showInNavBar == true &&
             (state.isAdministrator == route.meta.requireAdmin || !route.meta.requireAdmin))
@@ -52,6 +60,7 @@ export function useRouteLogic() {
         isAtTemplateAddRoute,
         isAtTemplateNameCopyRoute,
         isAtTemplateFieldsEditRoute,
+        canSwitchLicensee,
         visibleRoutes
     };
 }

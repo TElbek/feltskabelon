@@ -13,10 +13,9 @@
                     </router-link>
                 </li>
             </ul>
-            <ul class="flex gap-x-4 text-base">
+            <ul class="flex gap-x-4 text-base" v-if="canSwitchLicensee">
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id">
-                    <router-link :to="`/licensee/${licensee.id}`"
-                        :class="[isAtTemplateListRoute ? 'cursor-pointer' : 'disableClick']">
+                    <router-link :to="`/licensee/${licensee.id}`">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'font-bold' : '']"
                             class="relative top-1.5">{{ licensee.name }}</span>
                     </router-link>
@@ -32,5 +31,5 @@ import { useRouteLogic } from '@/composables/route-logic.ts'
 import { useDataStore } from '@/stores/dataStore';
 
 const dataStore = useDataStore();
-const { visibleRoutes, homeRoute, isAtTemplateListRoute } = useRouteLogic();
+const { visibleRoutes, homeRoute, canSwitchLicensee } = useRouteLogic();
 </script>
