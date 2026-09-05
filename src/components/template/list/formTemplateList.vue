@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex flex-row justify-between mb-2">
-            <span class="text-xl text-snhm">Template Overview</span>
+            <span class="text-xl text-snhm">{{ dataStore.licenseeName }} Templates</span>
             <tw-button v-if="dataStore.isAdministrator" @click="addTemplate" :caption="'Add Template'">
             </tw-button>
         </div>

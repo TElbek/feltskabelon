@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col gap-6 mt-2">
-        <div class="text-2xl text-snhm">Banding</div>
+    <div class="flex flex-col gap-4 mt-2">
+        <div class="text-2xl text-snhm">{{ dataStore.licenseeName }} Banding Formular</div>
 
         <div>
             <div class="text-lg text-snhm">Standard Values</div>
@@ -32,12 +32,14 @@
 </template>
 
 <script setup lang="ts">
+import { useDataStore } from '@/stores/dataStore';
 import bandingForm from '@/components/banding/bandingForm.vue';
 import standardvalues from '@/components/banding/standardvalues.vue';
 import button_legend from '@/components/banding/button_legend.vue';
 import bandingTemplate from '@/components/banding/bandingTemplate.vue';
 import { reactive } from 'vue';
 
+const dataStore = useDataStore();
 const state = reactive({
     selectedFormTemplateNameId: undefined as number | undefined
 });

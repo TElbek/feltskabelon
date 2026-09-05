@@ -12,7 +12,7 @@ const router = createRouter({
       meta: {
         showInNavBar: false,
         requireAdmin: false,
-        title: 'SNM'
+        title: 'Form Templates'
       },
     },
     {
