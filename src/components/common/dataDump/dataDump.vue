@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import dataDumpBandingField from './dataDumpbandingField.vue';
+import dataDumpBandingField from './dataDumpBandingField.vue';
 import dataDumpFormTemplate from './dataDumpFormTemplate.vue';
 import dataDumpFormTemplateName from './dataDumpFormTemplateName.vue';
 import dataDumpFormTemplateField from './dataDumpFormTemplateField.vue';
