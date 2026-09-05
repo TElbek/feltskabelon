@@ -26,6 +26,16 @@ const router = createRouter({
       },
     },
     {
+      path: '/dump/',
+      name: 'dump',
+      component: () => import('@/views/dataDumpView.vue'),
+      meta: {
+        showInNavBar: true,
+        requireAdmin: true,
+        title: 'View Data'
+      }
+    },
+    {
       path: '/scenario/list',
       name: 'scenarioList',
       component: () => import('@/views/scenarioListView.vue'),
