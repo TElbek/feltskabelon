@@ -1,17 +1,19 @@
 <template>
-    <div class="grid" :class="colsCountClass">
-        <div v-for="property in properties">
-            <div class="font-semibold border-gray-300 text-snhm border-b-2 border-t border-l px-2 capitalize">{{
-                property }}</div>
-        </div>
-        <template v-for="item in itemList">
+    <div v-if="hasData">
+        <div class="grid" :class="colsCountClass">
             <div v-for="property in properties">
-                <div class=" border-gray-300 text-snhm border-b border-l px-2">
-                    <span :class="[item[property] == undefined ? 'text-gray-400' : '']">
-                        {{ item[property] != undefined ? item[property] : 'null' }}</span>
-                </div>
+                <div class="border-gray-300 text-snhm border-b-2 border-t border-l px-2 capitalize">{{
+                    property }}</div>
             </div>
-        </template>
+            <template v-for="item in itemList">
+                <div v-for="property in properties">
+                    <div class=" border-gray-300 text-snhm border-b border-l px-2">
+                        <span :class="[item[property] == undefined ? 'text-gray-400' : '']">
+                            {{ item[property] != undefined ? item[property] : 'null' }}</span>
+                    </div>
+                </div>
+            </template>
+        </div>
     </div>
 </template>
 
@@ -24,5 +26,10 @@ interface dataGridProps {
 }
 
 const props = defineProps<dataGridProps>();
-const colsCountClass = computed(() => 'grid-cols-' + props.properties.length)
+
+const hasData = computed(() => props.properties && props.properties.length > 0);
+
+const colsCountClass = computed(() => {
+    return "grid-cols-[repeat(" + props.properties.length + ",max-content)]"
+});
 </script>

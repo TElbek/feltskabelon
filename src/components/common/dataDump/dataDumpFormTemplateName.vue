@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="hasData" class="p-3 border border-gray-300 rounded">
         <div class="text-lg font-semibold text-snhm">FormTemplateName</div>
         <dataGrid :properties="properties" :item-list="dataStore.formTemplateNameList"></dataGrid>
     </div>
@@ -18,6 +18,7 @@ const state = reactive({
 });
 
 const properties = computed(() => Object.keys(state.object) as (keyof formTemplateNameType)[]);
+const hasData = computed(() => dataStore.formTemplateNameList && dataStore.formTemplateNameList.length > 0);
 
 onMounted(() => {
     state.object = dataStore.formTemplateNameList[0];

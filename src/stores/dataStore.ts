@@ -111,8 +111,6 @@ export const useDataStore = defineStore('dataStore', () => {
         let listOfModel = [] as templateFieldModelType[];
         let templateNameIdSet = getTemplateNameIdSetFromId(templateNameId);
 
-        console.log('templateNameIdSet', templateNameIdSet);
-
         let templateFieldList = formTemplateFieldList.value.filter((item) => templateNameIdSet.has(item.formTemplateNameId));
         templateFieldList.forEach((templateField) => {
             let bandingField = bandingFieldList.value.find((item) => item.id == templateField.bandingFieldId);

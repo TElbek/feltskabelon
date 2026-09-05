@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="hasData" class="p-3 border border-gray-300 rounded">
         <div class="text-lg font-semibold text-snhm">BandingScenario</div>
         <dataGrid :properties="properties" :item-list="dataStore.bandingScenarioList"></dataGrid>
     </div>
@@ -18,6 +18,7 @@ const state = reactive({
 });
 
 const properties = computed(() => Object.keys(state.object) as (keyof bandingScenarioType)[]);
+const hasData = computed(() => dataStore.bandingScenarioList && dataStore.bandingScenarioList.length > 0);
 
 onMounted(() => {
     state.object = dataStore.bandingScenarioList[0];
