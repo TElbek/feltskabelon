@@ -38,7 +38,8 @@
     {
         "id": 7,
         "fieldName": "Sub-licensNr",
-        "placeholder": "Sub-licensNr"
+        "placeholder": "Sub-licensNr",
+        "isBasicField": false
     },
     {
         "id": 8,
