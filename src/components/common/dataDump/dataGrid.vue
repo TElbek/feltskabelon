@@ -1,6 +1,6 @@
 <template>
     <div v-if="hasData">
-        <div class="grid" :class="colsCountClass">
+        <div class="grid" :style="gridStyle">
             <div v-for="property in properties">
                 <div class="border-gray-300 text-snhm border-b-2 border-t border-l px-2 capitalize">{{
                     property }}</div>
@@ -26,10 +26,11 @@ interface dataGridProps {
 }
 
 const props = defineProps<dataGridProps>();
-
 const hasData = computed(() => props.properties && props.properties.length > 0);
 
-const colsCountClass = computed(() => {
-    return "grid-cols-[repeat(" + props.properties.length + ",max-content)]"
+const gridStyle = computed(() => {
+    return {
+        gridTemplateColumns: `repeat(${props.properties.length}, max-content)`
+    };
 });
 </script>
