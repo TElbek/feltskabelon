@@ -25,6 +25,6 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 function updateInputValue(event: Event) {
     const input = event.target as HTMLInputElement;
-    emit('update:modelValue', input.value);
+    emit('update:modelValue', Number(input.value) );
 }
 </script>

@@ -7,7 +7,7 @@
             </div>
             <template v-for="item in itemList">
                 <div v-for="property in properties">
-                    <div class=" border-gray-300 text-snhm border-b border-l px-2">
+                    <div class=" border-gray-300 text-snhm border-b border-l px-2" :class="[isNumeric(item[property]) ? 'text-end' : 'text-start']">
                         <span :class="[item[property] == undefined ? 'text-gray-400' : '']">
                             {{ item[property] != undefined ? item[property] : 'null' }}</span>
                     </div>
@@ -33,4 +33,8 @@ const gridStyle = computed(() => {
         gridTemplateColumns: `repeat(${props.properties.length}, max-content)`
     };
 });
+
+function isNumeric(value: any): boolean {
+    return typeof(value) == 'number';
+}
 </script>
