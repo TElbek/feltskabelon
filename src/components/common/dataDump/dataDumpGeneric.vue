@@ -1,11 +1,11 @@
 <template>
     <div v-if="hasData" class="p-3 border border-gray-300 rounded">
         <div class="text-snhm text-lg">
-            <a @click="flipIsOpen">
+            <a @click="flipIsOpen" class="cursor-pointer">
                 <tw-flex>
                     <span v-if="isOpen">&#x1F809</span>
                     <span v-else>&#x1F80B</span>
-                    <span class="font-semibold">{{ props.name }}</span>
+                    <slot></slot>
                 </tw-flex>
             </a>
         </div>
@@ -19,7 +19,6 @@ import dataGrid from './dataGrid.vue';
 
 interface DataDumpGenericProps<T> {
     list: T[];
-    name: string;
 }
 
 const props = defineProps<DataDumpGenericProps<T>>();
