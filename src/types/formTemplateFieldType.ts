@@ -1,6 +1,6 @@
 export type formTemplateFieldType = {
     id: number,
     formTemplateNameId: number,
-    isMinimumsField: boolean,
+    isMinimumField: boolean,
     bandingFieldId: number
 }

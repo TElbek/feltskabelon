@@ -238,7 +238,7 @@ export const useDataStore = defineStore('dataStore', () => {
     function formTemplateFieldFactory(formTemplateNameId: number, bandingFieldId: number): formTemplateFieldType {
         return {
             id: getNewIdForTemplateField(),
-            isMinimumsField: isAdministrator.value,
+            isMinimumField: isAdministrator.value,
             formTemplateNameId: formTemplateNameId,
             bandingFieldId: bandingFieldId
         }
