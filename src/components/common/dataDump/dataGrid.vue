@@ -17,6 +17,7 @@
                 </div>
             </template>
         </div>
+        <span class="text-sm text-gray-500">{{ filterDescription }}</span>
     </div>
 </template>
 
@@ -47,6 +48,10 @@ const activeFilters = computed(() => props.properties
     }))
     .filter(filter => filter.value.length > 0)
 );
+
+const filterDescription = computed(() => {
+    return activeFilters.value.map((item) => item.property + '=' + item.value).join(' & ');
+});
 
 const filteredRows = computed(() => {
     return props.itemList.filter(item => {

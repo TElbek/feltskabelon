@@ -1,7 +1,7 @@
 <template>
     <div v-if="hasData" class="p-3 border border-gray-300 rounded">
         <div class="text-snhm text-lg">
-            <a @click="flipIsOpen" class="cursor-pointer">
+            <a @click="toggleIsOpen" class="cursor-pointer">
                 <tw-flex>
                     <span v-if="isOpen">&#x1F809</span>
                     <span v-else>&#x1F80B</span>
@@ -31,7 +31,7 @@ const isOpen = ref(false);
 const properties = computed(() => Object.keys(state.object ?? {}) as (keyof T)[]);
 const hasData = computed(() => props.list.length > 0);
 
-function flipIsOpen(): void {
+function toggleIsOpen(): void {
     isOpen.value = !isOpen.value;
 }
 
