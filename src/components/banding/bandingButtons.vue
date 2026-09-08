@@ -1,6 +1,6 @@
 <template>
     <div class="flex gap-2">
-        <a @click="addNewBlank()">
+        <a @click="addNewBlank()" class="cursor-pointer">
             <new_blank_20pxb />
         </a>
         <new_duplicate_20px />
