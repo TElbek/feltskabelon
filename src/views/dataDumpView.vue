@@ -1,7 +1,7 @@
 <template>
-    <datadump></datadump>
+     <arrayJoin></arrayJoin>
 </template>
 
 <script setup lang="ts">
-import datadump from '@/components/common/dataDump/dataDump.vue'
+import arrayJoin from '@/components/common/dataDump/arrayJoin.vue';
 </script>
