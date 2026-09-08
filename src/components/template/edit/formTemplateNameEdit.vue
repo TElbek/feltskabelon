@@ -12,7 +12,8 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             <tw-label :for="'isActive'">Active</tw-label>
-                            <tw-input-checkbox v-model="state.templateModel.formTemplateName.isActive" :name="'isActive'" />
+                            <tw-input-checkbox v-model="state.templateModel.formTemplateName.isActive"
+                                :name="'isActive'" />
                         </div>
                     </div>
                     <tw-label :for="'bandingScenarioId'">Scenario</tw-label>
@@ -30,7 +31,8 @@
                 </div>
             </form>
             <tw-flex class="mt-3">
-                <tw-button :caption="'Save'" @clicked="save" :disabled="!isValid()"></tw-button>
+                <tw-button :caption="'Save'" @clicked="saveTemplate" :disabled="!isValid()"></tw-button>
+                <tw-button :caption="'Remove'" @clicked="removeTemplate" v-if="canRemoveTemplate" />
                 <tw-button :caption="'Cancel'" @clicked="cancel"></tw-button>
             </tw-flex>
         </div>
@@ -54,6 +56,8 @@ const state = reactive({
     hasData: false as boolean,
     templateModel: {} as templateModelType
 });
+
+const canRemoveTemplate = computed(() => state.templateModel.formTemplateName.licenseeId != undefined && state.templateModel.formTemplateName.id > 0);
 
 onMounted(() => {
     if (isAtTemplateNameCopyRoute.value) {
@@ -91,7 +95,7 @@ function getCopyOfTemplateNameModel(): void {
     }
 }
 
-function save() {
+function saveTemplate() {
     if (isAtTemplateNameCopyRoute.value) {
         dataStore.createTemplateName(state.templateModel);
     }
@@ -104,9 +108,14 @@ function save() {
     router.back();
 }
 
+function removeTemplate() {
+    dataStore.removeFormTemplate(state.templateModel.formTemplateName.id);
+    router.back();
+}
+
 function isValid() {
-    return state.templateModel.formTemplateName.templateName.length > 0 && 
-           state.templateModel.formTemplate.bandingScenarioId > 0;
+    return state.templateModel.formTemplateName.templateName.length > 0 &&
+        state.templateModel.formTemplate.bandingScenarioId > 0;
 }
 
 function cancel() {

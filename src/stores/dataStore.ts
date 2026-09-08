@@ -286,6 +286,20 @@ export const useDataStore = defineStore('dataStore', () => {
         return templateNameIdSet;
     }
 
+    function removeFormTemplate(formTemplateNameId: number) : void {
+        if(formTemplateNameList.value.some((item) => item.id == formTemplateNameId && item.licenseeId == LicenseeId.value )) {
+            let idMap = formTemplateFieldList.value.filter((filterItem) => filterItem.formTemplateNameId == formTemplateNameId).map((mapItem) => mapItem.id);
+            idMap.forEach(element => {
+                removeFormTemplateField(element);
+            });
+            let toBeRemoved = formTemplateNameList.value.find((item) => item.id == formTemplateNameId);            
+            if(toBeRemoved) {
+                let indexToBeRemoved = formTemplateNameList.value.indexOf(toBeRemoved);
+                formTemplateNameList.value.splice(indexToBeRemoved);
+            }
+        }   
+    }
+
     return {
         formTemplateList,
         formTemplateNameList,
@@ -307,6 +321,7 @@ export const useDataStore = defineStore('dataStore', () => {
         licenseeName,
 
         hasFormTemplateNameThisField,
+        removeFormTemplate,
         removeFormTemplateField,
         addTemplateModelFactory,
         addFormTemplateField,
