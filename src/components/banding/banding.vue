@@ -16,9 +16,9 @@
                 <div class="text-lg text-snhm relative top-1 lg:top-0.5">Banding Data</div>
                 <bandingTemplate @formTemplateNameId="handleTemplateSelected"></bandingTemplate>
             </div>
-            <div class="border-b border-snhm mt-2 lg:mt-0"></div>
-            <bandingForm v-if="state.selectedFormTemplateNameId" :formTemplateNameId="state.selectedFormTemplateNameId">
-            </bandingForm>
+            <div class="border-b border-snhm mt-2 lg:mt-0 mb-2"></div>
+            <bandingRow v-if="state.selectedFormTemplateNameId" :formTemplateNameId="state.selectedFormTemplateNameId">
+            </bandingRow>
         </div>
 
         <tw-show-lg>
@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { useDataStore } from '@/stores/dataStore';
-import bandingForm from '@/components/banding/bandingForm.vue';
+import bandingRow from '@/components/banding/bandingRow.vue';
 import standardvalues from '@/components/banding/standardvalues.vue';
 import button_legend from '@/components/banding/button_legend.vue';
 import bandingTemplate from '@/components/banding/bandingTemplate.vue';

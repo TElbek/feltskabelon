@@ -1,6 +1,8 @@
 <template>
     <div class="flex gap-2">
-        <new_blank_20pxb />
+        <a @click="addNewBlank()">
+            <new_blank_20pxb />
+        </a>
         <new_duplicate_20px />
         <new_duplicate_more_20px />
         <delete_red_20px />
@@ -12,4 +14,10 @@ import new_blank_20pxb from './icons/new_blank_20pxb.vue'
 import new_duplicate_20px from './icons/new_duplicate_20px.vue'
 import new_duplicate_more_20px from './icons/new_duplicate_more_20px.vue'
 import delete_red_20px from './icons/delete_red_20px.vue'
+
+const emits = defineEmits(['addNewBlank']);
+
+function addNewBlank() {
+    emits('addNewBlank');
+}
 </script>
