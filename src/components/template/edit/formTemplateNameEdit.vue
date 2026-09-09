@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import { useDataStore } from '@/stores/dataStore';
-import { computed, onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import formTemplateHeader from '@/components/template/formTemplateHeader.vue'
 import type { templateModelType } from '@/models/templateModelType';
 import { useRouteLogic } from '@/composables/route-logic';
@@ -57,7 +57,8 @@ const state = reactive({
     templateModel: {} as templateModelType
 });
 
-const canRemoveTemplate = computed(() => state.templateModel.formTemplateName.licenseeId != undefined && state.templateModel.formTemplateName.id > 0);
+//const canRemoveTemplate = computed(() => state.templateModel.formTemplateName.licenseeId != undefined && state.templateModel.formTemplateName.id > 0);
+const canRemoveTemplate = ref(false);
 
 onMounted(() => {
     if (isAtTemplateNameCopyRoute.value) {

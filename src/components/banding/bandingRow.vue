@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-y-3">
+    <div class="flex flex-col gap-y-1">
         <template v-for="item in state.itemList">
             <div class="grid grid-cols-[1fr_max-content] gap-x-3">
                 <bandingForm :form-template-name-id="$props.formTemplateNameId" :index="item"></bandingForm>

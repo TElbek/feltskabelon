@@ -30,7 +30,7 @@ const router = createRouter({
       name: 'dump',
       component: () => import('@/views/dataDumpView.vue'),
       meta: {
-        showInNavBar: true,
+        showInNavBar: false,
         requireAdmin: true,
         title: 'View Data'
       }

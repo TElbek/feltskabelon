@@ -1,13 +1,37 @@
 <template>
-    <dataDumpGeneric :list="bandingFieldNames">Alle data</dataDumpGeneric>
+    <tw-grid-cols-generic :itemsPerRow="5" :count="groupedByTemplateNameId.size">
+        <div v-for="[key, value] in groupedByTemplateNameId" class="rounded border border-snhm p-2">
+            <span class="text-lg text-snhm font-semibold">{{ key }}</span>
+            <div class="border-b border-snhm mb-2"></div>
+            <tw-flex>
+                <template v-for="field in sortFieldNames(value)">
+                    <span class="border border-gray-400 text-gray-600 px-1 text-sm rounded">{{ field.placeholder }}</span>
+                </template>
+            </tw-flex>
+        </div>
+    </tw-grid-cols-generic>
 </template>
 
 <script setup lang="ts">
-import dataDumpGeneric from './dataDumpGeneric.vue';
 import { join } from "array-join";
 import { computed } from "vue";
 import { useDataStore } from "@/stores/dataStore";
 const dataStore = useDataStore();
+
+type joinedDataType = {
+    id: number;
+    fieldName: string;
+    placeholder: string;
+    isBasicField: boolean;
+    formTemplateNameId: number;
+    isMinimumField: boolean;
+    bandingFieldId: number;
+    formTemplateId: number;
+    licenseeId: number | undefined;
+    templateName: string;
+    isActive: boolean;
+    bandingScenarioId: number;
+}
 
 const formAndName = computed(() => {
     return join(dataStore.formTemplateList,
@@ -35,4 +59,12 @@ const bandingFieldNames = computed(() => {
         (left, right) => ({ ...left, ...right })
     )
 });
+
+const groupedByTemplateNameId = computed(() => {
+    return Map.groupBy(bandingFieldNames.value.sort((a, b) => a.templateName.localeCompare(b.templateName)), (one: joinedDataType) => one.templateName);
+});
+
+function sortFieldNames(value: joinedDataType[]): joinedDataType[] {
+    return value.sort((a, b) => a.placeholder.localeCompare(b.placeholder));
+}
 </script>
