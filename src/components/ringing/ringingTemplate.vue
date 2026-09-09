@@ -40,7 +40,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-    state.templateModelList = dataStore.getTemplateModelListForBanding();
+    state.templateModelList = dataStore.getTemplateModelListForRinging();
     if (state.templateModelList.length > 0) {
         state.selectedFormTemplateNameId = state.templateModelList[0].formTemplateName.id;
     }

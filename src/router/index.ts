@@ -116,13 +116,13 @@ const router = createRouter({
       }
     },
     {
-      path: '/banding/',
-      name: 'banding',
-      component: () => import('@/views/bandingView.vue'),
+      path: '/ringing/',
+      name: 'ringing',
+      component: () => import('@/views/ringingView.vue'),
       meta: {
         showInNavBar: true,
         requireAdmin: false,
-        title: 'Banding'
+        title: 'Ringing'
       }
     }
   ],

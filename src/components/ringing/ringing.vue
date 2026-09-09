@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-4 mt-2">
-        <div class="text-2xl text-snhm">{{ dataStore.licenseeName }} Banding Formular</div>
+        <div class="text-2xl text-snhm">{{ dataStore.licenseeName }} Ringing Formular</div>
 
         <div>
             <div class="text-lg text-snhm">Standard Values</div>
@@ -13,12 +13,12 @@
 
         <div>
             <div class="flex flex-row justify-between gap-2 mb-1 lg:mb-0">
-                <div class="text-lg text-snhm relative top-1 lg:top-0.5">Banding Data</div>
-                <bandingTemplate @formTemplateNameId="handleTemplateSelected"></bandingTemplate>
+                <div class="text-lg text-snhm relative top-1 lg:top-0.5">Ringing Data</div>
+                <ringingTemplate @formTemplateNameId="handleTemplateSelected"></ringingTemplate>
             </div>
             <div class="border-b border-snhm mt-2 lg:mt-0 mb-2"></div>
-            <bandingRow v-if="state.selectedFormTemplateNameId" :formTemplateNameId="state.selectedFormTemplateNameId">
-            </bandingRow>
+            <ringingRow v-if="state.selectedFormTemplateNameId" :formTemplateNameId="state.selectedFormTemplateNameId">
+            </ringingRow>
         </div>
 
         <tw-show-lg>
@@ -33,10 +33,10 @@
 
 <script setup lang="ts">
 import { useDataStore } from '@/stores/dataStore';
-import bandingRow from '@/components/banding/bandingRow.vue';
-import standardvalues from '@/components/banding/standardvalues.vue';
-import button_legend from '@/components/banding/button_legend.vue';
-import bandingTemplate from '@/components/banding/bandingTemplate.vue';
+import ringingRow from '@/components/ringing/ringingRow.vue';
+import standardvalues from '@/components/ringing/standardvalues.vue';
+import button_legend from '@/components/ringing/button_legend.vue';
+import ringingTemplate from '@/components/ringing/ringingTemplate.vue';
 import { reactive } from 'vue';
 
 const dataStore = useDataStore();

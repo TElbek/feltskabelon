@@ -7,7 +7,7 @@
             </tw-flex>
             <tw-flex>
                 <span>Scenario</span>
-                <span class="text-snhm">{{ state.bandingScenario?.name }}</span>
+                <span class="text-snhm">{{ state.ringingScenario?.name }}</span>
             </tw-flex>
             <tw-flex v-if="state.formTemplateName?.licenseeId">
                 <span>Licensee</span>
@@ -22,7 +22,7 @@ import { computed, onMounted, reactive } from 'vue';
 import type { formTemplateNameType } from '@/types/formTemplateNameType';
 import type { formTemplateType } from '@/types/formTemplateType';
 import { useDataStore } from '@/stores/dataStore';
-import type { bandingScenarioType } from '@/types/bandingScenarioType';
+import type { ringingScenarioType } from '@/types/ringingScenarioType';
 
 interface formTemplateHeaderProps {
     formTemplateNameId: number
@@ -34,7 +34,7 @@ const dataStore = useDataStore();
 const state = reactive({
     formTemplate: {} as formTemplateType | undefined,
     formTemplateName: {} as formTemplateNameType | undefined,
-    bandingScenario: {} as bandingScenarioType | undefined
+    ringingScenario: {} as ringingScenarioType | undefined
 });
 
 onMounted(() => {
@@ -42,7 +42,7 @@ onMounted(() => {
     if (state.formTemplateName) {
         state.formTemplate = dataStore.formTemplateList.find((item) => item.id == state.formTemplateName?.formTemplateId);
         if (state.formTemplate) {
-            state.bandingScenario = dataStore.bandingScenarioList.find((item) => item.id == state.formTemplate?.bandingScenarioId)
+            state.ringingScenario = dataStore.ringingScenarioList.find((item) => item.id == state.formTemplate?.ringingScenarioId)
         }
     }
 })

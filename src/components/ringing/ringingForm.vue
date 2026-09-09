@@ -40,19 +40,19 @@
 <script setup lang="ts">
 import { useDataStore } from '@/stores/dataStore';
 import { onMounted, ref, watch } from 'vue';
-import validitet_roed_20px from '@/components/banding/icons/validitet_roed_20px.vue';
+import validitet_roed_20px from '@/components/ringing/icons/validitet_roed_20px.vue';
 
 const dataStore = useDataStore();
 
 const formIsVisible = ref(false);
 const waitTimeInms = 100;
 
-interface bandingFormProps {
+interface ringingFormProps {
     formTemplateNameId: number,
     index: number
 }
 
-const props = defineProps<bandingFormProps>();
+const props = defineProps<ringingFormProps>();
 
 onMounted(() => {
     setTimeout(() => {

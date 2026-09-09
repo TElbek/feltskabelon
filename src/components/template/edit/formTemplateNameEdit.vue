@@ -16,10 +16,10 @@
                                 :name="'isActive'" />
                         </div>
                     </div>
-                    <tw-label :for="'bandingScenarioId'">Scenario</tw-label>
+                    <tw-label :for="'ringingScenarioId'">Scenario</tw-label>
                     <tw-input-select v-if="dataStore.isAdministrator"
-                        v-model="state.templateModel.formTemplate.bandingScenarioId" :name="'bandingScenarioId'">
-                        <option v-for="scenario in dataStore.bandingScenarioList" :value="scenario.id">
+                        v-model="state.templateModel.formTemplate.ringingScenarioId" :name="'ringingScenarioId'">
+                        <option v-for="scenario in dataStore.ringingScenarioList" :value="scenario.id">
                             {{ scenario.name }}
                         </option>
                     </tw-input-select>
@@ -74,10 +74,10 @@ onMounted(() => {
 });
 
 const scenarioName = computed(() => {
-    return dataStore.bandingScenarioList
-        .some((item) => item.id == state.templateModel.formTemplate.bandingScenarioId) ?
-        dataStore.bandingScenarioList
-            .find((item) => item.id == state.templateModel.formTemplate.bandingScenarioId)?.name : ''
+    return dataStore.ringingScenarioList
+        .some((item) => item.id == state.templateModel.formTemplate.ringingScenarioId) ?
+        dataStore.ringingScenarioList
+            .find((item) => item.id == state.templateModel.formTemplate.ringingScenarioId)?.name : ''
 });
 
 function getTemplateNameModel(): void {
@@ -116,7 +116,7 @@ function removeTemplate() {
 
 function isValid() {
     return state.templateModel.formTemplateName.templateName.length > 0 &&
-        state.templateModel.formTemplate.bandingScenarioId > 0;
+        state.templateModel.formTemplate.ringingScenarioId > 0;
 }
 
 function cancel() {

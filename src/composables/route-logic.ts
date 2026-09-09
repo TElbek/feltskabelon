@@ -36,12 +36,12 @@ export function useRouteLogic() {
         return route.name === 'templateFieldsEdit';
     });
 
-    const isAtBandingRoute = computed(() => {
-        return route.name === 'banding';
+    const isAtRingingRoute = computed(() => {
+        return route.name === 'ringing';
     });
 
     const canSwitchLicensee = computed(() => {
-        return isAtTemplateListRoute.value || isAtBandingRoute.value
+        return isAtTemplateListRoute.value || isAtRingingRoute.value
     });
 
     const visibleRoutes = computed(() => {

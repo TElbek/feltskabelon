@@ -15,11 +15,11 @@ export function useDataLoader() {
             api.get('formTemplateField.json').then(res =>
                 dataStore.setFormTemplateFieldList(res.data)
             ),
-            api.get('bandingScenario.json').then(res =>
-                dataStore.setBandingScenarioList(res.data)
+            api.get('ringingScenario.json').then(res =>
+                dataStore.setRingingScenarioList(res.data)
             ),
-            api.get('bandingField.json').then(res =>
-                dataStore.setBandingFieldList(res.data)
+            api.get('ringingField.json').then(res =>
+                dataStore.setRingingFieldList(res.data)
             ),
             api.get('licensee.json').then(res =>
                 dataStore.setLicenseeList(res.data)

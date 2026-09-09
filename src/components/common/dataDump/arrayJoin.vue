@@ -25,12 +25,12 @@ type joinedDataType = {
     isBasicField: boolean;
     formTemplateNameId: number;
     isMinimumField: boolean;
-    bandingFieldId: number;
+    ringingFieldId: number;
     formTemplateId: number;
     licenseeId: number | undefined;
     templateName: string;
     isActive: boolean;
-    bandingScenarioId: number;
+    ringingScenarioId: number;
 }
 
 const formAndName = computed(() => {
@@ -51,17 +51,17 @@ const NameAndFields = computed(() => {
     )
 });
 
-const bandingFieldNames = computed(() => {
+const ringingFieldNames = computed(() => {
     return join(NameAndFields.value,
-        dataStore.bandingFieldList,
-        (left) => left.bandingFieldId,
+        dataStore.ringingFieldList,
+        (left) => left.ringingFieldId,
         (right) => right.id,
         (left, right) => ({ ...left, ...right })
     )
 });
 
 const groupedByTemplateNameId = computed(() => {
-    return Map.groupBy(bandingFieldNames.value.sort((a, b) => a.templateName.localeCompare(b.templateName)), (one: joinedDataType) => one.templateName);
+    return Map.groupBy(ringingFieldNames.value.sort((a, b) => a.templateName.localeCompare(b.templateName)), (one: joinedDataType) => one.templateName);
 });
 
 function sortFieldNames(value: joinedDataType[]): joinedDataType[] {

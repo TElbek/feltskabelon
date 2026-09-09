@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { useDataStore } from '@/stores/dataStore';
-import {type bandingScenarioType} from '@/types/bandingScenarioType';
+import {type ringingScenarioType} from '@/types/ringingScenarioType.ts';
 import scenarioTemplateList from './scenarioTemplateList.vue';
 import { onMounted, reactive } from 'vue';
 import { useRoute } from 'vue-router';
@@ -19,10 +19,10 @@ const datastore = useDataStore();
 const route = useRoute();
 
 const state = reactive({
-    scenarioList: [] as bandingScenarioType[],
+    scenarioList: [] as ringingScenarioType[],
 });
 
 onMounted(() => {
-    state.scenarioList = datastore.bandingScenarioList;
+    state.scenarioList = datastore.ringingScenarioList;
 });
 </script>

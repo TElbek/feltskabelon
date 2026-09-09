@@ -2,9 +2,9 @@
     <div class="flex flex-col gap-y-1">
         <template v-for="item in state.itemList">
             <div class="grid grid-cols-[1fr_max-content] gap-x-3">
-                <bandingForm :form-template-name-id="$props.formTemplateNameId" :index="item"></bandingForm>
+                <ringingForm :form-template-name-id="$props.formTemplateNameId" :index="item"></ringingForm>
                 <div class="mt-0.5">
-                    <banding-buttons @add-new-blank="addNewBlank"></banding-buttons>
+                    <ringingButtons @add-new-blank="addNewBlank"></ringingButtons>
                 </div>
             </div>
         </template>
@@ -13,14 +13,14 @@
 
 <script setup lang="ts">
 import { onMounted, reactive, watch } from 'vue';
-import bandingForm from '@/components/banding/bandingForm.vue';
-import bandingButtons from '@/components/banding/bandingButtons.vue';
+import ringingForm from '@/components/ringing/ringingForm.vue';
+import ringingButtons from '@/components/ringing/ringingButtons.vue';
 
-interface bandingRowProps {
+interface ringingRowProps {
     formTemplateNameId: number,
 }
 
-const props = defineProps<bandingRowProps>();
+const props = defineProps<ringingRowProps>();
 
 const state = reactive({
     index: 0 as number,

@@ -5,13 +5,13 @@
             <a :class="!dataStore.isAdministrator && model.formTemplateFieldType.isMinimumField ? 'disableClick' : ''"
                 @click="removeTemplateField(model.formTemplateFieldType.id)">
                 <div class="border text-gray-500 border-gray-300 px-2 rounded flex flex-row gap-x-2"
-                :class="[model.bandingFieldType.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
+                :class="[model.ringingFieldType.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
                     <div v-if="!dataStore.isAdministrator"
                          class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
                         :class="[model.formTemplateFieldType.isMinimumField ? 'bg-red-500' : 'bg-green-500']"></div>
                     <span                        
-                        :title="model.formTemplateFieldType.id + ' ' + model.formTemplateFieldType.bandingFieldId">{{
-                            model.bandingFieldType.placeholder
+                        :title="model.formTemplateFieldType.id + ' ' + model.formTemplateFieldType.ringingFieldId">{{
+                            model.ringingFieldType.placeholder
                         }}</span>
                 </div>
             </a>
@@ -47,7 +47,7 @@ function getFormTemplateFields(): void {
 }
 
 const sortedFormTemplateFieldModelList = computed(() => {
-    return state.templateFieldModelList.sort((a, b) => a.bandingFieldType.placeholder.localeCompare(b.bandingFieldType.placeholder));
+    return state.templateFieldModelList.sort((a, b) => a.ringingFieldType.placeholder.localeCompare(b.ringingFieldType.placeholder));
 });
 
 function removeTemplateField(formTemplateFieldId: number): void {

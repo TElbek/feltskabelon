@@ -1,4 +1,4 @@
-export type bandingFieldType = {
+export type ringingFieldType = {
     id: number,
     fieldName: string,
     placeholder: string,

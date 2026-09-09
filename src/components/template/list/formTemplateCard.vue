@@ -34,7 +34,7 @@
         <span class="font-semibold">Active</span>
         <div class="pe-2">{{ template.formTemplateName.isActive ? 'Yes' : 'No' }}</div>
         <span class="font-semibold">Scenario</span>
-        <span>{{ getScenarioNameById(template.formTemplate.bandingScenarioId) }}</span>
+        <span>{{ getScenarioNameById(template.formTemplate.ringingScenarioId) }}</span>
     </div>
 </template>
 
@@ -51,7 +51,7 @@ const props = defineProps<formTemplateCardProps>();
 const dataStore = useDataStore();
 
 function getScenarioNameById(id: number): string {
-    return dataStore.bandingScenarioList.find((item) => item.id == id)?.name ?? 'ukendt';
+    return dataStore.ringingScenarioList.find((item) => item.id == id)?.name ?? 'ukendt';
 }
 
 function canEdit(licenseeId: number | undefined): boolean {

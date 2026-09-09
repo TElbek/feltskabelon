@@ -1,7 +1,7 @@
 import type { formTemplateFieldType } from "@/types/formTemplateFieldType"
-import type { bandingFieldType } from "@/types/bandingFieldType"
+import type { ringingFieldType } from "@/types/ringingFieldType"
 
 export type templateFieldModelType = {
     formTemplateFieldType: formTemplateFieldType,
-    bandingFieldType: bandingFieldType
+    ringingFieldType: ringingFieldType
 }

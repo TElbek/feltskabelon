@@ -33,7 +33,7 @@
             </div>
             <div class="grid grid-cols-[35px_1fr]">
                 <data_type_m></data_type_m>
-                <span class="text-sm text-gray-500">Bandingdata</span>
+                <span class="text-sm text-gray-500">Ringingdata</span>
             </div>
             <div class="grid grid-cols-[35px_1fr]">
                 <data_type_g></data_type_g>
