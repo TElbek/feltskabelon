@@ -314,6 +314,7 @@ export const useDataStore = defineStore('dataStore', () => {
         ringingFieldList,
         licenseeList,
         LicenseeId,
+        scenarioFieldList,
 
         getTemplateModelList,
         getTemplateModelListForScenario,

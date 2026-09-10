@@ -24,6 +24,9 @@ export function useDataLoader() {
             api.get('licensee.json').then(res =>
                 dataStore.setLicenseeList(res.data)
             ),            
+            api.get('scenarioField.json').then(res => 
+                dataStore.setScenarioFieldList(res.data)
+            ),
             dataStore.setLicenseeId(1)
         ])
     }

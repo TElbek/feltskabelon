@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/homeView.vue'
+import HomeView from '../views/HomeView.vue'
 import { useDataStore } from '@/stores/dataStore.ts';
 
 const router = createRouter({
@@ -35,6 +35,16 @@ const router = createRouter({
         title: 'View Data'
       }
     },
+    {
+      path: '/dump/scenariofield',
+      name: 'dump-scenariofield',
+      component: () => import('@/views/dumpScenarioFieldView.vue'),
+      meta: {
+        showInNavBar: true,
+        requireAdmin: true,
+        title: 'View ScenarioFields'
+      }
+    },    
     {
       path: '/scenario/list',
       name: 'scenarioList',

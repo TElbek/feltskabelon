@@ -25,11 +25,6 @@
         "ringingFieldId": 10
     },
     {
-        "id": 6,
-        "scenarioId": 1,
-        "ringingFieldId": 3
-    },
-    {
         "id": 7,
         "scenarioId": 1,
         "ringingFieldId": 29
@@ -68,6 +63,204 @@
     {
         "id": 14,
         "scenarioId": 1,
+        "ringingFieldId": 15
+    },
+        {
+        "id": 1,
+        "scenarioId": 2,
+        "ringingFieldId": 1
+    },
+    {
+        "id": 2,
+        "scenarioId": 2,
+        "ringingFieldId": 9
+    },
+    {
+        "id": 3,
+        "scenarioId": 2,
+        "ringingFieldId": 2
+    },
+    {
+        "id": 4,
+        "scenarioId": 2,
+        "ringingFieldId": 3
+    },
+    {
+        "id": 5,
+        "scenarioId": 2,
+        "ringingFieldId": 10
+    },
+    {
+        "id": 7,
+        "scenarioId": 2,
+        "ringingFieldId": 29
+    },
+    {
+        "id": 8,
+        "scenarioId": 2,
+        "ringingFieldId": 11
+    },
+    {
+        "id": 9,
+        "scenarioId": 2,
+        "ringingFieldId": 4
+    },
+    {
+        "id": 10,
+        "scenarioId": 2,
+        "ringingFieldId": 5
+    },
+    {
+        "id": 11,
+        "scenarioId": 2,
+        "ringingFieldId": 6
+    }
+    ,
+    {
+        "id": 12,
+        "scenarioId": 2,
+        "ringingFieldId": 7
+    },
+    {
+        "id": 13,
+        "scenarioId": 2,
+        "ringingFieldId": 8
+    },
+    {
+        "id": 14,
+        "scenarioId": 2,
+        "ringingFieldId": 15
+    },
+        {
+        "id": 1,
+        "scenarioId": 3,
+        "ringingFieldId": 1
+    },
+    {
+        "id": 2,
+        "scenarioId": 3,
+        "ringingFieldId": 9
+    },
+    {
+        "id": 3,
+        "scenarioId": 3,
+        "ringingFieldId": 2
+    },
+    {
+        "id": 4,
+        "scenarioId": 3,
+        "ringingFieldId": 3
+    },
+    {
+        "id": 5,
+        "scenarioId": 3,
+        "ringingFieldId": 10
+    },
+    {
+        "id": 7,
+        "scenarioId": 3,
+        "ringingFieldId": 29
+    },
+    {
+        "id": 8,
+        "scenarioId": 3,
+        "ringingFieldId": 11
+    },
+    {
+        "id": 9,
+        "scenarioId": 3,
+        "ringingFieldId": 4
+    },
+    {
+        "id": 10,
+        "scenarioId": 3,
+        "ringingFieldId": 5
+    },
+    {
+        "id": 11,
+        "scenarioId": 3,
+        "ringingFieldId": 6
+    }
+    ,
+    {
+        "id": 12,
+        "scenarioId": 3,
+        "ringingFieldId": 7
+    },
+    {
+        "id": 13,
+        "scenarioId": 3,
+        "ringingFieldId": 8
+    },
+    {
+        "id": 14,
+        "scenarioId": 3,
+        "ringingFieldId": 15
+    },
+        {
+        "id": 1,
+        "scenarioId": 4,
+        "ringingFieldId": 1
+    },
+    {
+        "id": 2,
+        "scenarioId": 4,
+        "ringingFieldId": 9
+    },
+    {
+        "id": 3,
+        "scenarioId": 4,
+        "ringingFieldId": 2
+    },
+    {
+        "id": 4,
+        "scenarioId": 4,
+        "ringingFieldId": 3
+    },
+    {
+        "id": 5,
+        "scenarioId": 4,
+        "ringingFieldId": 10
+    },
+    {
+        "id": 7,
+        "scenarioId": 4,
+        "ringingFieldId": 29
+    },
+    {
+        "id": 8,
+        "scenarioId": 4,
+        "ringingFieldId": 11
+    },
+    {
+        "id": 9,
+        "scenarioId": 4,
+        "ringingFieldId": 4
+    },
+    {
+        "id": 10,
+        "scenarioId": 4,
+        "ringingFieldId": 5
+    },
+    {
+        "id": 11,
+        "scenarioId": 4,
+        "ringingFieldId": 6
+    }
+    ,
+    {
+        "id": 12,
+        "scenarioId": 4,
+        "ringingFieldId": 7
+    },
+    {
+        "id": 13,
+        "scenarioId": 4,
+        "ringingFieldId": 8
+    },
+    {
+        "id": 14,
+        "scenarioId": 4,
         "ringingFieldId": 15
     }
 ]
