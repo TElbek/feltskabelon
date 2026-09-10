@@ -60,10 +60,10 @@ const ringingFieldNames = computed(() => {
 });
 
 const groupedByTemplateNameId = computed(() => {
-    return Map.groupBy(ringingFieldNames.value.sort((a, b) => a.templateName.localeCompare(b.templateName)), (one: joinedDataType) => one.templateName);
+    return Map.groupBy(ringingFieldNames.value.sort((a, b) => a.templateName.localeCompare(b.templateName,'da-DK')), (one: joinedDataType) => one.templateName);
 });
 
 function sortFieldNames(value: joinedDataType[]): joinedDataType[] {
-    return value.sort((a, b) => a.placeholder.localeCompare(b.placeholder));
+    return value.sort((a, b) => a.placeholder.localeCompare(b.placeholder, 'da-DK'));
 }
 </script>

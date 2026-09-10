@@ -29,7 +29,7 @@ const state = reactive({
 });
 
 const sortRingingFieldList = computed(() => {
-    return state.ringingFieldList.sort((a, b) => a.placeholder.localeCompare(b.placeholder));
+    return state.ringingFieldList.sort((a, b) => a.placeholder.localeCompare(b.placeholder,'da-DK'));
 })
 
 onMounted(() => {

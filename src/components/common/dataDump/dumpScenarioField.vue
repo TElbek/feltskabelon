@@ -52,11 +52,11 @@ type scenarioFieldAndRingingFieldType = {
 }
 
 const groupedByScenarioName = computed(() => {
-    return Map.groupBy(scenarioFieldAndRingingField.value.sort((a, b) => a.name.localeCompare(b.name)), (one: scenarioFieldAndRingingFieldType) => one.name);
+    return Map.groupBy(scenarioFieldAndRingingField.value.sort((a, b) => a.name.localeCompare(b.name,'da-DK')), (one: scenarioFieldAndRingingFieldType) => one.name);
 });
 
 function sortFieldNames(value: scenarioFieldAndRingingFieldType[]): scenarioFieldAndRingingFieldType[] {
-    return value.sort((a, b) => a.placeholder.localeCompare(b.placeholder));
+    return value.sort((a, b) => a.placeholder.localeCompare(b.placeholder,'da-DK'));
 }
 
 </script>

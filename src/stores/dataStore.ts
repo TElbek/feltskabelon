@@ -72,9 +72,9 @@ export const useDataStore = defineStore('dataStore', () => {
         });
 
         return isAdministrator.value ?
-            listOfModel.sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName) : (a.formTemplateName.isActive ? -1 : 1)) :
+            listOfModel.sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName,'da-DK') : (a.formTemplateName.isActive ? -1 : 1)) :
             listOfModel.filter((item) => item.formTemplateName.isActive || item.formTemplateName.licenseeId == LicenseeId.value)
-                .sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName) : (a.formTemplateName.isActive ? -1 : 1));
+                .sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName,'da-DK') : (a.formTemplateName.isActive ? -1 : 1));
     }
 
     function getNewIdForTemplate() {

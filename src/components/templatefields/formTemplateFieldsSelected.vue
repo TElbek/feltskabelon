@@ -46,7 +46,7 @@ function getFormTemplateFields(): void {
 }
 
 const sortedFormTemplateFieldModelList = computed(() => {
-    return state.templateFieldModelList.sort((a, b) => a.ringingFieldType.placeholder.localeCompare(b.ringingFieldType.placeholder));
+    return state.templateFieldModelList.sort((a, b) => a.ringingFieldType.placeholder.localeCompare(b.ringingFieldType.placeholder,'da-DK'));
 });
 
 function removeTemplateField(formTemplateFieldId: number): void {

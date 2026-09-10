@@ -5,8 +5,8 @@
             <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
             <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" />
             <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" />
-            <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'åååå-mm-dd'" />
-            <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'tt:mm'" />
+            <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'Dato (åååå-mm-dd)'" />
+            <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'Tid (tt:mm)'" />
             <tw-input :type="'text'" :name="'SpeciesReported'" :placeholder="'Art'" />
             <tw-input :type="'text'" :name="'SexReported'" :placeholder="'Køn'" />
             <tw-input :type="'text'" :name="'AgeReported'" class="text-end" :placeholder="'Alder'" />

@@ -383,5 +383,25 @@
         "id":  77,
         "scenarioId":  4,
         "ringingFieldId":  31
+    },
+    {
+        "id": 78,
+        "scenarioId": 1,
+        "ringingFieldId": 16
+    },
+    {
+        "id": 78,
+        "scenarioId": 2,
+        "ringingFieldId": 16
+    },
+    {
+        "id": 78,
+        "scenarioId": 3,
+        "ringingFieldId": 16
+    },
+    {
+        "id": 78,
+        "scenarioId": 4,
+        "ringingFieldId": 16
     }
 ]

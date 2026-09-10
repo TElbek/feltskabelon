@@ -7,12 +7,12 @@
     {
         "id": 2,
         "fieldName": "euringDate",
-        "placeholder": "åååå-mm-dd"
+        "placeholder": "Dato (åååå-mm-dd)"
     },
     {
         "id": 3,
         "fieldName": "euringTime",
-        "placeholder": "tt:mm"
+        "placeholder": "Tid (tt:mm)"
     },
     {
         "id": 4,
