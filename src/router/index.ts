@@ -36,13 +36,23 @@ const router = createRouter({
       }
     },
     {
-      path: '/dump/scenariofield',
-      name: 'dump-scenariofield',
-      component: () => import('@/views/dumpScenarioFieldView.vue'),
+      path: '/scenario/fields/list',
+      name: 'scenariofield',
+      component: () => import('@/views/scenarioFieldListView.vue'),
       meta: {
         showInNavBar: true,
         requireAdmin: true,
         title: 'Scenarios & Fields'
+      }
+    },    
+    {
+      path: '/scenario/:scenarioId/fields/edit',
+      name: 'dump-scenariofield',
+      component: () => import('@/views/scenarioFieldEditView.vue'),
+      meta: {
+        showInNavBar: false,
+        requireAdmin: true,
+        title: 'Fields in Scenario'
       }
     },    
     {
