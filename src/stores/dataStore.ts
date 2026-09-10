@@ -9,12 +9,14 @@ import type { templateModelType } from '@/models/templateModelType';
 import type { templateFieldModelType } from '@/models/templateFieldModelType';
 import type { ringingFieldType } from '@/types/ringingFieldType';
 import type { licenseeType } from '@/types/licenseeType';
+import type { scenarioFieldType } from '@/types/scenarioFieldType';
 
 export const useDataStore = defineStore('dataStore', () => {
     const formTemplateList = ref([] as formTemplateType[]);
     const formTemplateNameList = ref([] as formTemplateNameType[]);
     const formTemplateFieldList = ref([] as formTemplateFieldType[]);
     const ringingScenarioList = ref([] as ringingScenarioType[]);
+    const scenarioFieldList = ref([] as scenarioFieldType[])
     const ringingFieldList = ref([] as ringingFieldType[]);
     const licenseeList = ref([] as licenseeType[])
     const LicenseeId = ref(1 as number);
@@ -195,6 +197,10 @@ export const useDataStore = defineStore('dataStore', () => {
         ringingFieldList.value = liste;
     }
 
+    function setScenarioFieldList(liste: scenarioFieldType[]): void {
+        scenarioFieldList.value = liste;
+    }
+
     function setLicenseeList(liste: licenseeType[]): void {
         licenseeList.value = liste;
     }
@@ -329,13 +335,14 @@ export const useDataStore = defineStore('dataStore', () => {
         setFormTemplateList,
         setFormTemplateNameList,
         setFormTemplateFieldList,
-        setRingingScenarioList: setRingingScenarioList,
-        setRingingFieldList: setRingingFieldList,
+        setRingingScenarioList,
+        setRingingFieldList,
+        setScenarioFieldList,
         setLicenseeList,
         setLicenseeId,
 
-        copyTemplateName: copyTemplateName,
-        createTemplateName: createTemplateName,
+        copyTemplateName,
+        createTemplateName,
 
         addTemplateModel,
         updateFormTemplate,

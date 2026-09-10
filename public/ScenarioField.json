@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "scenarioId": 1,
+        "ringingFieldId": 1
+    },
+    {
+        "id": 2,
+        "scenarioId": 1,
+        "ringingFieldId": 9
+    },
+    {
+        "id": 3,
+        "scenarioId": 1,
+        "ringingFieldId": 2
+    },
+    {
+        "id": 4,
+        "scenarioId": 1,
+        "ringingFieldId": 3
+    },
+    {
+        "id": 5,
+        "scenarioId": 1,
+        "ringingFieldId": 10
+    },
+    {
+        "id": 6,
+        "scenarioId": 1,
+        "ringingFieldId": 3
+    },
+    {
+        "id": 7,
+        "scenarioId": 1,
+        "ringingFieldId": 29
+    },
+    {
+        "id": 8,
+        "scenarioId": 1,
+        "ringingFieldId": 11
+    },
+    {
+        "id": 9,
+        "scenarioId": 1,
+        "ringingFieldId": 4
+    },
+    {
+        "id": 10,
+        "scenarioId": 1,
+        "ringingFieldId": 5
+    },
+    {
+        "id": 11,
+        "scenarioId": 1,
+        "ringingFieldId": 6
+    }
+    ,
+    {
+        "id": 12,
+        "scenarioId": 1,
+        "ringingFieldId": 7
+    },
+    {
+        "id": 13,
+        "scenarioId": 1,
+        "ringingFieldId": 8
+    },
+    {
+        "id": 14,
+        "scenarioId": 1,
+        "ringingFieldId": 15
+    }
+]

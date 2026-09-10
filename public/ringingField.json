@@ -2,7 +2,7 @@
     {
         "id": 1,
         "fieldName": "RingingScheme",
-        "placeholder": "Scheme"
+        "placeholder": "Ringcentral"
     },
     {
         "id": 2,
@@ -82,22 +82,22 @@
     {
         "id": 17,
         "fieldName": "BroodPatch",
-        "placeholder": "Brood Patch"
+        "placeholder": "Rugeplet"
     },
     {
         "id": 18,
         "fieldName": "project_Moult",
-        "placeholder": "Moult"
+        "placeholder": "Fældning"
     },
     {
         "id": 19,
         "fieldName": "FatScore",
-        "placeholder": "FatScore"
+        "placeholder": "FedtScore"
     },
     {
         "id": 20,
         "fieldName": "FatScoreMethod",
-        "placeholder": "FatScoreMethod"
+        "placeholder": "FedtScoreMetode"
     },
     {
         "id": 21,
@@ -107,22 +107,22 @@
     {
         "id": 22,
         "fieldName": "project_TotalNetLength",
-        "placeholder": "NetLength"
+        "placeholder": "NetLængde"
     },
     {
         "id": 23,
         "fieldName": "project_VisitPeriod",
-        "placeholder": "VisitPeriod"
+        "placeholder": "Periode"
     },
     {
         "id": 24,
         "fieldName": "project_TimeStart",
-        "placeholder": "Start (tt:mm)"
+        "placeholder": "Starttid (tt:mm)"
     },
     {
         "id": 25,
         "fieldName": "project_TimeEnd",
-        "placeholder": "Slut (tt:mm)"
+        "placeholder": "Sluttid (tt:mm)"
     },
     {
         "id": 26,
@@ -147,7 +147,7 @@
     {
         "id": 30,
         "fieldName": "BroodSize",
-        "placeholder": "Kuld"
+        "placeholder": "Kuldstørrelse"
     },
     {
         "id": 31,
