@@ -1,11 +1,10 @@
 <template>
     <tw-flex>
         <template v-for="ringingField in sortRingingFieldList">
-            <a @click="addFormTemplateField(ringingField.id)" 
+            <a @click="addFormTemplateField(ringingField.id)"
                 :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
-                <span class="text-gray-500  px-1 rounded"
-                     :class="[ringingField.isBasicField ? 'border-2 border-gray-400' : 'border border-gray-300']">
-                      {{ ringingField.placeholder }}</span>
+                <span class="text-gray-500  px-1 rounded border border-gray-400">
+                    {{ ringingField.placeholder }}</span>
             </a>
         </template>
     </tw-flex>
@@ -30,11 +29,11 @@ const state = reactive({
 });
 
 const sortRingingFieldList = computed(() => {
-    return state.ringingFieldList.sort((a,b) => a.placeholder.localeCompare(b.placeholder));
+    return state.ringingFieldList.sort((a, b) => a.placeholder.localeCompare(b.placeholder));
 })
 
 onMounted(() => {
-    getRingingFieldList(); 
+    getRingingFieldList();
 });
 
 function getRingingFieldList() {
@@ -42,7 +41,7 @@ function getRingingFieldList() {
 }
 
 function addFormTemplateField(ringingFieldId: number) {
-    if(routeLogic.isAtTemplateFieldsEditRoute.value) {
+    if (routeLogic.isAtTemplateFieldsEditRoute.value) {
         dataStore.addFormTemplateField(Number(route.params.templateNameId), ringingFieldId);
     }
 }

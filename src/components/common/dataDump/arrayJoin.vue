@@ -22,7 +22,6 @@ type joinedDataType = {
     id: number;
     fieldName: string;
     placeholder: string;
-    isBasicField: boolean;
     formTemplateNameId: number;
     isMinimumField: boolean;
     ringingFieldId: number;
