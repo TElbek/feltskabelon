@@ -1,6 +1,6 @@
 <template>
     <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']">
-        <div class="flex flex-row flex-wrap gap-x-1.5 gap-y-1">
+        <div class="flex flex-row flex-wrap gap-2">
             <validitet_roed_20px></validitet_roed_20px>
             <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
             <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Scheme'" />

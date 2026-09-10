@@ -1,6 +1,6 @@
 <template>
     <input :type="type" :name="name" @input="updateInputValue" :value="modelValue" :placeholder="placeholder"
-        class="px-2 focus:outline-2 focus:outline-snhm rounded border border-gray-300 " :class="props.class" />
+        class="px-2 focus:outline-2 focus:outline-snhm rounded border border-gray-400 " :class="props.class" />
 </template>
 
 <script setup lang="ts">
