@@ -3,7 +3,7 @@
         <div class="flex flex-row flex-wrap gap-2">
             <validitet_roed_20px></validitet_roed_20px>
             <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
-            <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Scheme'" />
+            <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" />
             <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" />
             <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'åååå-mm-dd'" />
             <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'tt:mm'" />
@@ -24,15 +24,15 @@
             <tw-input :type="'number'" :name="'Mass'" class="text-end" :placeholder="'Vægt (g)'" />
             <tw-input :type="'number'" :name="'WingLength'" class="text-end" :placeholder="'Vinge (mm)'" />
             <tw-input :type="'text'" :name="'Remarks'" :placeholder="'Bemærkninger'" />
-            <tw-input :type="'text'" :name="'BroodPatch'" :placeholder="'Brood Patch'" />
-            <tw-input :type="'text'" :name="'project_Moult'" :placeholder="'Moult'" />
-            <tw-input :type="'number'" :name="'FatScore'" class="text-end" :placeholder="'FatScore'" />
-            <tw-input :type="'text'" :name="'FatScoreMethod'" :placeholder="'FatScoreMethod'" />
+            <tw-input :type="'text'" :name="'BroodPatch'" :placeholder="'Rugeplet'" />
+            <tw-input :type="'text'" :name="'project_Moult'" :placeholder="'Fældning'" />
+            <tw-input :type="'number'" :name="'FatScore'" class="text-end" :placeholder="'FedtScore'" />
+            <tw-input :type="'text'" :name="'FatScoreMethod'" :placeholder="'FedtScoreMetode'" />
             <tw-input :type="'text'" :name="'project_HabitatType'" :placeholder="'HabitatType'" />
-            <tw-input :type="'number'" :name="'project_TotalNetLength'" class="text-end" :placeholder="'NetLength'" />
-            <tw-input :type="'text'" :name="'project_VisitPeriod'" :placeholder="'VisitPeriod'" />
-            <tw-input :type="'text'" :name="'project_TimeStart'" class="text-center" :placeholder="'Start (tt:mm)'" />
-            <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center" :placeholder="'End (tt:mm)'" />
+            <tw-input :type="'number'" :name="'project_TotalNetLength'" class="text-end" :placeholder="'NetLængde'" />
+            <tw-input :type="'text'" :name="'project_VisitPeriod'" :placeholder="'Periode'" />
+            <tw-input :type="'text'" :name="'project_TimeStart'" class="text-center" :placeholder="'Starttid (tt:mm)'" />
+            <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center" :placeholder="'Sluttid (tt:mm)'" />
         </div>
     </form>
 </template>

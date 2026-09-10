@@ -42,7 +42,7 @@ const router = createRouter({
       meta: {
         showInNavBar: true,
         requireAdmin: true,
-        title: 'View ScenarioFields'
+        title: 'Scenarios & Fields'
       }
     },    
     {
@@ -52,7 +52,7 @@ const router = createRouter({
       meta: {
         showInNavBar: true,
         requireAdmin: true,
-        title: 'Scenarios'
+        title: 'Scenarios & Templates'
       },
     },
     {
