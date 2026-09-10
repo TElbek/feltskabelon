@@ -1,12 +1,11 @@
 <template>
-    <tw-grid-cols-generic :itemPerRow="3" :count="groupedByScenarioName.size">
+    <tw-grid-cols-generic :itemsPerRow="2" :count="groupedByScenarioName.size">
         <div v-for="[key, value] in groupedByScenarioName" class="rounded border border-snhm p-2">
-            <div class="flex justify-between text-lg text-snhm">
-                <div>
-                    <span class="me-3">Fields:</span>
-                    <span class="font-semibold">Scenario: {{ key }}</span>
-                </div>
-                <div class="font-semibold">{{ value.length }}</div>
+            <div class="flex gap-x-1 text-lg text-snhm text-nowrap">
+                    <div class="font-semibold">{{ value.length }}</div>
+                    <span class="me-1">Fields for</span>
+                    <span class="font-semibold">{{ key }}</span>
+                    <span class="me-1">Scenario</span>
             </div>
             <div class="border-b border-snhm mb-2"></div>
             <tw-flex>

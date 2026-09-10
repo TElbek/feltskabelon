@@ -41,10 +41,9 @@ export const useDataStore = defineStore('dataStore', () => {
             formTemplateNameList.value.filter((item) =>
                 item.formTemplateId == formTemplate.id &&
                 item.isActive).forEach((formTemplateName) => {
-                    if(formTemplateNameList.value.some((item) => item.formTemplateId == formTemplate.id && item.licenseeId == undefined && item.isActive))
-                    {
+                    if (formTemplateNameList.value.some((item) => item.formTemplateId == formTemplate.id && item.licenseeId == undefined && item.isActive)) {
                         listOfModel.push(templateModelFactory(formTemplate, formTemplateName));
-                    }                    
+                    }
                 })
         })
 
@@ -234,6 +233,11 @@ export const useDataStore = defineStore('dataStore', () => {
 
         formTemplateList.value.push(templateModel.formTemplate);
         formTemplateNameList.value.push(templateModel.formTemplateName);
+
+        //NYT
+        scenarioFieldList.value.filter((item) => item.scenarioId == templateModel.formTemplate.ringingScenarioId).forEach((field) => {
+            formTemplateFieldList.value.push(formTemplateFieldFactory(templateModel.formTemplateName.id, field.ringingFieldId));
+        });
     }
 
     function addFormTemplateField(formTemplateNameId: number, ringingFieldId: number): void {
@@ -292,18 +296,18 @@ export const useDataStore = defineStore('dataStore', () => {
         return templateNameIdSet;
     }
 
-    function removeFormTemplate(formTemplateNameId: number) : void {
-        if(formTemplateNameList.value.some((item) => item.id == formTemplateNameId && item.licenseeId == LicenseeId.value )) {
+    function removeFormTemplate(formTemplateNameId: number): void {
+        if (formTemplateNameList.value.some((item) => item.id == formTemplateNameId && item.licenseeId == LicenseeId.value)) {
             let idMap = formTemplateFieldList.value.filter((filterItem) => filterItem.formTemplateNameId == formTemplateNameId).map((mapItem) => mapItem.id);
             idMap.forEach(element => {
                 removeFormTemplateField(element);
             });
-            let toBeRemoved = formTemplateNameList.value.find((item) => item.id == formTemplateNameId);            
-            if(toBeRemoved) {
+            let toBeRemoved = formTemplateNameList.value.find((item) => item.id == formTemplateNameId);
+            if (toBeRemoved) {
                 let indexToBeRemoved = formTemplateNameList.value.indexOf(toBeRemoved);
                 formTemplateNameList.value.splice(indexToBeRemoved);
             }
-        }   
+        }
     }
 
     return {
