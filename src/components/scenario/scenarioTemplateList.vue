@@ -1,5 +1,5 @@
 <template>
-    <div v-for="model in state.templateModelList">
+    <div v-for="model in state.templateModelList" :key="model.formTemplate.id">
         <div class="flex gap-2">
             <router-link :to="`${getPathByLicenseeId(model.formTemplateName.licenseeId)}${model.formTemplateName.id}`">
                 <tw-flex>

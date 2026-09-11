@@ -5,9 +5,9 @@
             <tw-button v-if="dataStore.isAdministrator" @click="addTemplate" :caption="'Add Template'">
             </tw-button>
         </div>
-        <tw-grid-cols-generic :itemsPerRow="4" :count="state.formTemplateModelList.length">
-            <div v-for="template in state.formTemplateModelList"
-                class="bg-white rounded border border-snhm px-2 py-0.5">
+        <tw-grid-cols-generic :itemsPerRow="4" :count="state.formTemplateModelList.length" v-if="hasAnyTemplates">
+            <div v-for="template in state.formTemplateModelList" :key="template.formTemplate.id"
+                class="bg-white rounded border border-snhm px-2 py-0.5" >
                 <form-template-card :template="template"></form-template-card>
             </div>
         </tw-grid-cols-generic>
@@ -18,16 +18,17 @@
 import type { templateModelType } from '@/models/templateModelType';
 import formTemplateCard from './formTemplateCard.vue';
 import { useDataStore } from '@/stores/dataStore';
-import { onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
 const dataStore = useDataStore();
 const router = useRouter();
 
 const state = reactive({
-    hasData: false as boolean,
     formTemplateModelList: [] as templateModelType[]
 });
+
+const hasAnyTemplates = computed(() => dataStore.formTemplateList.length > 0)
 
 onMounted(() => {
     state.formTemplateModelList = dataStore.getTemplateModelList();

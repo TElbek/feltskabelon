@@ -7,7 +7,7 @@
             <div class="border border-gray-400 p-2 rounded">
                 <span class="text-snhm text-lg font-semibold">Selected Fields</span>
                 <tw-flex>
-                    <template v-for="field in scenarioAndField">
+                    <template v-for="field in scenarioAndField" :key="field.id">
                         <a @click="removeField(field.ringingFieldId)" class="cursor-pointer">
                             <span class="border border-gray-400 px-1 rounded">{{ field.placeholder }}</span>
                         </a>
@@ -17,7 +17,7 @@
             <div class="border border-gray-400 p-2 rounded">
                 <span class="text-snhm text-lg font-semibold">Available Fields</span>
                 <tw-flex>
-                    <template v-for="field in fieldsNotInScenario">
+                    <template v-for="field in fieldsNotInScenario" :key="field.id">
                         <a @click="addField(field.id)" class="cursor-pointer">
                             <span class="border border-gray-400 px-1 rounded">{{ field.placeholder }}</span>
                         </a>

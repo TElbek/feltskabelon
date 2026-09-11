@@ -1,6 +1,6 @@
 <template>
     <tw-flex>
-        <div v-for="model in sortedFormTemplateFieldModelList"
+        <div v-for="model in sortedFormTemplateFieldModelList" :key="model.formTemplateFieldType.id"
             :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
             <a :class="!dataStore.isAdministrator && model.formTemplateFieldType.isMinimumField ? 'disableClick' : ''"
                 @click="removeTemplateField(model.formTemplateFieldType.id)">

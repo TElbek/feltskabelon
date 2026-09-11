@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-y-1">
-        <template v-for="item in state.itemList">
+        <template v-for="item in state.itemList" :key="item">
             <div class="grid grid-cols-[1fr_max-content] gap-x-3">
                 <ringingForm :form-template-name-id="$props.formTemplateNameId" :index="item"></ringingForm>
                 <div class="mt-0.5">

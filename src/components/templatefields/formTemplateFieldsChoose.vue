@@ -1,6 +1,6 @@
 <template>
     <tw-flex>
-        <template v-for="ringingField in sortRingingFieldList">
+        <template v-for="ringingField in sortRingingFieldList" :key="ringingField.id">
             <a @click="addFormTemplateField(ringingField.id)"
                 :class="[routeLogic.isAtTemplateFieldsEditRoute.value ? 'cursor-pointer' : 'cursor-default']">
                 <span class="text-gray-500  px-1 rounded border border-gray-400">

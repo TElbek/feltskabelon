@@ -1,10 +1,10 @@
 <template>
     <tw-grid-cols-generic :itemsPerRow="5" :count="groupedByTemplateNameId.size">
-        <div v-for="[key, value] in groupedByTemplateNameId" class="rounded border border-snhm p-2">
+        <div v-for="[key, value] in groupedByTemplateNameId" class="rounded border border-snhm p-2" :key="key">
             <span class="text-lg text-snhm font-semibold">{{ key }}</span>
             <div class="border-b border-snhm mb-2"></div>
             <tw-flex>
-                <template v-for="field in sortFieldNames(value)">
+                <template v-for="field in sortFieldNames(value)" :key="field.id">
                     <span class="border border-gray-400 text-gray-600 px-1 text-sm rounded">{{ field.placeholder }}</span>
                 </template>
             </tw-flex>

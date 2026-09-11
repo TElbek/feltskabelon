@@ -19,7 +19,7 @@
                     <tw-label :for="'ringingScenarioId'">Scenario</tw-label>
                     <tw-input-select v-if="dataStore.isAdministrator"
                         v-model="state.templateModel.formTemplate.ringingScenarioId" :name="'ringingScenarioId'">
-                        <option v-for="scenario in dataStore.ringingScenarioList" :value="scenario.id">
+                        <option v-for="scenario in dataStore.ringingScenarioList" :key="scenario.id" :value="scenario.id">
                             {{ scenario.name }}
                         </option>
                     </tw-input-select>
@@ -57,8 +57,7 @@ const state = reactive({
     templateModel: {} as templateModelType
 });
 
-//const canRemoveTemplate = computed(() => state.templateModel.formTemplateName.licenseeId != undefined && state.templateModel.formTemplateName.id > 0);
-const canRemoveTemplate = ref(false);
+const canRemoveTemplate = computed(() => state.templateModel.formTemplateName.licenseeId != undefined && state.templateModel.formTemplateName.id > 0);
 
 onMounted(() => {
     if (isAtTemplateNameCopyRoute.value) {

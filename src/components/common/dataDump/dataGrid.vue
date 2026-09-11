@@ -7,8 +7,8 @@
                 <input type="text" v-model="state.filterValues[index]"
                     class="px-1 border-s text-sm border-b border-gray-300" placeholder="filter..." />
             </div>
-            <template v-for="item in filteredRows">
-                <div v-for="property in properties">
+            <template v-for="item in filteredRows" :key="item">
+                <div v-for="property in properties" :key="property">
                     <div class=" border-gray-300 text-snhm border-b border-l px-2"
                         :class="[isNumeric(item[property]) ? 'text-end' : 'text-start']">
                         <span :class="[item[property] == undefined ? 'text-gray-400' : '']">
