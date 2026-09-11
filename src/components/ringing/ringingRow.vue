@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col gap-y-1">
+    <div class="flex flex-col">
         <template v-for="item in state.itemList" :key="item">
-            <div class="grid grid-cols-[1fr_max-content] gap-x-3">
+            <div class="grid grid-cols-[1fr_max-content] gap-x-3 pb-3">
                 <ringingForm :form-template-name-id="$props.formTemplateNameId" :index="item"></ringingForm>
                 <div class="mt-0.5">
                     <ringingButtons @add-new-blank="addNewBlank"></ringingButtons>

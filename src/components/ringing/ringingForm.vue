@@ -1,7 +1,9 @@
 <template>
     <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']">
         <div class="flex flex-row flex-wrap gap-2">
-            <validitet_roed_20px></validitet_roed_20px>
+            <div class="relative top-0.5">
+                <validitet_roed_20px></validitet_roed_20px>
+            </div>
             <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" />
             <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" />
             <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" />
