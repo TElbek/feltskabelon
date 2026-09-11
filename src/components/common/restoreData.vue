@@ -11,11 +11,9 @@
 <script setup lang="ts">
 import { useDataLoader } from '@/composables/data-loader.ts'
 import { useRouter } from 'vue-router';
-import { useDataStore } from '@/stores/dataStore';
 
 const dataLoader = useDataLoader();
 const router = useRouter();
-const { setLicenseeId } = useDataStore();
 
 function restoreData(): void {
     dataLoader.loadJSONData();

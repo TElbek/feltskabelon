@@ -27,9 +27,10 @@ app.directive('focus-condition', {
 });
 
 registerTailWindComponents();
+app.mount('#app')
+
 const dataLoader = useDataLoader();
 dataLoader.loadJSONData();
-app.mount('#app')
 
 function registerTailWindComponents() {
     app.component('tw-action-bar', defineAsyncComponent(() => import('./components/common/tailwind/tw-action-bar.vue')));

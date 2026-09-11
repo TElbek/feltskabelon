@@ -19,7 +19,7 @@ export const useDataStore = defineStore('dataStore', () => {
     const scenarioFieldList = ref([] as scenarioFieldType[])
     const ringingFieldList = ref([] as ringingFieldType[]);
     const licenseeList = ref([] as licenseeType[])
-    const LicenseeId = ref(1 as number);
+    const LicenseeId = ref(0 as number);
     const refreshIndex = ref(0 as number);
 
     const isAdministrator = computed(() => {
