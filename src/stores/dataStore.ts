@@ -72,24 +72,29 @@ export const useDataStore = defineStore('dataStore', () => {
         });
 
         return isAdministrator.value ?
-            listOfModel.sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName,'da-DK') : (a.formTemplateName.isActive ? -1 : 1)) :
+            listOfModel.sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName, 'da-DK') : (a.formTemplateName.isActive ? -1 : 1)) :
             listOfModel.filter((item) => item.formTemplateName.isActive || item.formTemplateName.licenseeId == LicenseeId.value)
-                .sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName,'da-DK') : (a.formTemplateName.isActive ? -1 : 1));
+                .sort((a, b) => a.formTemplateName.isActive === b.formTemplateName.isActive ? a.formTemplateName.templateName.localeCompare(b.formTemplateName.templateName, 'da-DK') : (a.formTemplateName.isActive ? -1 : 1));
     }
 
-    function getNewIdForTemplate() {
+    function getNewIdForTemplate(): number {
         return formTemplateList.value.length > 0 ?
             Math.max(...formTemplateList.value.map(o => o.id)) + 1 : 1;
     }
 
-    function getNewIdForTemplateName() {
+    function getNewIdForTemplateName(): number {
         return formTemplateNameList.value.length > 0 ?
             Math.max(...formTemplateNameList.value.map(o => o.id)) + 1 : 1;
     }
 
-    function getNewIdForTemplateField() {
+    function getNewIdForTemplateField(): number {
         return formTemplateFieldList.value.length > 0 ?
             Math.max(...formTemplateFieldList.value.map(o => o.id)) + 1 : 1;
+    }
+
+    function getNewIdForScenarioField(): number {
+        return scenarioFieldList.value.length > 0 ?
+            Math.max(...scenarioFieldList.value.map(o => o.id)) + 1 : 1;
     }
 
     function getTemplateNameModelById(formularTemplateNameId: number): templateModelType | undefined {
@@ -305,9 +310,25 @@ export const useDataStore = defineStore('dataStore', () => {
             let toBeRemoved = formTemplateNameList.value.find((item) => item.id == formTemplateNameId);
             if (toBeRemoved) {
                 let indexToBeRemoved = formTemplateNameList.value.indexOf(toBeRemoved);
-                formTemplateNameList.value.splice(indexToBeRemoved);
+                formTemplateNameList.value.splice(indexToBeRemoved, 1);
             }
         }
+    }
+
+    function addNewScenarioField(scenarioId: number, ringingFieldId: number): void {
+        scenarioFieldList.value.push(scenarioFieldFactory(scenarioId, ringingFieldId));
+    }
+
+    function removeScenarioField(ringingFieldId: number): void {
+        let toBeRemoved = scenarioFieldList.value.find((item) => item.ringingFieldId == ringingFieldId);
+        if (toBeRemoved) {
+            let indexToBeRemoved = scenarioFieldList.value.indexOf(toBeRemoved);
+            scenarioFieldList.value.splice(indexToBeRemoved, 1);
+        }
+    }
+
+    function scenarioFieldFactory(scenarioId: number, ringingFieldId: number): scenarioFieldType {
+        return { id: getNewIdForScenarioField(), ringingFieldId: ringingFieldId, scenarioId: scenarioId }
     }
 
     return {
@@ -334,6 +355,7 @@ export const useDataStore = defineStore('dataStore', () => {
         hasFormTemplateNameThisField,
         removeFormTemplate,
         removeFormTemplateField,
+        removeScenarioField,
         addTemplateModelFactory,
         addFormTemplateField,
 
@@ -350,6 +372,7 @@ export const useDataStore = defineStore('dataStore', () => {
         createTemplateName,
 
         addTemplateModel,
+        addNewScenarioField,
         updateFormTemplate,
         refreshIndex
     }
