@@ -2,21 +2,21 @@
     <div class="text-snhm">
         <div class="flex flex-row justify-between">
             <div>
-                <ul class="flex gap-x-6 text-lg cursor-pointer">
+                <ul class="flex gap-x-6 text-base cursor-pointer">
                     <li>
                         <router-link v-if="homeRoute != undefined" :to="homeRoute.path">
                             <span class="text-2xl">{{ homeRoute?.meta?.title }}</span>
                         </router-link>
                     </li>
-                    <li v-for="route in visibleRoutes" :key="route.path" class=" relative top-1">
+                    <li v-for="route in visibleRoutes" :key="route.path" class="relative top-2">
                         <router-link :to="route.path">
                             <span>{{ route.meta?.title }}</span>
                         </router-link>
                     </li>
                 </ul>
             </div>
-            <ul class="flex gap-x-6 text-lg cursor-pointer relative top-1" v-if="canSwitchLicensee">
-                <li v-for="licensee in dataStore.licenseeList" :key="licensee.id">
+            <ul class="flex gap-x-6 text-base cursor-pointer relative top-1" v-if="canSwitchLicensee">
+                <li v-for="licensee in dataStore.licenseeList" :key="licensee.id" class="relative top-1.5">
                     <router-link :to="`/licensee/${licensee.id}`">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'router-link-exact-active' : '']">{{ licensee.name }}</span>
                     </router-link>
