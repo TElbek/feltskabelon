@@ -10,13 +10,14 @@
                 </div>
                 <router-link :to="`/scenario/${value[0].scenarioId}/fields/edit`">Edit</router-link>
             </div>
-            <div class="border-b border-snhm mb-2"></div>
-            <tw-flex>
-                <template v-for="field in sortFieldNames(value)" :key="field.id">
-                    <span class="border border-gray-400 text-gray-600 px-1 rounded">{{ field.placeholder
-                    }}</span>
-                </template>
-            </tw-flex>
+            <div class="mt-1">
+                <tw-flex>
+                    <template v-for="field in sortFieldNames(value)" :key="field.id">
+                        <span class="border border-gray-400 text-gray-600 px-1 rounded">{{ field.placeholder
+                            }}</span>
+                    </template>
+                </tw-flex>
+            </div>
         </div>
     </tw-grid-cols-generic>
 </template>

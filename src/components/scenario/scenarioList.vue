@@ -2,7 +2,7 @@
     <route-title></route-title>
     <tw-grid-cols-generic :count="state.scenarioList.length" :offset="0" :itemsPerRow="4">
         <div v-for="scenario in state.scenarioList" :key="scenario.id" class="bg-white rounded border border-snhm p-2">
-            <div class="text-lg font-semibold text-snhm">{{ scenario.name }}</div>
+            <div class="text-lg text-snhm">{{ scenario.name }}</div>
             <scenario-template-list :scenarioId="scenario.id"></scenario-template-list>
         </div>        
     </tw-grid-cols-generic>

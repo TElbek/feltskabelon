@@ -33,8 +33,10 @@ input[type="checkbox"]:checked {
 }
 .router-link-exact-active,
 .router-link-active {
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--color-snhm);
+  background-color: var(--color-snhm);
+  padding: 3px 8px;
+  color: var(--color-white);
+  border-radius: 5px;
 }
 
 img {  

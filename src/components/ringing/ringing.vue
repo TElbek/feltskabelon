@@ -16,7 +16,7 @@
 
         <div>
             <div class="flex flex-row justify-between gap-2 mb-1 lg:mb-0">
-                <div class="text-lg text-snhm relative top-1 lg:top-0.5">Ringing Data</div>
+                <div class="text-lg text-snhm">Ringing Data</div>
                 <ringingTemplate @formTemplateNameId="handleTemplateSelected"></ringingTemplate>
             </div>
             <div class="border-b border-snhm mt-2 lg:mt-0 mb-2"></div>
