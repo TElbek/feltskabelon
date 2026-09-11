@@ -17,11 +17,6 @@
                     :to="`/template/fields/edit/${template.formTemplateName.id}`">
                     <span>Fields</span>
                 </router-link>
-                <div v-else>
-                    <router-link :to="`/template/fields/view/${template.formTemplateName.id}`">
-                        <span>Fields</span>
-                    </router-link>
-                </div>
             </div>
             <router-link :to="`/template/name/copy/${template.formTemplateName.id}`"
                 v-if="!dataStore.isAdministrator && template.formTemplateName.licenseeId == undefined">
