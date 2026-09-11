@@ -13,7 +13,7 @@
                     </router-link>
                 </li>
             </ul>
-            <ul class="flex gap-x-4 text-base" v-if="canSwitchLicensee">
+            <ul class="flex gap-x-4 text-base cursor-pointer" v-if="canSwitchLicensee">
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id">
                     <router-link :to="`/licensee/${licensee.id}`">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'font-bold' : '']"

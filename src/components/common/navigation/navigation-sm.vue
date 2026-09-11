@@ -20,15 +20,14 @@
 
         <aside @click="closeMenu"
             :class="['fixed top-0 right-0 h-full z-200 w-64 bg-white p-4 transform transition-transform duration-300', isOpen ? 'translate-x-0 rounded shadow-xl shadow-gray-400' : 'translate-x-full']">
-            <ul class="flex flex-col gap-4 text-base relative">
+            <ul class="flex flex-col gap-4 text-base relative" v-if="canSwitchLicensee">
                 <li v-for="route in visibleRoutes" :key="route.path" class="cursor-pointer">
                     <router-link :to="route.path">
                         <span>{{ route.meta?.title }}</span>
                     </router-link>
                 </li>
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id">
-                    <router-link :to="`/licensee/${licensee.id}`"
-                        :class="[isAtTemplateListRoute ? 'cursor-pointer' : 'disableClick']">
+                    <router-link :to="`/licensee/${licensee.id}`">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'font-bold' : '']"
                             class="relative top-1.5">{{ licensee.name }}</span>
                     </router-link>
@@ -44,7 +43,7 @@ import { useRouteLogic } from '@/composables/route-logic'
 import { useDataStore } from '@/stores/dataStore';
 
 const dataStore = useDataStore();
-const { visibleRoutes, homeRoute, isAtTemplateListRoute } = useRouteLogic();
+const { visibleRoutes, homeRoute, canSwitchLicensee } = useRouteLogic();
 const isOpen = ref(false);
 
 function toggleIsOpen() {
