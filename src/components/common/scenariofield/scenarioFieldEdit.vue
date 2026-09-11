@@ -1,11 +1,12 @@
 <template>
     <div>
-        <div class="mb-1">
-            <span class="text-snhm text-xl font-semibold">Fields in Scenario: {{ scenarioName?.name }}</span>
-        </div>
+        <tw-flex>
+            <route-title></route-title>
+            <span class="text-snhm text-xl">{{ scenarioName?.name }}</span>
+        </tw-flex>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div class="border border-gray-400 p-2 rounded">
-                <span class="text-snhm text-lg font-semibold">Selected Fields</span>
+                <div class="text-snhm text-lg font-semibold mb-1">Selected Fields</div>
                 <tw-flex>
                     <template v-for="field in scenarioAndField" :key="field.id">
                         <a @click="removeField(field.ringingFieldId)" class="cursor-pointer">
@@ -15,7 +16,7 @@
                 </tw-flex>
             </div>
             <div class="border border-gray-400 p-2 rounded">
-                <span class="text-snhm text-lg font-semibold">Available Fields</span>
+                <div class="text-snhm text-lg font-semibold mb-1">Available Fields</div>
                 <tw-flex>
                     <template v-for="field in fieldsNotInScenario" :key="field.id">
                         <a @click="addField(field.id)" class="cursor-pointer">

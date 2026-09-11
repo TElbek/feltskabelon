@@ -1,6 +1,9 @@
 <template>
-    <div class="flex flex-col gap-4 mt-2">
-        <div class="text-2xl text-snhm">{{ dataStore.licenseeName }} Ringing Formular</div>
+    <div class="flex flex-col gap-2 mt-2">
+        <tw-flex>
+            <route-title></route-title>
+            <div class="text-xl text-snhm">{{ dataStore.licenseeName }}</div>
+        </tw-flex>
 
         <div>
             <div class="text-lg text-snhm">Standard Values</div>

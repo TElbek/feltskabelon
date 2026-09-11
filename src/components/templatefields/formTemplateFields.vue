@@ -1,8 +1,10 @@
 <template>
     <div>
-        <div class="flex flex-col gap-y-2">
-            <formTemplateHeader
-                :formTemplateNameId="Number(route.params.templateNameId)"></formTemplateHeader>
+        <div class="flex flex-col gap-y-1">
+            <tw-flex>
+                <route-title></route-title>
+                <formTemplateHeader :formTemplateNameId="Number(route.params.templateNameId)"></formTemplateHeader>
+            </tw-flex>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
                 <div class="border border-gray-400 rounded p-3">
                     <div class="text-xl text-snhm mb-2">Selected Fields</div>

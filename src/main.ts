@@ -27,12 +27,18 @@ app.directive('focus-condition', {
 });
 
 registerTailWindComponents();
+registerOtherComponenets();
+
 app.mount('#app')
 
 const dataLoader = useDataLoader();
 dataLoader.loadJSONData();
 
-function registerTailWindComponents() {
+function registerOtherComponenets() :void {
+  app.component('route-title', defineAsyncComponent(() => import('@/components/common/navigation/routeTitle.vue')));
+}
+
+function registerTailWindComponents() :void {
     app.component('tw-action-bar', defineAsyncComponent(() => import('./components/common/tailwind/tw-action-bar.vue')));
     app.component('tw-badge', defineAsyncComponent(() => import('./components/common/tailwind/tw-badge.vue')));
     app.component('tw-badge-simple', defineAsyncComponent(() => import('./components/common/tailwind/tw-badge-simple.vue')));

@@ -1,5 +1,5 @@
 <template>
-    <div class="text-2xl text-snhm mt-3">Restore Data?</div>
+    <route-title></route-title>
     <div class="mt-3">
         <tw-flex>
             <tw-button :caption="'Yes'" @click="restoreData()"></tw-button>

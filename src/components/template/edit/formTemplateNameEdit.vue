@@ -1,6 +1,9 @@
 <template>
     <div v-if="state.hasData" class="lg:w-5/10">
-        <form-template-header :formTemplateNameId="state.templateModel.formTemplateName.id"></form-template-header>
+        <tw-flex>
+            <route-title></route-title>
+            <form-template-header :formTemplateNameId="state.templateModel.formTemplateName.id"></form-template-header>
+        </tw-flex>
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">
@@ -19,7 +22,8 @@
                     <tw-label :for="'ringingScenarioId'">Scenario</tw-label>
                     <tw-input-select v-if="dataStore.isAdministrator"
                         v-model="state.templateModel.formTemplate.ringingScenarioId" :name="'ringingScenarioId'">
-                        <option v-for="scenario in dataStore.ringingScenarioList" :key="scenario.id" :value="scenario.id">
+                        <option v-for="scenario in dataStore.ringingScenarioList" :key="scenario.id"
+                            :value="scenario.id">
                             {{ scenario.name }}
                         </option>
                     </tw-input-select>

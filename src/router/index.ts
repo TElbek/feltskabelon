@@ -26,16 +26,6 @@ const router = createRouter({
       },
     },
     {
-      path: '/dump/',
-      name: 'dump',
-      component: () => import('@/views/dataDumpView.vue'),
-      meta: {
-        showInNavBar: false,
-        requireAdmin: true,
-        title: 'View Data'
-      }
-    },
-    {
       path: '/scenario/fields/list',
       name: 'scenariofield',
       component: () => import('@/views/scenarioFieldListView.vue'),
@@ -72,7 +62,7 @@ const router = createRouter({
       meta: {
         showInNavBar: true,
         requireAdmin: false,
-        title: 'Templates'
+        title: 'Template List'
       },
     },
     {

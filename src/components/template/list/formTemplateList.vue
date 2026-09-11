@@ -1,13 +1,16 @@
 <template>
     <div>
         <div class="flex flex-row justify-between mb-2">
-            <span class="text-xl text-snhm">{{ dataStore.licenseeName }} Templates</span>
+            <tw-flex>
+                <route-title></route-title>
+                <span class="text-xl text-snhm">{{ dataStore.licenseeName }}</span>
+            </tw-flex>
             <tw-button v-if="dataStore.isAdministrator" @click="addTemplate" :caption="'Add Template'">
             </tw-button>
         </div>
         <tw-grid-cols-generic :itemsPerRow="4" :count="state.formTemplateModelList.length" v-if="hasAnyTemplates">
             <div v-for="template in state.formTemplateModelList" :key="template.formTemplate.id"
-                class="bg-white rounded border border-snhm px-2 py-0.5" >
+                class="bg-white rounded border border-snhm px-2 py-0.5">
                 <form-template-card :template="template"></form-template-card>
             </div>
         </tw-grid-cols-generic>

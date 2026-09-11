@@ -1,4 +1,5 @@
 <template>
+    <route-title></route-title>
     <tw-grid-cols-generic :itemsPerRow="2" :count="groupedByScenarioName.size">
         <div v-for="[key, value] in groupedByScenarioName" :key="key" class="rounded border border-snhm p-2">
             <div class="flex justify-between">
@@ -24,6 +25,7 @@
 import { join } from "array-join";
 import { useDataStore } from "@/stores/dataStore";
 import { computed } from "vue";
+
 const dataStore = useDataStore();
 
 const scenarioAndField = computed(() => {
