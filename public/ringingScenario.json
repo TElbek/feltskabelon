@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "name": "Undefined project"
+        "name": "Udefineret projekt"
     },
     {
         "id": 2,
-        "name": "Birding Station"
+        "name": "Fuglestation"
     },
     {
         "id": 3,
@@ -13,6 +13,6 @@
     },
     {
         "id": 4,
-        "name": "Nestboxes"
+        "name": "Redeunger"
     }
 ]
