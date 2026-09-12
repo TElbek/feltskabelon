@@ -319,8 +319,9 @@ export const useDataStore = defineStore('dataStore', () => {
         scenarioFieldList.value.push(scenarioFieldFactory(scenarioId, ringingFieldId));
     }
 
-    function removeScenarioField(ringingFieldId: number): void {
-        let toBeRemoved = scenarioFieldList.value.find((item) => item.ringingFieldId == ringingFieldId);
+    function removeScenarioField(scenarioId : number, ringingFieldId: number): void {
+        let toBeRemoved = scenarioFieldList.value
+                         .find((item) => item.scenarioId == scenarioId && item.ringingFieldId == ringingFieldId);
         if (toBeRemoved) {
             let indexToBeRemoved = scenarioFieldList.value.indexOf(toBeRemoved);
             scenarioFieldList.value.splice(indexToBeRemoved, 1);

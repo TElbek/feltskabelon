@@ -64,7 +64,7 @@ function addField(ringingFieldId: number): void {
 }
 
 function removeField(ringingFieldId: number): void {
-    dataStore.removeScenarioField(ringingFieldId);
+    dataStore.removeScenarioField(scenarioId.value, ringingFieldId);
 }
 
 
