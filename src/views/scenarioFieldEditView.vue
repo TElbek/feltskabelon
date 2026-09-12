@@ -3,5 +3,5 @@
 </template> 
 
 <script setup lang="ts">
-import scenarioFieldEdit from '@/components/common/scenariofield/scenarioFieldEdit.vue';
+import scenarioFieldEdit from '@/components/scenariofield/scenarioFieldEdit.vue';
 </script>
