@@ -11,13 +11,13 @@
                 <div class="text-lg text-snhm">Standard Values</div>
                 <div class="border-b border-snhm"></div>
                 <standardvalues class="mt-2"></standardvalues>
-                <tw-show-lg>
+                <tw-show-xl>
                     <span class="text-gray-500 italic text-sm">Fill in the fields you want repeated under each
                         individual
                         label.
                         <strong>Note:</strong> only data from after January 1st, 2015 can be entered via the form.
                     </span>
-                </tw-show-lg>
+                </tw-show-xl>
             </div>
 
             <div>
@@ -32,13 +32,13 @@
                 <ringingForm v-else :formTemplateNameId="0" :index="0"></ringingForm>
             </div>
 
-            <tw-show-lg>
+            <tw-show-xl>
                 <div class="text-lg text-snhm">Legend</div>
                 <div class="border-b border-snhm mt-2 lg:mt-0"></div>
                 <div class="mt-2">
                     <button_legend></button_legend>
                 </div>
-            </tw-show-lg>
+            </tw-show-xl>
         </div>
     </div>
 </template>

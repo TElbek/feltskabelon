@@ -1,13 +1,13 @@
 <template>
     <tw-show-lg>
-        <navigation-md />
+        <navigation-lg />
     </tw-show-lg>
     <tw-show-xl>
-        <navigation-lg />
+        <Navigation-xl />
     </tw-show-xl>
 </template>
 
 <script setup lang="ts">
-import NavigationLg from '@/components/common/navigation/navigation-xl.vue';
-import navigationMd from '@/components/common/navigation/navigation-lg.vue';
+import NavigationXl from '@/components/common/navigation/navigation-xl.vue';
+import navigationLg from '@/components/common/navigation/navigation-lg.vue';
 </script>
