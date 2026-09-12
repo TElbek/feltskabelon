@@ -2,7 +2,7 @@
     <div class="flex flex-row justify-between text-birdware dark:text-birdware-bright">
 
         <router-link v-if="homeRoute != undefined" :to="homeRoute.path">
-            <span class="text-xl">{{ homeRoute?.meta?.title }}</span>
+            <span class="text-xl text-snhm">{{ homeRoute?.meta?.title }}</span>
         </router-link>
         <div v-else></div>
 

@@ -1,27 +1,31 @@
 <template>
-    <tw-show-xl>
-        <tw-flex>
-            <a v-for="template in state.templateModelList" :key="template.formTemplateName.id" class=" rounded text-sm"
-                :class="{
-                    'bg-snhm text-white': state.selectedFormTemplateNameId === template.formTemplateName.id,
-                    'bg-white text-snhm border border-snhm': state.selectedFormTemplateNameId !== template.formTemplateName.id
-                }" @click="state.selectedFormTemplateNameId = template.formTemplateName.id">
-                <div class="px-2 cursor-pointer">
-                    {{ template.formTemplateName.templateName }}
-                </div>
-            </a>
-        </tw-flex>
-    </tw-show-xl>
-    <tw-show-lg>
-        <div class="text-sm text-snhm w-50">
-            <tw-input-select v-model="state.selectedFormTemplateNameId" :name="'formTemplateNameSelection'">
-            <option v-for="template in state.templateModelList" :key="template.formTemplateName.id"
-                :value="template.formTemplateName.id">
-                {{ template.formTemplateName.templateName }}
-            </option>
-        </tw-input-select>
-        </div>
-    </tw-show-lg>
+    <div>
+        <tw-show-xl>
+            <div class="mb-1">
+                <tw-flex>
+                <a v-for="template in state.templateModelList" :key="template.formTemplateName.id"
+                    class=" rounded text-sm" :class="{
+                        'bg-snhm text-white': state.selectedFormTemplateNameId === template.formTemplateName.id,
+                        'bg-white text-snhm border border-snhm': state.selectedFormTemplateNameId !== template.formTemplateName.id
+                    }" @click="state.selectedFormTemplateNameId = template.formTemplateName.id">
+                    <div class="px-2 py-1 cursor-pointer">
+                        {{ template.formTemplateName.templateName }}
+                    </div>
+                </a>
+            </tw-flex>
+            </div>
+        </tw-show-xl>
+        <tw-show-lg>
+            <div class="text-sm text-snhm w-50">
+                <tw-input-select v-model="state.selectedFormTemplateNameId" :name="'formTemplateNameSelection'">
+                    <option v-for="template in state.templateModelList" :key="template.formTemplateName.id"
+                        :value="template.formTemplateName.id">
+                        {{ template.formTemplateName.templateName }}
+                    </option>
+                </tw-input-select>
+            </div>
+        </tw-show-lg>
+    </div>
 </template>
 
 <script setup lang="ts">
