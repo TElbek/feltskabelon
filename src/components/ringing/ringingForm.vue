@@ -1,5 +1,5 @@
 <template>
-    <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']">
+    <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']" class="border border-gray-300 p-2 rounded">
         <div class="flex flex-row flex-wrap gap-2">
             <div class="relative top-0.5">
                 <validitet_roed_20px></validitet_roed_20px>
@@ -33,7 +33,8 @@
             <tw-input :type="'text'" :name="'project_HabitatType'" :placeholder="'HabitatType'" />
             <tw-input :type="'number'" :name="'project_TotalNetLength'" class="text-end" :placeholder="'NetLængde'" />
             <tw-input :type="'text'" :name="'project_VisitPeriod'" :placeholder="'Periode'" />
-            <tw-input :type="'text'" :name="'project_TimeStart'" class="text-center" :placeholder="'Starttid (tt:mm)'" />
+            <tw-input :type="'text'" :name="'project_TimeStart'" class="text-center"
+                :placeholder="'Starttid (tt:mm)'" />
             <tw-input :type="'text'" :name="'project_TimeEnd'" class="text-center" :placeholder="'Sluttid (tt:mm)'" />
         </div>
     </form>
@@ -64,9 +65,11 @@ onMounted(() => {
 });
 
 function hideAndShow(index: number): void {
-    let form = getFormElementById('maerkningForm_' + index);
-    if (form) {
-        findInputElementsInForm(form);
+    if (index > 0) {
+        let form = getFormElementById('maerkningForm_' + index);
+        if (form) {
+            findInputElementsInForm(form);
+        }
     }
 }
 

@@ -57,5 +57,6 @@ function registerTailWindComponents() :void {
     app.component('tw-label', defineAsyncComponent(() => import('./components/common/tailwind/tw-label.vue')));
     app.component('tw-show-lg', defineAsyncComponent(() => import('./components/common/tailwind/tw-show-lg.vue')));
     app.component('tw-show-md', defineAsyncComponent(() => import('./components/common/tailwind/tw-show-md.vue')));
+    app.component('tw-show-xl', defineAsyncComponent(() => import('./components/common/tailwind/tw-show-xl.vue')));
     app.component('tw-text-sizeable', defineAsyncComponent(() => import('./components/common/tailwind/tw-text-sizeable.vue')));
 }

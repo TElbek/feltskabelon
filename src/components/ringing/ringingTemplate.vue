@@ -1,5 +1,5 @@
 <template>
-    <tw-show-lg>
+    <tw-show-xl>
         <tw-flex>
             <a v-for="template in state.templateModelList" :key="template.formTemplateName.id" class=" rounded text-sm"
                 :class="{
@@ -11,8 +11,8 @@
                 </div>
             </a>
         </tw-flex>
-    </tw-show-lg>
-    <tw-show-md>
+    </tw-show-xl>
+    <tw-show-lg>
         <div class="text-sm text-snhm w-50">
             <tw-input-select v-model="state.selectedFormTemplateNameId" :name="'formTemplateNameSelection'">
             <option v-for="template in state.templateModelList" :key="template.formTemplateName.id"
@@ -21,7 +21,7 @@
             </option>
         </tw-input-select>
         </div>
-    </tw-show-md>
+    </tw-show-lg>
 </template>
 
 <script setup lang="ts">

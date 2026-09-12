@@ -1,5 +1,5 @@
 <template>
-    <div class="visible md:hidden">
+    <div class="hidden xl:block">
         <slot></slot>
     </div>
 </template> 

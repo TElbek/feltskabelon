@@ -1,9 +1,10 @@
 <template>
-    <div v-if="state.hasData" class="lg:w-5/10">
-        <tw-flex>
-            <route-title></route-title>
+    <route-title>
+        <template v-slot:atright v-if="!isAtTemplateNameCopyRoute && state.hasData">
             <form-template-header :formTemplateNameId="state.templateModel.formTemplateName.id"></form-template-header>
-        </tw-flex>
+        </template>
+    </route-title>
+    <div v-if="state.hasData" class="lg:w-5/10">
         <div class="p-3 border border-snhm rounded mt-2">
             <form>
                 <div class="flex flex-col gap-1">
