@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { useDataStore } from '@/stores/dataStore.ts';
+import { useRouteLogic } from '@/composables/route-logic';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -152,6 +153,15 @@ router.beforeEach(async (to, from, next) => {
     }
     else {
       next({ path: '/' });
+    }
+  }
+  else if(to.name == 'licensee') {
+    const { canSwitchLicensee } = useRouteLogic();
+    if(canSwitchLicensee.value) {
+      next();
+    } 
+    else {
+      next(from.path)
     }
   }
   else {

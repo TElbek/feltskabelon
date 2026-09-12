@@ -30,7 +30,7 @@
                 </li>
             </ul>
             <div class="border-b border-snhm mt-4"></div>
-            <ul class="flex flex-col gap-3 lg:gap-x-6 text-base cursor-pointer" v-if="canSwitchLicensee">
+            <ul class="flex flex-col gap-3 lg:gap-x-6 text-base cursor-pointer">
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id" class="relative top-2">
                     <router-link :to="`/licensee/${licensee.id}`">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'router-link-exact-active' : '']">{{ licensee.name }}</span>
