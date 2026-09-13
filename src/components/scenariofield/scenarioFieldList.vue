@@ -1,22 +1,24 @@
 <template>
     <div>
-        <route-title></route-title>
+        <route-title>
+            <template v-slot:atright>
+                 <tw-input v-model="searchValue" v-focus class="mb-1"></tw-input>
+            </template>
+        </route-title>
         <div class="mt-3">
-            <tw-grid-cols-generic :itemsPerRow="2" :count="groupedByScenarioName.size">
+            <tw-grid-cols-generic :itemsPerRow="4" :count="groupedByScenarioName.size">
                 <div v-for="[key, value] in groupedByScenarioName" :key="key" class="rounded border border-snhm p-2">
                     <div class="flex justify-between">
-                        <div class="flex gap-x-1 text-lg text-snhm text-nowrap">
-                            <span class="me-1">Fields for</span>
-                            <span class="font-semibold">{{ key }}</span>
-                            <span class="me-1">Scenario</span>
-                        </div>
-                        <router-link :to="`/scenario/${value[0].scenarioId}/fields/edit`">Edit</router-link>
+                        <span class="text-lg text-snhm">{{ key }}</span>
+                        <router-link :to="`/scenario/${value[0].scenarioId}/fields/edit`">
+                            <span class="text-snhm">Edit</span>
+                        </router-link>
                     </div>
                     <div class="mt-1">
                         <tw-flex>
                             <template v-for="field in sortFieldNames(value)" :key="field.id">
                                 <span class="border border-gray-400 text-gray-600 px-1 rounded">{{ field.placeholder
-                                    }}</span>
+                                }}</span>
                             </template>
                         </tw-flex>
                     </div>
@@ -30,9 +32,13 @@
 <script setup lang="ts">
 import { join } from "array-join";
 import { useDataStore } from "@/stores/dataStore";
-import { computed } from "vue";
+import { computed, ref } from "vue";
+
+const searchValue = ref('');
 
 const dataStore = useDataStore();
+
+const ringingFieldsFiltered = computed(() => dataStore.ringingFieldList.filter((item) => item.placeholder.toLowerCase().indexOf(searchValue.value.toLowerCase()) > -1 || !searchValue.value))
 
 const scenarioAndField = computed(() => {
     return join(dataStore.ringingScenarioList,
@@ -45,7 +51,7 @@ const scenarioAndField = computed(() => {
 
 const scenarioFieldAndRingingField = computed(() => {
     return join(scenarioAndField.value,
-        dataStore.ringingFieldList,
+        ringingFieldsFiltered.value,
         (left) => left.ringingFieldId,
         (right) => right.id,
         (left, right) => ({ ...left, ...right })

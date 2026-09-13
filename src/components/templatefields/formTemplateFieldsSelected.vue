@@ -6,12 +6,9 @@
                 @click="removeTemplateField(model.formTemplateFieldType.id)">
                 <div class="border text-gray-500 border-gray-400 px-2 rounded flex flex-row gap-x-2">
                     <div v-if="!dataStore.isAdministrator"
-                         class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
+                        class="w-3.5 h-3.5 rounded-full relative top-1.5 shadow shadow-gray-400"
                         :class="[model.formTemplateFieldType.isMinimumField ? 'bg-red-500' : 'bg-green-500']"></div>
-                    <span                        
-                        :title="model.formTemplateFieldType.id + ' ' + model.formTemplateFieldType.ringingFieldId">{{
-                            model.ringingFieldType.placeholder
-                        }}</span>
+                    <span>{{model.ringingFieldType.placeholder}}</span>
                 </div>
             </a>
         </div>
@@ -46,11 +43,11 @@ function getFormTemplateFields(): void {
 }
 
 const sortedFormTemplateFieldModelList = computed(() => {
-    return state.templateFieldModelList.sort((a, b) => a.ringingFieldType.placeholder.localeCompare(b.ringingFieldType.placeholder,'da-DK'));
+    return state.templateFieldModelList.sort((a, b) => a.ringingFieldType.placeholder.localeCompare(b.ringingFieldType.placeholder, 'da-DK'));
 });
 
 function removeTemplateField(formTemplateFieldId: number): void {
-    if(routeLogic.isAtTemplateFieldsEditRoute.value) {
+    if (routeLogic.isAtTemplateFieldsEditRoute.value) {
         dataStore.removeFormTemplateField(formTemplateFieldId);
     }
 }
