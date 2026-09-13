@@ -1,13 +1,13 @@
 <template>
     <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']"
         class="border border-gray-300 p-2 rounded">
-        <div class="flex flex-row flex-wrap gap-2">
+        <div class="flex flex-row flex-wrap gap-x-3 gap-y-2">
             <div class="relative top-0.5">
                 <validitet_roed_20px></validitet_roed_20px>
             </div>
             <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" v-model="dataType" />
             <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" v-model="ringCentral" />
-            <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'"
+            <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-start" :placeholder="'RingNummer'"
                 v-focus-delay:[waitTimeFocusInms] />
             <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'Dato (åååå-mm-dd)'" />
             <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'Tid (tt:mm)'" />
