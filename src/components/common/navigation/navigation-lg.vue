@@ -32,9 +32,9 @@
             <div class="border-b border-snhm mt-4"></div>
             <ul class="flex flex-col gap-3 lg:gap-x-6 text-base cursor-pointer">
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id" class="relative top-2">
-                    <router-link :to="`/licensee/${licensee.id}`">
+                    <a @click="setLicensee(licensee.id)">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'router-link-exact-active' : '']">{{ licensee.name }}</span>
-                    </router-link>
+                    </a>
                 </li>
             </ul>
         </aside>
@@ -47,7 +47,7 @@ import { useRouteLogic } from '@/composables/route-logic'
 import { useDataStore } from '@/stores/dataStore';
 
 const dataStore = useDataStore();
-const { homeRoute, visibleRoutes, canSwitchLicensee } = useRouteLogic();
+const { homeRoute, visibleRoutes } = useRouteLogic();
 const isOpen = ref(false);
 
 function toggleIsOpen() {
@@ -56,5 +56,9 @@ function toggleIsOpen() {
 
 function closeMenu() {
     isOpen.value = false;
+}
+
+function setLicensee(id: number) {
+    dataStore.setLicenseeId(id);
 }
 </script>

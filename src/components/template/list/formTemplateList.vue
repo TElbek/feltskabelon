@@ -23,10 +23,12 @@
 import type { templateModelType } from '@/models/templateModelType';
 import formTemplateCard from './formTemplateCard.vue';
 import { useDataStore } from '@/stores/dataStore';
-import { computed, onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
 const dataStore = useDataStore();
+const { LicenseeId } = storeToRefs(dataStore);
 const router = useRouter();
 
 const state = reactive({
@@ -36,10 +38,18 @@ const state = reactive({
 const hasAnyTemplates = computed(() => dataStore.formTemplateList.length > 0)
 
 onMounted(() => {
-    state.formTemplateModelList = dataStore.getTemplateModelList();
+    getTemplateModelList();
 });
+
+function getTemplateModelList() {
+    state.formTemplateModelList = dataStore.getTemplateModelList();
+}
 
 function addTemplate(): void {
     router.push('/template/add');
 }
+
+watch(() => LicenseeId.value, () => {
+    getTemplateModelList();
+})
 </script>

@@ -17,9 +17,9 @@
             </div>
             <ul class="flex gap-x-3 lg:gap-x-6 text-base cursor-pointer">
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id" class="relative top-1">
-                    <router-link :to="`/licensee/${licensee.id}`">
+                 <a @click="setLicensee(licensee.id)">
                         <span :class="[dataStore.LicenseeId == licensee.id ? 'router-link-exact-active' : '']">{{ licensee.name }}</span>
-                    </router-link>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -33,4 +33,8 @@ import { useDataStore } from '@/stores/dataStore';
 
 const dataStore = useDataStore();
 const { visibleRoutes, homeRoute } = useRouteLogic();
+
+function setLicensee(id: number) {
+    dataStore.setLicenseeId(id);
+}
 </script>
