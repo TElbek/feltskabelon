@@ -4,8 +4,6 @@
 </template>
 
 <script setup lang="ts">
-import { f } from 'vue-router/dist/router-CWoNjPRp.mjs';
-
 defineOptions({
     inheritAttrs: false
 })
