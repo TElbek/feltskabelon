@@ -1,9 +1,11 @@
 <template>
-    <input :type="type" :name="name" @input="updateInputValue" :value="modelValue" :placeholder="placeholder"
+    <input :type="type" :name="name" @input="updateInputValue" :value="modelValue" :placeholder="placeholder" :id="id"
         class="px-2 focus:outline-2 focus:outline-snhm rounded border border-gray-400 " :class="props.class" />
 </template>
 
 <script setup lang="ts">
+import { f } from 'vue-router/dist/router-CWoNjPRp.mjs';
+
 defineOptions({
     inheritAttrs: false
 })
@@ -27,6 +29,10 @@ const props = defineProps({
     },
     class: {
         type: String
+    },
+    id: {
+        type: String,
+        required: false
     }
 });
 

@@ -8,7 +8,7 @@
             <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" v-model="dataType" />
             <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" v-model="ringCentral" />
             <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-start" :placeholder="'RingNummer'"
-                v-focus-delay:[waitTimeFocusInms] />
+                :id="'IdentificationNumber'" />
             <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'Dato (åååå-mm-dd)'" />
             <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'Tid (tt:mm)'" />
             <tw-input :type="'text'" :name="'SpeciesReported'" :placeholder="'Art'" />
@@ -48,12 +48,14 @@ import { onMounted, ref, watch } from 'vue';
 import validitet_roed_20px from '@/components/ringing/icons/validitet_roed_20px.vue';
 
 const dataStore = useDataStore();
+import { storeToRefs } from 'pinia';
+const { LicenseeId } = storeToRefs(dataStore);
 
 const formIsVisible = ref(false);
 const dataType = ref('M');
 const ringCentral = ref('DKC');
 const waitTimeInms = 100;
-const waitTimeFocusInms = waitTimeInms*2;
+const waitTimeFocusInms = waitTimeInms * 2;
 
 interface ringingFormProps {
     formTemplateNameId: number,
@@ -66,6 +68,7 @@ onMounted(() => {
     setTimeout(() => {
         hideAndShow(props.index);
         toggleFormIsVisible();
+        setFocus();
     }, waitTimeInms);
 });
 
@@ -100,15 +103,28 @@ function getFormElementById(formId: string): HTMLElement | null {
     return document.getElementById(formId);
 }
 
-function toggleFormIsVisible() {
+function toggleFormIsVisible(): void {
     formIsVisible.value = !formIsVisible.value;
+}
+
+function setFocus() {
+    var element = document.getElementById('IdentificationNumber');
+    setTimeout(() => {
+        element?.focus();
+    }, waitTimeFocusInms)
 }
 
 watch(() => props.formTemplateNameId, () => {
     toggleFormIsVisible();
     hideAndShow(props.index);
     toggleFormIsVisible();
+    setFocus();
 });
+
+watch(() => LicenseeId.value, () => {
+    setFocus();
+})
+
 </script>
 
 <style scoped>
