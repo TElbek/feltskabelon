@@ -1,6 +1,5 @@
 <template>
-    <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']"
-        class="border border-gray-300 p-2 rounded">
+    <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']">
         <div class="flex flex-row flex-wrap gap-x-3 gap-y-2">
             <div class="relative top-0.5">
                 <validitet_roed_20px></validitet_roed_20px>

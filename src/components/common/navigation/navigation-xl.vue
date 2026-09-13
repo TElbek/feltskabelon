@@ -17,8 +17,10 @@
             </div>
             <ul class="flex gap-x-3 lg:gap-x-6 text-base cursor-pointer">
                 <li v-for="licensee in dataStore.licenseeList" :key="licensee.id" class="relative top-1">
-                 <a @click="setLicensee(licensee.id)">
-                        <span :class="[dataStore.LicenseeId == licensee.id ? 'router-link-exact-active' : '']">{{ licensee.name }}</span>
+                    <a @click="setLicensee(licensee.id)" :class="canSwitchLicensee ? '' : 'disableClick'">
+                        <span
+                            :class="[dataStore.LicenseeId == licensee.id ? 'router-link-exact-active' : '']">{{ licensee.name
+                            }}</span>
                     </a>
                 </li>
             </ul>
@@ -32,7 +34,7 @@ import { useRouteLogic } from '@/composables/route-logic.ts'
 import { useDataStore } from '@/stores/dataStore';
 
 const dataStore = useDataStore();
-const { visibleRoutes, homeRoute } = useRouteLogic();
+const { visibleRoutes, homeRoute, canSwitchLicensee } = useRouteLogic();
 
 function setLicensee(id: number) {
     dataStore.setLicenseeId(id);

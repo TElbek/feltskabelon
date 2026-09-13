@@ -17,46 +17,6 @@ const router = createRouter({
       },
     },
     {
-      path: '/restore-data',
-      name: 'restoreData',
-      component: () => import('@/components/common/restoreData.vue'),
-      meta: {
-        showInNavBar: true,
-        requireAdmin: true,
-        title: 'Restore Data'
-      },
-    },
-    {
-      path: '/scenario/fields/list',
-      name: 'scenariofield',
-      component: () => import('@/views/scenarioFieldListView.vue'),
-      meta: {
-        showInNavBar: true,
-        requireAdmin: true,
-        title: 'Scenarios & Fields'
-      }
-    },    
-    {
-      path: '/scenario/:scenarioId/fields/edit',
-      name: 'dump-scenariofield',
-      component: () => import('@/views/scenarioFieldEditView.vue'),
-      meta: {
-        showInNavBar: false,
-        requireAdmin: true,
-        title: 'Fields in Scenario'
-      }
-    },    
-    {
-      path: '/scenario/list',
-      name: 'scenarioList',
-      component: () => import('@/views/scenarioListView.vue'),
-      meta: {
-        showInNavBar: true,
-        requireAdmin: true,
-        title: 'Scenarios & Templates'
-      },
-    },
-    {
       path: '/template/list',
       name: 'templateList',
       component: () => import('@/views/formTemplateListView.vue'),
@@ -117,16 +77,6 @@ const router = createRouter({
       },
     },
     {
-      path: '/licensee/:licenseeId',
-      name: 'licensee',
-      component: () => import('@/components/common/licensee/licensee.vue'),
-      meta: {
-        showInNavBar: false,
-        requireAdmin: false,
-        title: 'Licensee'
-      }
-    },
-    {
       path: '/ringing/',
       name: 'ringing',
       component: () => import('@/views/ringingView.vue'),
@@ -135,6 +85,46 @@ const router = createRouter({
         requireAdmin: false,
         title: 'Ringing'
       }
+    },
+    {
+      path: '/scenario/fields/list',
+      name: 'scenariofield',
+      component: () => import('@/views/scenarioFieldListView.vue'),
+      meta: {
+        showInNavBar: true,
+        requireAdmin: true,
+        title: 'Scenarios & Fields'
+      }
+    },
+    {
+      path: '/scenario/:scenarioId/fields/edit',
+      name: 'dump-scenariofield',
+      component: () => import('@/views/scenarioFieldEditView.vue'),
+      meta: {
+        showInNavBar: false,
+        requireAdmin: true,
+        title: 'Fields in Scenario'
+      }
+    },
+    {
+      path: '/scenario/list',
+      name: 'scenarioList',
+      component: () => import('@/views/scenarioListView.vue'),
+      meta: {
+        showInNavBar: true,
+        requireAdmin: true,
+        title: 'Scenarios & Templates'
+      },
+    },
+        {
+      path: '/restore-data',
+      name: 'restoreData',
+      component: () => import('@/components/common/restoreData.vue'),
+      meta: {
+        showInNavBar: true,
+        requireAdmin: true,
+        title: 'Restore Data'
+      },
     }
   ],
 })
@@ -155,11 +145,11 @@ router.beforeEach(async (to, from, next) => {
       next({ path: '/' });
     }
   }
-  else if(to.name == 'licensee') {
+  else if (to.name == 'licensee') {
     const { canSwitchLicensee } = useRouteLogic();
-    if(canSwitchLicensee.value) {
+    if (canSwitchLicensee.value) {
       next();
-    } 
+    }
     else {
       next(from.path)
     }
