@@ -1,12 +1,14 @@
 <template>
-    <form :id="`maerkningForm_${props.index}`" v-if="formIsVisible" class="border border-gray-300 p-2 rounded">
+    <form :id="`maerkningForm_${props.index}`" :class="[formIsVisible ? 'visible' : 'hidden']"
+        class="border border-gray-300 p-2 rounded">
         <div class="flex flex-row flex-wrap gap-2">
             <div class="relative top-0.5">
                 <validitet_roed_20px></validitet_roed_20px>
             </div>
-            <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" v-model="dataType"/>
-            <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" v-model="ringCentral"/>
-            <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'" v-focus/>
+            <tw-input :type="'text'" :name="'data_type'" :placeholder="'DataType'" v-model="dataType" />
+            <tw-input :type="'text'" :name="'RingingScheme'" :placeholder="'Ringcentral'" v-model="ringCentral" />
+            <tw-input :type="'text'" :name="'IdentificationNumber'" class="text-end" :placeholder="'RingNummer'"
+                v-focus-delay:[waitTimeFocusInms] />
             <tw-input :type="'text'" :name="'euringDate'" class="text-center" :placeholder="'Dato (åååå-mm-dd)'" />
             <tw-input :type="'text'" :name="'euringTime'" class="text-center" :placeholder="'Tid (tt:mm)'" />
             <tw-input :type="'text'" :name="'SpeciesReported'" :placeholder="'Art'" />
@@ -51,6 +53,7 @@ const formIsVisible = ref(false);
 const dataType = ref('M');
 const ringCentral = ref('DKC');
 const waitTimeInms = 100;
+const waitTimeFocusInms = waitTimeInms*2;
 
 interface ringingFormProps {
     formTemplateNameId: number,
@@ -62,7 +65,7 @@ const props = defineProps<ringingFormProps>();
 onMounted(() => {
     setTimeout(() => {
         hideAndShow(props.index);
-        formIsVisible.value = true;
+        toggleFormIsVisible();
     }, waitTimeInms);
 });
 
@@ -97,10 +100,14 @@ function getFormElementById(formId: string): HTMLElement | null {
     return document.getElementById(formId);
 }
 
+function toggleFormIsVisible() {
+    formIsVisible.value = !formIsVisible.value;
+}
+
 watch(() => props.formTemplateNameId, () => {
-    formIsVisible.value = false;
+    toggleFormIsVisible();
     hideAndShow(props.index);
-    formIsVisible.value = true;
+    toggleFormIsVisible();
 });
 </script>
 
